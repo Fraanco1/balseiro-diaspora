@@ -5507,5 +5507,70 @@
   "display_name": "Boston, Suffolk County, Massachusetts, United States",
   "country": "United States",
   "country_code": "US"
+ },
+ "INVIVOO, Paris, France": {},
+ "INVIVOO, France": {},
+ "NRG PALLAS, Petten, Netherlands": {},
+ "NRG PALLAS, Netherlands": {},
+ "Petten, Netherlands": {
+  "lat": 52.7685974,
+  "lon": 4.6626091,
+  "display_name": "Petten, Schagen, Noord-Holland, Nederland",
+  "country": "Nederland",
+  "country_code": "NL"
+ },
+ "Universidad Nacional del Sur / CONICET, Bahia Blanca, Argentina": {},
+ "Universidad Nacional del Sur / CONICET, Argentina": {},
+ "Sapienza University of Rome, Rome, Italy": {},
+ "Sapienza University of Rome, Italy": {},
+ "CONICET / Universidad Nacional de Cordoba, Cordoba, Argentina": {},
+ "CONICET / Universidad Nacional de Cordoba, Argentina": {},
+ "CEA Cadarache, Saint-Paul-lez-Durance, France": {
+  "lat": 43.6996571,
+  "lon": 5.7405504,
+  "display_name": "CEA Cadarache, Bt 105, Grande Avenue, Quartier de la Porte, Résidence le Hameau, Saint-Paul-lès-Durance, Aix-en-Provence, Bouches-du-Rhône, Provence-Alpes-Côte d'Azur, France métropolitaine, 13115, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "CEA Cadarache, France": {
+  "lat": 43.6996571,
+  "lon": 5.7405504,
+  "display_name": "CEA Cadarache, Bt 105, Grande Avenue, Quartier de la Porte, Résidence le Hameau, Saint-Paul-lès-Durance, Aix-en-Provence, Bouches-du-Rhône, Provence-Alpes-Côte d'Azur, France métropolitaine, 13115, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "Saint-Paul-lez-Durance, France": {
+  "lat": 43.6869938,
+  "lon": 5.7077225,
+  "display_name": "Saint-Paul-lès-Durance, Aix-en-Provence, Bouches-du-Rhône, Provence-Alpes-Côte d'Azur, France métropolitaine, 13115, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "Instituto Balseiro, San Carlos de Bariloche, Argentina": {
+  "lat": -41.1200731,
+  "lon": -71.4147157,
+  "display_name": "CNEA - Centro Atómico Bariloche, 9500, Sendero Playa Bonita - Puerto Moreno, Barrio Militar Virgen de las Nieves, Perito Moreno, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Instituto Balseiro, Argentina": {
+  "lat": -41.1200731,
+  "lon": -71.4147157,
+  "display_name": "CNEA - Centro Atómico Bariloche, 9500, Francisco de Biedma, Perito Moreno, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Fisica al Alcance de Todos, Salta, Argentina": {},
+ "Fisica al Alcance de Todos, Argentina": {},
+ "ARATOM, San Carlos de Bariloche, Argentina": {},
+ "ARATOM, Argentina": {},
+ "Nucleoelectrica Argentina, Embalse, Argentina": {},
+ "Nucleoelectrica Argentina, Argentina": {},
+ "Embalse, Argentina": {
+  "lat": -32.2067571,
+  "lon": -64.4006283,
+  "display_name": "Embalse, Municipio de Embalse, Pedanía Cóndores, Departamento Calamuchita, Córdoba, X5191, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
  }
 }
