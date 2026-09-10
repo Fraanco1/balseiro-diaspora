@@ -5413,5 +5413,99 @@
   "display_name": "Escola Politècnica Superior d''Enginyeria de Vilanova i la Geltrú (EPSEVG), 1, Avinguda de Víctor Balaguer, Barri de Mar, Vilanova i la Geltrú, Garraf, Barcelona, Catalunya, 08800, España",
   "country": "España",
   "country_code": "ES"
+ },
+ "RAXAR SRL, Rome, Italy": {},
+ "RAXAR SRL, Italy": {},
+ "Rome, Italy": {
+  "lat": 41.8933203,
+  "lon": 12.4829321,
+  "display_name": "Roma, Roma Capitale, Lazio, Italia",
+  "country": "Italia",
+  "country_code": "IT"
+ },
+ "EMBL-EBI, Hinxton, United Kingdom": {
+  "lat": 52.0779087,
+  "lon": 0.1871187,
+  "display_name": "EMBL-EBI South Building, London Road, Hinxton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, CB10 1SD, United Kingdom",
+  "country": "United Kingdom",
+  "country_code": "GB"
+ },
+ "EMBL-EBI, United Kingdom": {
+  "lat": 52.0779087,
+  "lon": 0.1871187,
+  "display_name": "EMBL-EBI South Building, London Road, Hinxton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, CB10 1SD, United Kingdom",
+  "country": "United Kingdom",
+  "country_code": "GB"
+ },
+ "Hinxton, United Kingdom": {
+  "lat": 52.0848693,
+  "lon": 0.1792608,
+  "display_name": "Hinxton, South Cambridgeshire, Cambridgeshire, Cambridgeshire and Peterborough, England, United Kingdom",
+  "country": "United Kingdom",
+  "country_code": "GB"
+ },
+ "TNG Technology Consulting, Unterfoehring, Germany": {
+  "lat": 48.1860063,
+  "lon": 11.6545804,
+  "display_name": "TNG Technology Consulting GmbH, 13, Beta-Straße, Unterföhring, Landkreis München, Bayern, 85774, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "TNG Technology Consulting, Germany": {
+  "lat": 48.1529389,
+  "lon": 11.6160867,
+  "display_name": "TNG Technology Consulting, 4a, Arabellastraße, Arabellapark, Parkstadt Bogenhausen, Bogenhausen, München, Bayern, 81925, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Unterfoehring, Germany": {
+  "lat": 48.1920628,
+  "lon": 11.6401877,
+  "display_name": "Unterföhring, Landkreis München, Bayern, 85774, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "YPF, Argentina": {
+  "lat": -33.2634577,
+  "lon": -66.2293384,
+  "display_name": "YPF Cruz de Piedra, Ruta Provincial 9, Cruz de Piedra, Juana Koslay, Municipio de Juana Koslay, Juan Martín de Pueyrredón, San Luis, 5700, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "LMO, Reading, United Kingdom": {},
+ "LMO, United Kingdom": {
+  "lat": 57.7075365,
+  "lon": -3.3272275,
+  "display_name": "RAF Lossiemouth, Stotfield Road, Branderburgh, Lossiemouth, Moray, Alba / Scotland, IV31 6SD, United Kingdom",
+  "country": "United Kingdom",
+  "country_code": "GB"
+ },
+ "Reading, United Kingdom": {
+  "lat": 51.4564242,
+  "lon": -0.9700664,
+  "display_name": "Reading, England, United Kingdom",
+  "country": "United Kingdom",
+  "country_code": "GB"
+ },
+ "Massachusetts General Hospital, Boston, United States": {
+  "lat": 42.3628605,
+  "lon": -71.068753,
+  "display_name": "Massachusetts General Hospital, 55, Fruit Street, West End, Boston, Suffolk County, Massachusetts, 02114, United States",
+  "country": "United States",
+  "country_code": "US"
+ },
+ "Massachusetts General Hospital, United States": {
+  "lat": 42.3628605,
+  "lon": -71.068753,
+  "display_name": "Massachusetts General Hospital, 55, Fruit Street, West End, Boston, Suffolk County, Massachusetts, 02114, United States",
+  "country": "United States",
+  "country_code": "US"
+ },
+ "Boston, United States": {
+  "lat": 42.3588336,
+  "lon": -71.0578303,
+  "display_name": "Boston, Suffolk County, Massachusetts, United States",
+  "country": "United States",
+  "country_code": "US"
  }
 }
