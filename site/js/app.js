@@ -15,15 +15,6 @@ const LEVEL_SHORT = {
   'Physics degree (Licenciatura)': 'Lic.',
 };
 
-const state = {
-  q: '',
-  region: 'all',
-  facets: { discipline: new Set(), sector: new Set(), program: new Set(),
-            grad_decade: new Set(), country: new Set(), sources: new Set() },
-  view: 'map',
-  sort: { key: 'name', dir: 1 },
-};
-
 const SOURCE_LABELS = {
   wikidata: 'Wikidata', orcid: 'ORCID', openalex: 'OpenAlex (inferred)',
   reviewed: 'OpenAlex (reviewed)', wikipedia: 'Wikipedia', ricabib: 'IB thesis repo',
@@ -41,14 +32,38 @@ const FACETS = [
   { key: 'sources',    label: 'Data source',         values: p => (p.sources || []).map(s => SOURCE_LABELS[s] || s), open: false },
 ];
 
+const state = {
+  q: '',
+  region: 'all',
+  facets: Object.fromEntries(FACETS.map(f => [f.key, new Set()])),
+  view: 'map',
+  sort: { key: 'name', dir: 1 },
+};
+
 /* ------------------------------------------------------------------ */
 /* boot                                                                */
 /* ------------------------------------------------------------------ */
 fetch(DATA_URL)
-  .then(r => r.json())
+  .then(r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  })
   .then(payload => {
     META = payload.meta || {};
     ALUMNI = payload.alumni || [];
+  })
+  .catch(err => {
+    document.getElementById('main').innerHTML =
+      `<div style="padding:40px;max-width:640px">
+         <h2>Could not load the alumni data</h2>
+         <p>Expected <code>${DATA_URL}</code> (served over http, not file://). Run the pipeline first:</p>
+         <pre>python3 scripts/run_all.py
+python3 serve.py</pre>
+         <p style="color:#a33">${esc(String(err))}</p>
+       </div>`;
+    throw err;
+  })
+  .then(() => {
     initMap();
     buildHeadline();
     buildAbout();
@@ -56,15 +71,7 @@ fetch(DATA_URL)
     wireControls();
     refresh();
   })
-  .catch(err => {
-    document.getElementById('main').innerHTML =
-      `<div style="padding:40px;max-width:640px">
-         <h2>Could not load the alumni data</h2>
-         <p>Expected <code>${DATA_URL}</code>. Run the pipeline first:</p>
-         <pre>python3 scripts/run_all.py</pre>
-         <p style="color:#a33">${err}</p>
-       </div>`;
-  });
+  .catch(err => console.error('render error:', err));
 
 /* ------------------------------------------------------------------ */
 /* map                                                                 */
