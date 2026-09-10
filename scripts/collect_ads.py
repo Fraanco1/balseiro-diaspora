@@ -42,11 +42,25 @@ def _token() -> str | None:
 
 
 def _flip(name: str) -> str:
-    name = re.sub(r"\s+", " ", name).strip()
+    name = re.sub(r"\s+", " ", (name or "")).strip().strip(",. ")
     if "," in name:
         fam, giv = name.split(",", 1)
-        return f"{giv.strip()} {fam.strip()}".strip()
-    return name
+        name = f"{giv.strip()} {fam.strip()}"
+    return re.sub(r"\s+", " ", name).strip(",. ")
+
+
+def _clean_aff(aff: str) -> str | None:
+    if not aff or aff.strip() in ("-", "<NA>"):
+        return None
+    a = re.sub(r"\s*<[^>]*>\s*", " ", aff)
+    a = re.split(r";", a)[0]
+    # keep just the first institution: cut at " and ", the second comma, or
+    # any postal cruft (street numbers, "8400 Bariloche", emails)
+    a = re.split(r"\s+and[\s,]|,?\s*(?:Av\.|Avenida|Ruta|\d{3,}|C\.?P\.?|[\w.]+@)", a)[0]
+    parts = [p.strip() for p in a.split(",") if p.strip()]
+    a = ", ".join(parts[:2])
+    a = re.sub(r"\s+", " ", a).strip(" ,.-")
+    return a if 3 < len(a) < 80 else None
 
 
 def collect() -> list[dict]:
@@ -106,13 +120,14 @@ def collect() -> list[dict]:
     for a in authors.values():
         if not a.get("_balseiro_seen"):
             continue  # only appeared as a non-Balseiro co-author on some paper
-        aff = re.sub(r"\s*<.*?>\s*", " ", a["_aff"] or "").strip(" ;,")
-        aff = re.split(r";|<NA>", aff)[0].strip()
+        if len(a["name"].split()) < 2:
+            continue
+        aff = _clean_aff(a["_aff"])
         out.append({
             "name": a["name"],
             "orcid": a["orcid"],
             "last_paper_year": a["_year"],
-            "current_institution": {"name": aff or None, "country": None} if aff else None,
+            "current_institution": {"name": aff, "country": None} if aff else None,
             "keywords": [],
         })
 

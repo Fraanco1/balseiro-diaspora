@@ -458,23 +458,24 @@ def _merge_inspire(idx, by_orcid, by_name):
 
 
 def _merge_ads(idx, by_orcid, by_name):
-    """NASA ADS: latest-paper affiliation for astronomy alumni (needs a token)."""
+    """NASA ADS: latest-paper affiliation. *Enrich only* — ADS's Balseiro-aff
+    set is ~2,600 people (heavy Auger-collaboration overlap), far too noisy to
+    add as new alumni, so we only attach data to people we already have."""
     if not RAW_FILES["ads"].exists():
         return 0
+    ik_index = _build_ikey_index(idx)
     n = 0
     for a in json.loads(RAW_FILES["ads"].read_text(encoding="utf-8")):
         nk = name_key(a["name"])
         key = (by_orcid.get(a["orcid"]) if a.get("orcid") else None) or by_name.get(nk) \
-            or ("name", nk)
-        rec = idx.setdefault(key, _blank_person())
-        rec["name"] = rec["name"] or a["name"]
+            or ik_index.get(initial_key(a["name"]))
+        if key is None or key not in idx:
+            continue
+        rec = idx[key]
         rec["sources"].add("ads")
         rec["orcid"] = rec["orcid"] or a.get("orcid")
-        if a.get("keywords"):
-            rec["keywords"].update(a["keywords"])
-        if a.get("current_institution") and not rec["_inspire_inst"]:
+        if a.get("current_institution") and not rec["_inspire_inst"] and not rec["_ads_inst"]:
             rec["_ads_inst"] = a["current_institution"]
-        by_name.setdefault(nk, key)
         n += 1
     return n
 
@@ -560,27 +561,12 @@ def _resolve_location(rec):
 
     # 1c. INSPIRE current institution -> it already carries coordinates
     ii = rec.get("_inspire_inst")
-    if ii and not (oc and oc.get("ongoing")):
+    if ii and ii.get("lat") is not None and not (oc and oc.get("ongoing")):
         rec["employer_name"] = rec["employer_name"] or ii.get("name")
         rec["employer_city"] = rec["employer_city"] or ii.get("city")
         rec["employer_country"] = rec["employer_country"] or ii.get("country")
         rec["employer_country_code"] = rec["employer_country_code"] or ii.get("country_code")
-        if ii.get("lat") is not None:
-            rec["lat"], rec["lon"] = ii["lat"], ii["lon"]
-            return
-        rec["_geo_chain"] = _chain(
-            ", ".join(b for b in [ii.get("name"), ii.get("city"), ii.get("country")] if b),
-            ", ".join(b for b in [ii.get("city"), ii.get("country")] if b),
-            ii.get("country"))
-        return
-
-    ai = rec.get("_ads_inst")
-    if ai and ai.get("name") and not (oc and oc.get("ongoing")):
-        rec["employer_name"] = rec["employer_name"] or ai.get("name")
-        rec["employer_country"] = rec["employer_country"] or ai.get("country")
-        rec["_geo_chain"] = _chain(
-            ", ".join(b for b in [ai.get("name"), ai.get("country")] if b),
-            ai.get("name"), ai.get("country"))
+        rec["lat"], rec["lon"] = ii["lat"], ii["lon"]
         return
 
     # 2. Wikidata employer that carries coordinates (highest quality)
@@ -640,6 +626,21 @@ def _resolve_location(rec):
             ", ".join(b for b in [ci["name"], country] if b),
             ci["name"], country,
         )
+        return
+
+    # 6. last resort — INSPIRE ICN (no coords) or a messy ADS affiliation string
+    ii = rec.get("_inspire_inst")
+    if ii and ii.get("name"):
+        rec["employer_name"] = rec["employer_name"] or ii.get("name")
+        rec["employer_country"] = rec["employer_country"] or ii.get("country")
+        rec["_geo_chain"] = _chain(
+            ", ".join(b for b in [ii.get("name"), ii.get("city"), ii.get("country")] if b),
+            ii.get("name"), ii.get("country"))
+        return
+    ai = rec.get("_ads_inst")
+    if ai and ai.get("name"):
+        rec["employer_name"] = rec["employer_name"] or ai["name"]
+        rec["_geo_chain"] = _chain(ai["name"], ai["name"].split(",")[-1].strip())
         return
 
 
