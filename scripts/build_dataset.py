@@ -175,35 +175,35 @@ def _merge_manual(idx, by_name):
     n = 0
     with MANUAL_CSV.open(encoding="utf-8") as fh:
         for row in csv.DictReader(fh):
-            if not (row.get("name") or "").strip() or row["name"].lstrip().startswith("#"):
+            # csv.DictReader yields None for short rows and missing trailing
+            # columns, so normalise every value to a stripped string first.
+            row = {k: (v or "").strip() for k, v in row.items() if k}
+            if not row.get("name") or row["name"].lstrip().startswith("#"):
                 continue
             nk = name_key(row["name"])
             key = by_name.get(nk) or ("name", nk)
             rec = idx.setdefault(key, _blank_person())
-            rec["name"] = rec["name"] or row["name"].strip()
+            rec["name"] = rec["name"] or row["name"]
             rec["sources"].add("manual")
-            for src, dst in [("grad_year", "grad_year"), ("role", "role"),
-                             ("degree_program", "degree_program"),
-                             ("description", "description")]:
-                if row.get(src, "").strip():
-                    rec[dst] = row[src].strip()
-            if row.get("field", "").strip():
-                rec["fields"].add(row["field"].strip())
-            for u in re.split(r"[;\s]+", row.get("links", "").strip()):
+            for field in ("grad_year", "role", "degree_program", "description"):
+                if row.get(field):
+                    rec[field] = row[field]
+            if row.get("field"):
+                rec["fields"].add(row["field"])
+            for u in re.split(r"[;\s]+", row.get("links", "")):
                 if u:
                     rec["urls"].add(u)
-            if row.get("employer", "").strip():
-                rec["employer_name"] = row["employer"].strip()
-            if row.get("city", "").strip():
-                rec["employer_city"] = row["city"].strip()
-            if row.get("country", "").strip():
-                rec["employer_country"] = row["country"].strip()
+            if row.get("employer"):
+                rec["employer_name"] = row["employer"]
+            if row.get("city"):
+                rec["employer_city"] = row["city"]
+            if row.get("country"):
+                rec["employer_country"] = row["country"]
             try:
-                if row.get("lat", "").strip() and row.get("lon", "").strip():
+                if row.get("lat") and row.get("lon"):
                     rec["lat"], rec["lon"] = float(row["lat"]), float(row["lon"])
             except ValueError:
                 pass
-            rec["_manual_grad_year"] = row.get("grad_year")
             n += 1
     return n
 
@@ -235,6 +235,19 @@ def _resolve_location(rec):
     # 1. explicit manual coords already set
     if rec["lat"] is not None and rec["lon"] is not None:
         rec["employer_name"] = rec["employer_name"] or (oc or {}).get("org") or (wd[0]["name"] if wd else None)
+        return
+
+    # 1b. manual CSV row with an employer/city/country but no coords -> geocode it.
+    #     (checked before Wikidata/ORCID so hand-added people are honoured.)
+    if "manual" in rec["sources"] and not oc and not wd and (
+            rec["employer_name"] or rec["employer_city"] or rec["employer_country"]):
+        org, city, country = rec["employer_name"], rec["employer_city"], rec["employer_country"]
+        rec["_geo_chain"] = _chain(
+            ", ".join(b for b in [org, city, country] if b),
+            ", ".join(b for b in [org, country] if b),
+            ", ".join(b for b in [city, country] if b),
+            country,
+        )
         return
 
     # 2. Wikidata employer that carries coordinates (highest quality)
@@ -277,12 +290,12 @@ def _resolve_location(rec):
 
 
 def _nice_role(rec):
-    occ = rec["occupations"]
+    occ = sorted(rec["occupations"])  # sorted -> deterministic across builds
     for pref in ("professor", "physicist", "researcher", "university teacher", "engineer"):
         for o in occ:
             if pref in o.lower():
                 return o.capitalize()
-    return next(iter(occ), None)
+    return occ[0] if occ else None
 
 
 # --------------------------------------------------------------------------- #

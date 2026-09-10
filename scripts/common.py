@@ -47,7 +47,12 @@ def cached_get(url, *, params=None, headers=None, cache_key=None,
                min_interval=1.0, throttle_key="default", ttl_days=30,
                expect="json"):
     """GET with a persistent cache under data/raw/. Returns parsed JSON or text."""
-    key_src = cache_key or (url + "?" + json.dumps(params, sort_keys=True) if params else url)
+    if cache_key:
+        key_src = cache_key
+    elif params:
+        key_src = url + "?" + json.dumps(params, sort_keys=True)
+    else:
+        key_src = url
     digest = hashlib.sha1(key_src.encode()).hexdigest()[:16]
     ext = "json" if expect == "json" else "txt"
     path = RAW / f"{throttle_key}_{digest}.{ext}"

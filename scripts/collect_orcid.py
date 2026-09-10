@@ -54,14 +54,15 @@ def _find_ids() -> set[str]:
 
 
 def _date_year(d):
+    # ORCID dates can be absent, {}, or {"year": null} -> all mean "unknown".
     try:
-        return int((d or {}).get("year", {}).get("value"))
+        return int(((d or {}).get("year") or {}).get("value"))
     except (TypeError, ValueError):
         return None
 
 
 def _affil(summary):
-    v = next(iter(summary.values()))
+    v = next(iter(summary.values()), None) or {}
     org = v.get("organization") or {}
     addr = org.get("address") or {}
     return {

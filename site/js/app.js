@@ -58,10 +58,18 @@ fetch(DATA_URL)
 function initMap() {
   const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   map = L.map('map', { worldCopyJump: true, minZoom: 2 }).setView([20, 5], 2);
-  L.tileLayer(
-    `https://{s}.basemaps.cartocdn.com/${dark ? 'dark_all' : 'light_all'}/{z}/{x}/{y}{r}.png`,
-    { attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19 }
-  ).addTo(map);
+  // Esri's gray canvas — muted, good for data overlays, and free with no API key.
+  const style = dark ? 'World_Dark_Gray_Base' : 'World_Light_Gray_Base';
+  const esri = L.tileLayer(
+    `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/${style}/MapServer/tile/{z}/{y}/{x}`,
+    { attribution: 'Tiles &copy; Esri', maxZoom: 16 }
+  );
+  esri.on('tileerror', () => {
+    if (map.hasLayer(esri)) map.removeLayer(esri);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      { attribution: '&copy; OpenStreetMap contributors', maxZoom: 19 }).addTo(map);
+  });
+  esri.addTo(map);
 
   cluster = L.markerClusterGroup({
     maxClusterRadius: 44,
@@ -244,7 +252,14 @@ function updateFacetCounts() {
 /* ------------------------------------------------------------------ */
 function wireControls() {
   const search = document.getElementById('search');
-  search.addEventListener('input', () => { state.q = search.value.trim().toLowerCase(); refresh(); });
+  let searchTimer;
+  search.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      state.q = search.value.trim().toLowerCase();
+      refresh();
+    }, 150);
+  });
 
   document.getElementById('region-toggle').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
