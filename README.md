@@ -23,7 +23,7 @@ scraped and is deliberately not used):
 | [ORCID](https://orcid.org) | Anyone with Instituto Balseiro in their **education** history — grad year, degree, current employer + city/country, keywords. Candidate iDs come from ORCID's own search **and** from OpenAlex. | confirmed |
 | [OpenAlex](https://openalex.org) | ~2,900 authors who ever published with a Balseiro affiliation. ORCID ones are verified above; high-scoring ORCID-less ones are added directly; the rest go to a review queue. Also adds publication counts, h-index and research concepts to everyone. | inferred (unless verified) |
 | Wikipedia | Curated *Alumnado / Profesores del Instituto Balseiro* categories — bios and portraits | confirmed |
-| RICABIB thesis repo (opt-in, run from Argentina) | Author + year + title of every IB thesis — the authoritative roster | confirmed |
+| IB thesis repository (RICABIB, harvested via the public [NUCLEA](https://nuclea.cnea.gob.ar) mirror) | Author + year + title of ~1,000 IB theses — the authoritative roster. No employer, so many are confirmed-but-unmapped. | confirmed |
 | `data/manual_alumni.csv` | Anyone **you** add by hand | confirmed |
 
 `build_dataset.py` merges duplicates (by ORCID iD, then by normalised name),
@@ -40,23 +40,24 @@ python3 serve.py                       # -> http://localhost:8000  (fetch() need
 ```
 
 Re-running is fast because API responses and geocoding live in `data/`
-(`data/raw/`, `data/geocode_cache.json`). Use `--fresh` to ignore the caches;
-add `--ricabib` to also harvest the thesis repository (only works from Argentina):
+(`data/raw/`, `data/geocode_cache.json`). `--fresh` ignores the caches:
 
 ```bash
 python3 scripts/run_all.py --fresh
-python3 scripts/run_all.py --ricabib
 ```
 
 ## Growing the database
 
 | Want more… | Do this |
 |---|---|
-| **people, automatically** | Already maxed on Wikidata/ORCID/OpenAlex. Re-run `run_all.py` periodically to pick up newly-published profiles. |
+| **people, automatically** | Re-run `run_all.py` periodically to pick up newly-published profiles and theses. |
 | **inferred people confirmed** | Edit `data/review_candidates.csv` (below). |
-| **people you know personally** | Edit `data/manual_alumni.csv` (below) — highest precision. Browsing LinkedIn's "Instituto Balseiro" alumni page while logged in and copying names in is fine; automated scraping is not. |
-| **the authoritative graduate roster** | `python3 scripts/collect_ricabib.py` from an Argentine connection (see its header — you may need to adjust `BASE`). |
+| **people you know personally** | Edit `data/manual_alumni.csv` (below) — highest precision, and the only way to *place* a thesis-roster name on the map. Browsing LinkedIn's "Instituto Balseiro" alumni page while logged in and copying names in is fine; automated scraping is not. |
 | **fewer false positives** | Add names to `data/blocklist.txt`. |
+
+The thesis roster is harvested from **NUCLEA** (`nuclea.cnea.gob.ar`, public) by
+default; if you're on the CNEA network and want the primary RICABIB source,
+`python3 scripts/collect_ricabib.py --source ricabib`.
 
 ### `data/manual_alumni.csv` — only `name` is required
 

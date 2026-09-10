@@ -28,16 +28,16 @@ def main() -> None:
         (DATA / "geocode_cache.json").unlink(missing_ok=True)
 
     t0 = time.time()
+    import collect_ricabib
     sources = [
         # OpenAlex first: it feeds extra ORCID iDs into the ORCID verifier.
         ("OpenAlex", collect_openalex.collect),
         ("Wikidata", collect_wikidata.collect),
         ("ORCID", collect_orcid.collect),
         ("Wikipedia", collect_wikipedia.collect),
+        # thesis roster via NUCLEA (public) with a RICABIB fallback
+        ("Theses (RICABIB/NUCLEA)", collect_ricabib.collect),
     ]
-    if "--ricabib" in sys.argv:  # only reachable from Argentina; opt in
-        import collect_ricabib
-        sources.append(("RICABIB", collect_ricabib.collect))
 
     for name, fn in sources:
         print(f"\n=== {name} ===")

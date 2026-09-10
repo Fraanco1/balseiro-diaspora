@@ -35,6 +35,7 @@ const FACETS = [
 const state = {
   q: '',
   region: 'all',
+  mappedOnly: false,
   facets: Object.fromEntries(FACETS.map(f => [f.key, new Set()])),
   view: 'map',
   sort: { key: 'name', dir: 1 },
@@ -205,6 +206,7 @@ function popupHtml(p) {
 /* filtering                                                           */
 /* ------------------------------------------------------------------ */
 function matches(p, ignoreKey) {
+  if (state.mappedOnly && !p.located) return false;
   if (state.q) {
     const hay = [
       p.name, p.employer, p.role, p.description, p.discipline, p.city, p.country,
@@ -250,7 +252,8 @@ function buildAbout() {
     <h3>About this atlas</h3>
     <p>${esc(META.disclaimer || '')}</p>
     <ul>
-      <li><b>${META.confirmed || 0}</b> of ${META.total} entries are confirmed alumni (Wikidata/ORCID/Wikipedia/thesis/manual); the rest are inferred from OpenAlex.</li>
+      <li><b>${META.confirmed || 0}</b> of ${META.total} entries are confirmed alumni (Wikidata / ORCID / Wikipedia / IB thesis repository / hand-added); the rest are inferred from OpenAlex affiliation data.</li>
+      <li>Only <b>${META.located}</b> have a known current location and appear on the map — the rest are confirmed by their thesis but we don't know where they are now. Tick "Only people placed on the map" to hide them.</li>
       <li>Sources: ${esc(srcLine)}</li>
       <li>Generated ${esc((META.generated || '').replace('T', ' ').replace('+00:00', ' UTC'))}</li>
       <li>Add people in <code>data/manual_alumni.csv</code>, vet inferred ones in <code>data/review_candidates.csv</code>, remove wrong ones in <code>data/blocklist.txt</code>, then re-run <code>python3 scripts/run_all.py</code>.</li>
@@ -324,6 +327,11 @@ function wireControls() {
     refresh();
   });
 
+  document.querySelector('#mapped-only input').addEventListener('change', e => {
+    state.mappedOnly = e.target.checked;
+    refresh();
+  });
+
   document.getElementById('view-tabs').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     setView(b.dataset.view);
@@ -337,6 +345,8 @@ function wireControls() {
   document.getElementById('reset').addEventListener('click', () => {
     state.q = ''; search.value = '';
     state.region = 'all';
+    state.mappedOnly = false;
+    document.querySelector('#mapped-only input').checked = false;
     document.querySelectorAll('#region-toggle button').forEach(b => b.classList.toggle('active', b.dataset.region === 'all'));
     for (const k in state.facets) state.facets[k].clear();
     document.querySelectorAll('#facets input[type=checkbox]').forEach(c => (c.checked = false));

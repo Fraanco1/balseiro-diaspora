@@ -109,6 +109,9 @@ a { color: var(--accent); }
 }
 .quick-toggle button.active { background: var(--surface); color: var(--text); box-shadow: var(--shadow); font-weight: 600; }
 
+.inline-toggle { margin: 0 0 14px; font-size: 12.5px; color: var(--text-dim); }
+.inline-toggle input { accent-color: var(--accent); }
+
 /* ---------- facets ---------- */
 .facet { border-top: 1px solid var(--border); padding: 10px 0; }
 .facet > summary {

@@ -56,16 +56,16 @@ DISCIPLINE_RULES = [
     ("Particle & high-energy physics", r"particle physic|high[- ]energy|quantum field|standard model|collider|hadron|neutrino|lhc\b|atlas experiment"),
     ("String theory & gravitation", r"string theory|superstring|supergravit|gravitation|holograph|ads/cft|black hole|cosmolog|general relativ|quantum gravity"),
     ("Quantum information & computing", r"quantum info|quantum comput|qubit|quantum optic|entanglement|quantum technolog|quantum simulation"),
-    ("Condensed matter & materials", r"condensed matter|solid[- ]state|material science|materials science|superconduct|magnetism|nanostructur|nanoscien|nanotechnolog|spintron|semiconductor|thin film|crystal|metallurg|corrosion|graphene"),
+    ("Condensed matter & materials", r"condensed matter|solid[- ]state|material science|materials science|superconduct|magnetism|magnetic material|\balloy|aleacion|nanostructur|nanoscien|nanotechnolog|nanopart|spintron|semiconductor|thin film|\bcrystal|metallurg|corrosion|graphene|hydrogen storage|shape memory|multiferroic|multilayer|anisotropy|sintering"),
     ("Astrophysics & astronomy", r"astrophys|astronom|cosmic ray|galax|stellar|exoplanet|planetary scien|solar physic"),
-    ("Nuclear engineering & energy", r"nuclear|reactor|fission|neutron|radioprotection|radiation protection|fuel cycle|radioisotop|nucleoelectr"),
+    ("Nuclear engineering & energy", r"nuclear|reactor|fission|neutron|monte carlo (method|simulation|code)|radioprotection|radiation protection|fuel (cycle|element)|radioisotop|nucleoelectr|criticality|thermal[- ]hydraulic|hydrogen (storage|embrittlement|absorption)"),
     ("Plasma & fusion physics", r"plasma|tokamak|fusion|magnetohydro"),
     ("Atmospheric, earth & environment", r"atmospher|climate|meteorolog|geophys|environment|oceanograph|hydrolog|glaciolog|earth scien|renewable energ|solar energ|wind energ"),
     ("Biophysics, medical & health physics", r"biophys|medical physic|health physic|radiotherap|dosimetr|biomedic|neuroscien|molecular biolog|medicine|clinical|hospital|health"),
     ("Photonics & optics", r"photonic|optic|laser|plasmonic|spectroscop|holograph"),
     ("Computer science, data & AI", r"machine learning|artificial intelligence|deep learning|neural network|computer scien|data scien|data analy|software|algorithm|comput\w* vision|blockchain|cryptograph|informatic"),
     ("Mechanical & aerospace engineering", r"mechanical eng|aerospace|aeronaut|fluid dynam|fluid mechanic|thermodynam|combustion|turbomachin|structural eng|manufacturing"),
-    ("Electronics, control & telecom", r"electronic|telecommunicat|signal processing|antenna|microwave|fpga|embedded system|control system|instrumentation|circuit"),
+    ("Electronics, control & telecom", r"electronic|telecommunicat|signal processing|\bradar\b|\bsonar\b|antenna|microwave|\bfpga\b|embedded system|control system|\bsensors?\b|instrumentation|\bcircuit"),
     ("Mathematics & statistics", r"mathematic|statistic|probability|topolog|geometry|number theory|differential equation|dynamical system"),
     ("Complex systems & statistical physics", r"complex system|statistical (physic|mechanic)|network scien|econophys|nonlinear dynam|agent[- ]based|sociophys"),
     ("Economics, finance & policy", r"econophysic|quantitative finance|financial market|quantitative analyst|science polic|actuaria"),
@@ -376,9 +376,9 @@ def _merge_ricabib(idx, by_name):
         rec = idx.setdefault(key, _blank_person())
         rec["name"] = rec["name"] or t["author"]
         rec["sources"].add("ricabib")
-        rec["wikidata_alumnus"] = rec["wikidata_alumnus"] or None
         rec["thesis_title"] = rec["thesis_title"] or t.get("title")
         rec["thesis_year"] = rec["thesis_year"] or t.get("year")
+        rec["keywords"].update(s for s in (t.get("subjects") or []) if s.isascii())
         if not rec["grad_year"] and t.get("year"):
             rec["grad_year"] = t["year"]
         if t.get("degree_program") and not rec["degree_program"]:
