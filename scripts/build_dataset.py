@@ -35,7 +35,10 @@ RAW_FILES = {
     "ricabib": DATA / "raw" / "ricabib_theses.json",
     "inspire": DATA / "raw" / "inspire_authors.json",
     "ads": DATA / "raw" / "ads_authors.json",
+    "lens": DATA / "raw" / "lens_inventors.json",
 }
+# Lens applicants specific enough that a new inventor is likely an alumnus:
+LENS_DISCOVERY_APPLICANTS = ("INVAP", "Instituto Balseiro", "Centro Atómico Bariloche")
 MANUAL_CSV = DATA / "manual_alumni.csv"
 REVIEW_CSV = DATA / "review_candidates.csv"
 BLOCKLIST = DATA / "blocklist.txt"
@@ -480,6 +483,38 @@ def _merge_ads(idx, by_orcid, by_name):
     return n
 
 
+def _merge_lens(idx, by_orcid, by_name, blocked):
+    """Patent inventors from Balseiro-linked orgs (Lens.org). Enriches matches;
+    adds new people only for INVAP / Instituto Balseiro / CAB patents."""
+    if not RAW_FILES["lens"].exists():
+        return 0
+    ik_index = _build_ikey_index(idx)
+    added = enriched = 0
+    for p in json.loads(RAW_FILES["lens"].read_text(encoding="utf-8")):
+        nk = name_key(p["name"])
+        if nk in blocked:
+            continue
+        key = by_name.get(nk) or ik_index.get(initial_key(p["name"]))
+        if key is None or key not in idx:
+            if p.get("via_applicant") not in LENS_DISCOVERY_APPLICANTS:
+                continue
+            key = ("lens", nk)
+            idx[key] = _blank_person()
+            idx[key]["name"] = p["name"]
+            by_name.setdefault(nk, key)
+            added += 1
+        rec = idx[key]
+        rec["sources"].add("lens")
+        rec["role"] = rec["role"] or "Inventor / engineer"
+        if p.get("employer") and not rec["employer_name"]:
+            rec["employer_name"] = p["employer"]
+            rec["employer_country"] = p.get("country") or rec["employer_country"]
+            rec["employer_country_code"] = p.get("country_code") or rec["employer_country_code"]
+        enriched += 1
+    print(f"Lens merge: enriched {enriched} people, added {added} new")
+    return added
+
+
 def _merge_ricabib(idx, by_name):
     """Optional: IB thesis repository (author + year + title) — authoritative
     alumni names. Run scripts/collect_ricabib.py from Argentina to populate it."""
@@ -643,6 +678,13 @@ def _resolve_location(rec):
         rec["_geo_chain"] = _chain(ai["name"], ai["name"].split(",")[-1].strip())
         return
 
+    # 7. a bare employer name/country from Lens or a manual/reviewed row
+    if rec["employer_name"]:
+        rec["_geo_chain"] = _chain(
+            ", ".join(b for b in [rec["employer_name"], rec["employer_country"]] if b),
+            rec["employer_name"], rec["employer_country"])
+        return
+
 
 def _nice_role(rec):
     occ = sorted(rec["occupations"])  # sorted -> deterministic across builds
@@ -667,6 +709,7 @@ def build():
     n_ricabib = _merge_ricabib(idx, by_name)
     n_inspire = _merge_inspire(idx, by_orcid, by_name)
     n_ads = _merge_ads(idx, by_orcid, by_name)
+    n_lens = _merge_lens(idx, by_orcid, by_name, blocked)
     n_manual = _merge_csv(idx, by_name, MANUAL_CSV, "manual")
 
     # OpenAlex: enrich existing people + add high-confidence ORCID-less authors,
@@ -684,7 +727,7 @@ def build():
 
     print(f"merged: {len(idx)} distinct people "
           f"(+{n_ricabib} ricabib, +{n_inspire} inspire, +{n_ads} ads, "
-          f"+{n_manual} manual, +{n_review} reviewed)")
+          f"+{n_lens} lens, +{n_manual} manual, +{n_review} reviewed)")
 
     # ---- resolve locations (batch-geocode, first hit in each chain wins) -- #
     for rec in idx.values():
@@ -812,7 +855,7 @@ def build():
             "sources": {
                 s: sum(1 for p in out if s in p["sources"])
                 for s in ("wikidata", "orcid", "openalex", "reviewed", "inspire",
-                          "ads", "wikipedia", "ricabib", "manual")
+                          "ads", "lens", "wikipedia", "ricabib", "manual")
             },
             "disclaimer": (
                 "Compiled automatically from public data (Wikidata, ORCID, "

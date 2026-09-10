@@ -17,7 +17,7 @@ const LEVEL_SHORT = {
 
 const SOURCE_LABELS = {
   wikidata: 'Wikidata', orcid: 'ORCID', openalex: 'OpenAlex (inferred)',
-  reviewed: 'OpenAlex (reviewed)', inspire: 'INSPIRE-HEP', ads: 'NASA ADS',
+  reviewed: 'OpenAlex (reviewed)', inspire: 'INSPIRE-HEP', ads: 'NASA ADS', lens: 'Patents (Lens)',
   wikipedia: 'Wikipedia', ricabib: 'IB thesis repo', manual: 'Added by hand',
 };
 

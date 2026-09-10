@@ -26,6 +26,7 @@ data/raw/*
 !data/raw/thesis_reconciled.json
 !data/raw/inspire_authors.json
 !data/raw/ads_authors.json
+!data/raw/lens_inventors.json
 
 # site/data/alumni.json is committed (GitHub Pages serves it).
 # The pretty-printed copy is a local debugging aid only.
