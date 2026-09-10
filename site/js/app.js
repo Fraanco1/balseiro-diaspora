@@ -208,7 +208,8 @@ function popupHtml(p) {
       </div>
     </div>
     <div class="pp-line"><b>${esc(p.employer || 'Unknown employer')}</b><br>
-      ${esc([p.city, p.country].filter(Boolean).join(', '))}</div>
+      ${esc([p.city, p.country].filter(Boolean).join(', '))}${
+        typeof p.loc_asof === 'number' ? ` <span class="asof">· as of ${p.loc_asof}</span>` : ''}</div>
     ${metrics.length ? `<div class="pp-line pp-metrics">${esc(metrics.join(' · '))}</div>` : ''}
     ${careerLine}
     ${thesisLine}

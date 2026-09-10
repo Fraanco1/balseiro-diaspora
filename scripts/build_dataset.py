@@ -153,6 +153,7 @@ def _blank_person():
         "works_count": None, "h_index": None, "concepts": set(),
         "thesis_title": None, "thesis_year": None,
         "career": [], "advisors": set(), "arxiv_categories": set(),
+        "loc_asof": None,          # approx year the current-location info is from
         "wikidata_alumnus": None,   # None unknown / True P69 / False staff-only
         "ib_trained": False,        # earliest known position/degree was at Balseiro
         "_wd_employers": [], "_orcid_current": None, "_openalex": None,
@@ -478,7 +479,8 @@ def _merge_ads(idx, by_orcid, by_name):
         rec["sources"].add("ads")
         rec["orcid"] = rec["orcid"] or a.get("orcid")
         if a.get("current_institution") and not rec["_inspire_inst"] and not rec["_ads_inst"]:
-            rec["_ads_inst"] = a["current_institution"]
+            rec["_ads_inst"] = dict(a["current_institution"],
+                                    year=a.get("last_paper_year"))
         n += 1
     return n
 
@@ -581,11 +583,13 @@ def _resolve_location(rec):
         rec["employer_name"] = rec["employer_name"] or (oc or {}).get("org") or (wd[0]["name"] if wd else None)
         return
 
-    # 1b. manual CSV row with an employer/city/country but no coords -> geocode it.
-    #     (checked before Wikidata/ORCID so hand-added people are honoured.)
-    if "manual" in rec["sources"] and not oc and not wd and (
+    # 1b. a hand-checked row (manual / reviewed) with an employer/city/country
+    #     ALWAYS wins over the automatic sources -- it's a human correction,
+    #     typically fixing a stale location. (Explicit lat/lon already won above.)
+    if ({"manual", "reviewed"} & rec["sources"]) and (
             rec["employer_name"] or rec["employer_city"] or rec["employer_country"]):
         org, city, country = rec["employer_name"], rec["employer_city"], rec["employer_country"]
+        rec["loc_asof"] = "manual"
         rec["_geo_chain"] = _chain(
             ", ".join(b for b in [org, city, country] if b),
             ", ".join(b for b in [org, country] if b),
@@ -763,6 +767,25 @@ def build():
     print(f"  located {located_by_chain} more via geocoding")
 
     # ---- finalise records --------------------------------------------------#
+    def _loc_asof(rec):
+        if rec.get("loc_asof") == "manual":
+            return "manual"
+        yrs = []
+        oc = rec["_orcid_current"] or {}
+        if oc.get("org"):
+            yrs.append(oc.get("start_year") if oc.get("ongoing") else oc.get("end_year"))
+        for c in rec["career"]:
+            if c.get("current") and c.get("start"):
+                yrs.append(int(c["start"]))
+        ai = rec.get("_ads_inst") or {}
+        if ai.get("year"):
+            try:
+                yrs.append(int(ai["year"]))
+            except (TypeError, ValueError):
+                pass
+        yrs = [y for y in yrs if y]
+        return max(yrs) if yrs else None
+
     out = []
     for rec in idx.values():
         degree_blob = " ".join(rec["degrees"]) + " " + (rec["description"] or "") \
@@ -810,6 +833,7 @@ def build():
             "lat": round(rec["lat"], 5) if rec["lat"] is not None else None,
             "lon": round(rec["lon"], 5) if rec["lon"] is not None else None,
             "loc_precision": rec.get("loc_precision"),
+            "loc_asof": _loc_asof(rec),
             "discipline": discipline,
             "sector": sector,
             "program": program,

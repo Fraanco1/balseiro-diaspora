@@ -188,6 +188,7 @@ a { color: var(--accent); }
 .pp-line { margin-top: 7px; }
 .pp-line b { font-weight: 600; }
 .pp-metrics { color: var(--text-dim); font-size: 11.5px; }
+.asof { color: var(--text-dim); font-size: 10.5px; }
 .pp-thesis { font-size: 11.5px; font-style: italic; color: var(--text-dim); }
 .pp-career { font-size: 11px; color: var(--text-dim); line-height: 1.6; }
 .pp-career .yr { opacity: .7; }
