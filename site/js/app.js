@@ -36,6 +36,7 @@ const state = {
   q: '',
   region: 'all',
   mappedOnly: false,
+  includeInferred: false,   // confirmed-only by default
   facets: Object.fromEntries(FACETS.map(f => [f.key, new Set()])),
   view: 'map',
   sort: { key: 'name', dir: 1 },
@@ -207,6 +208,8 @@ function popupHtml(p) {
 /* ------------------------------------------------------------------ */
 function matches(p, ignoreKey) {
   if (state.mappedOnly && !p.located) return false;
+  if (!state.includeInferred && p.confidence === 'inferred'
+      && !state.facets.confidence.has('inferred')) return false;
   if (state.q) {
     const hay = [
       p.name, p.employer, p.role, p.description, p.discipline, p.city, p.country,
@@ -237,11 +240,15 @@ function filtered(ignoreKey) {
 /* headline + about                                                    */
 /* ------------------------------------------------------------------ */
 function buildHeadline() {
-  const el = document.getElementById('headline-stats');
-  el.innerHTML = `
-    <div class="stat"><div class="num" id="hs-people">${META.total}</div><div class="lbl">alumni</div></div>
-    <div class="stat"><div class="num" id="hs-countries">${META.countries}</div><div class="lbl">countries</div></div>
-    <div class="stat"><div class="num" id="hs-mapped">${META.located}</div><div class="lbl">on the map</div></div>`;
+  const confirmed = ALUMNI.filter(p => p.confidence === 'confirmed');
+  const mapped = confirmed.filter(p => p.located);
+  const countries = new Set(mapped.map(p => p.country).filter(Boolean)).size;
+  const inferred = ALUMNI.length - confirmed.length;
+  document.getElementById('headline-stats').innerHTML = `
+    <div class="stat"><div class="num">${confirmed.length}</div><div class="lbl">confirmed alumni</div></div>
+    <div class="stat"><div class="num">${countries}</div><div class="lbl">countries</div></div>
+    <div class="stat"><div class="num">${mapped.length}</div><div class="lbl">on the map</div></div>
+    <div class="stat"><div class="num">+${inferred}</div><div class="lbl">inferred</div></div>`;
 }
 
 function buildAbout() {
@@ -332,6 +339,11 @@ function wireControls() {
     refresh();
   });
 
+  document.querySelector('#include-inferred input').addEventListener('change', e => {
+    state.includeInferred = e.target.checked;
+    refresh();
+  });
+
   document.getElementById('view-tabs').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     setView(b.dataset.view);
@@ -346,7 +358,9 @@ function wireControls() {
     state.q = ''; search.value = '';
     state.region = 'all';
     state.mappedOnly = false;
+    state.includeInferred = false;
     document.querySelector('#mapped-only input').checked = false;
+    document.querySelector('#include-inferred input').checked = false;
     document.querySelectorAll('#region-toggle button').forEach(b => b.classList.toggle('active', b.dataset.region === 'all'));
     for (const k in state.facets) state.facets[k].clear();
     document.querySelectorAll('#facets input[type=checkbox]').forEach(c => (c.checked = false));
