@@ -5,10 +5,13 @@ it has no author records with career histories â€” only per-paper affiliations â
 so we take each author's most recent paper's affiliation as their current one.
 
 *** Requires a free ADS API token. *** Create an account at
-https://ui.adsabs.harvard.edu, then Account -> Settings -> API Token, and put
-the token in either:
-  - the environment:  export ADS_TOKEN=xxxxxxxx
-  - a file:           data/ads_token.txt
+https://ui.adsabs.harvard.edu, then Account -> Settings -> API Token. Provide it
+via the environment (preferred, nothing on disk):
+
+    export ADS_TOKEN=xxxxxxxx
+
+or, if you must, a file `data/ads_token.txt` (gitignored -- never commit a token;
+this repo is public. If one ever leaks, regenerate it in ADS settings).
 
 Without a token this collector does nothing (the rest of the pipeline is fine).
 

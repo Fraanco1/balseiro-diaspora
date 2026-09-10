@@ -2,6 +2,16 @@ __pycache__/
 *.pyc
 .DS_Store
 
+# Secrets — never commit (this repo is public)
+.env
+*.env
+data/ads_token.txt
+*token*.txt
+*.secret
+*_key
+*_apikey*
+credentials*.json
+
 # Per-request API response blobs (thousands of files) — pure cache.
 data/raw/*
 # ...but keep the consolidated per-source datasets, so a fresh clone builds
