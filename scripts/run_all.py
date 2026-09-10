@@ -17,6 +17,8 @@ import collect_openalex
 import collect_wikidata
 import collect_orcid
 import collect_wikipedia
+import collect_inspire
+import collect_ads
 import build_dataset
 
 
@@ -36,6 +38,8 @@ def main() -> None:
         ("Wikidata", collect_wikidata.collect),
         ("ORCID", collect_orcid.collect),
         ("Wikipedia", collect_wikipedia.collect),
+        ("INSPIRE-HEP", collect_inspire.collect),
+        ("NASA ADS", collect_ads.collect),
         # thesis roster via NUCLEA (public) with a RICABIB fallback
         ("Theses (RICABIB/NUCLEA)", collect_ricabib.collect),
         # match thesis authors to OpenAlex works -> current institution + ORCID

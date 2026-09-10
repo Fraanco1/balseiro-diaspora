@@ -17,8 +17,8 @@ const LEVEL_SHORT = {
 
 const SOURCE_LABELS = {
   wikidata: 'Wikidata', orcid: 'ORCID', openalex: 'OpenAlex (inferred)',
-  reviewed: 'OpenAlex (reviewed)', wikipedia: 'Wikipedia', ricabib: 'IB thesis repo',
-  manual: 'Added by hand',
+  reviewed: 'OpenAlex (reviewed)', inspire: 'INSPIRE-HEP', ads: 'NASA ADS',
+  wikipedia: 'Wikipedia', ricabib: 'IB thesis repo', manual: 'Added by hand',
 };
 
 const FACETS = [
@@ -177,8 +177,22 @@ function popupHtml(p) {
   const thesisLine = p.thesis
     ? `<div class="pp-line pp-thesis">IB thesis${p.thesis.year ? ` (${esc(p.thesis.year)})` : ''}: “${esc(p.thesis.title)}”</div>`
     : '';
+  const advisorLine = p.advisors
+    ? `<div class="pp-line pp-thesis">PhD advisor: ${esc(p.advisors.join(', '))}</div>`
+    : '';
+
+  let careerLine = '';
+  if (p.career && p.career.length > 1) {
+    const stops = p.career.slice().sort((a, b) => (a.start || '') > (b.start || '') ? 1 : -1)
+      .map(c => {
+        const yr = c.start ? c.start + (c.current ? '–now' : c.end ? '–' + c.end : '') : '';
+        return `${esc(c.institution)}${yr ? ` <span class="yr">${esc(yr)}</span>` : ''}`;
+      });
+    careerLine = `<div class="pp-line pp-career">${stops.join(' → ')}</div>`;
+  }
+
   const inferredNote = p.confidence === 'inferred'
-    ? `<div class="pp-line pp-inferred">Inferred from OpenAlex affiliation data — not independently confirmed.</div>`
+    ? `<div class="pp-line pp-inferred">Inferred from affiliation data (${esc((p.sources || []).join(', '))}) — not independently confirmed.</div>`
     : '';
 
   const photo = p.image
@@ -196,7 +210,9 @@ function popupHtml(p) {
     <div class="pp-line"><b>${esc(p.employer || 'Unknown employer')}</b><br>
       ${esc([p.city, p.country].filter(Boolean).join(', '))}</div>
     ${metrics.length ? `<div class="pp-line pp-metrics">${esc(metrics.join(' · '))}</div>` : ''}
+    ${careerLine}
     ${thesisLine}
+    ${advisorLine}
     ${chips.length ? `<div class="pp-chips">${chips.join('')}</div>` : ''}
     ${links.length ? `<div class="pp-links">${links.join('')}</div>` : ''}
     ${inferredNote}

@@ -33,6 +33,8 @@ RAW_FILES = {
     "wikipedia": DATA / "raw" / "wikipedia_alumni.json",
     "openalex": DATA / "raw" / "openalex_authors.json",
     "ricabib": DATA / "raw" / "ricabib_theses.json",
+    "inspire": DATA / "raw" / "inspire_authors.json",
+    "ads": DATA / "raw" / "ads_authors.json",
 }
 MANUAL_CSV = DATA / "manual_alumni.csv"
 REVIEW_CSV = DATA / "review_candidates.csv"
@@ -70,6 +72,19 @@ DISCIPLINE_RULES = [
     ("Mathematics & statistics", r"mathematic|statistic|probability|topolog|geometry|number theory|differential equation|dynamical system"),
     ("Complex systems & statistical physics", r"complex system|statistical (physic|mechanic)|network scien|econophys|nonlinear dynam|agent[- ]based|sociophys"),
     ("Economics, finance & policy", r"econophysic|quantitative finance|financial market|quantitative analyst|science polic|actuaria"),
+]
+
+# arXiv primary-category -> discipline (used for INSPIRE authors).
+ARXIV_DISCIPLINE_RULES = [
+    ("String theory & gravitation", r"hep-th|gr-qc"),
+    ("Particle & high-energy physics", r"hep-ph|hep-ex|hep-lat"),
+    ("Astrophysics & astronomy", r"astro-ph"),
+    ("Nuclear engineering & energy", r"nucl-th|nucl-ex"),
+    ("Condensed matter & materials", r"cond-mat"),
+    ("Quantum information & computing", r"quant-ph"),
+    ("Plasma & fusion physics", r"plasm-ph"),
+    ("Mathematics & statistics", r"math-ph|math\."),
+    ("Complex systems & statistical physics", r"nlin|physics\.soc-ph"),
 ]
 
 # Coarse fallback when nothing specific matches, based on the Balseiro degree.
@@ -134,8 +149,11 @@ def _blank_person():
         "role": None, "sources": set(), "urls": set(),
         "works_count": None, "h_index": None, "concepts": set(),
         "thesis_title": None, "thesis_year": None,
+        "career": [], "advisors": set(), "arxiv_categories": set(),
         "wikidata_alumnus": None,   # None unknown / True P69 / False staff-only
+        "ib_trained": False,        # earliest known position/degree was at Balseiro
         "_wd_employers": [], "_orcid_current": None, "_openalex": None,
+        "_inspire_inst": None, "_ads_inst": None,
     }
 
 
@@ -399,6 +417,68 @@ def _write_review_queue(idx, by_orcid, by_name, blocked):
           f"({kept} marked keep)")
 
 
+def _career_earliest_is_ib(career):
+    dated = [c for c in career if c.get("start")]
+    if not dated:
+        return False
+    first = min(dated, key=lambda c: c["start"])
+    inst = (first.get("institution") or "").lower()
+    return "balseiro" in inst or "bariloche" in inst
+
+
+def _merge_inspire(idx, by_orcid, by_name):
+    """INSPIRE-HEP: career history + PhD advisor for the physics diaspora."""
+    if not RAW_FILES["inspire"].exists():
+        return 0
+    n = 0
+    for a in json.loads(RAW_FILES["inspire"].read_text(encoding="utf-8")):
+        nk = name_key(a["name"])
+        key = (by_orcid.get(a["orcid"]) if a.get("orcid") else None) or by_name.get(nk) \
+            or ("name", nk)
+        rec = idx.setdefault(key, _blank_person())
+        rec["name"] = rec["name"] or a["name"]
+        rec["sources"].add("inspire")
+        rec["orcid"] = rec["orcid"] or a.get("orcid")
+        rec["advisors"].update(a.get("advisors") or [])
+        rec["arxiv_categories"].update(a.get("arxiv_categories") or [])
+        if a.get("field_blob"):
+            rec["keywords"].add(a["field_blob"])
+        if a.get("career"):
+            rec["career"] = a["career"]
+        if _career_earliest_is_ib(a.get("career") or []):
+            rec["ib_trained"] = True
+        ci = a.get("current_institution")
+        if ci and ci.get("name"):
+            rec["_inspire_inst"] = ci
+        if a.get("orcid"):
+            by_orcid.setdefault(a["orcid"], key)
+        by_name.setdefault(nk, key)
+        n += 1
+    return n
+
+
+def _merge_ads(idx, by_orcid, by_name):
+    """NASA ADS: latest-paper affiliation for astronomy alumni (needs a token)."""
+    if not RAW_FILES["ads"].exists():
+        return 0
+    n = 0
+    for a in json.loads(RAW_FILES["ads"].read_text(encoding="utf-8")):
+        nk = name_key(a["name"])
+        key = (by_orcid.get(a["orcid"]) if a.get("orcid") else None) or by_name.get(nk) \
+            or ("name", nk)
+        rec = idx.setdefault(key, _blank_person())
+        rec["name"] = rec["name"] or a["name"]
+        rec["sources"].add("ads")
+        rec["orcid"] = rec["orcid"] or a.get("orcid")
+        if a.get("keywords"):
+            rec["keywords"].update(a["keywords"])
+        if a.get("current_institution") and not rec["_inspire_inst"]:
+            rec["_ads_inst"] = a["current_institution"]
+        by_name.setdefault(nk, key)
+        n += 1
+    return n
+
+
 def _merge_ricabib(idx, by_name):
     """Optional: IB thesis repository (author + year + title) — authoritative
     alumni names. Run scripts/collect_ricabib.py from Argentina to populate it."""
@@ -476,6 +556,31 @@ def _resolve_location(rec):
             ", ".join(b for b in [city, country] if b),
             country,
         )
+        return
+
+    # 1c. INSPIRE current institution -> it already carries coordinates
+    ii = rec.get("_inspire_inst")
+    if ii and not (oc and oc.get("ongoing")):
+        rec["employer_name"] = rec["employer_name"] or ii.get("name")
+        rec["employer_city"] = rec["employer_city"] or ii.get("city")
+        rec["employer_country"] = rec["employer_country"] or ii.get("country")
+        rec["employer_country_code"] = rec["employer_country_code"] or ii.get("country_code")
+        if ii.get("lat") is not None:
+            rec["lat"], rec["lon"] = ii["lat"], ii["lon"]
+            return
+        rec["_geo_chain"] = _chain(
+            ", ".join(b for b in [ii.get("name"), ii.get("city"), ii.get("country")] if b),
+            ", ".join(b for b in [ii.get("city"), ii.get("country")] if b),
+            ii.get("country"))
+        return
+
+    ai = rec.get("_ads_inst")
+    if ai and ai.get("name") and not (oc and oc.get("ongoing")):
+        rec["employer_name"] = rec["employer_name"] or ai.get("name")
+        rec["employer_country"] = rec["employer_country"] or ai.get("country")
+        rec["_geo_chain"] = _chain(
+            ", ".join(b for b in [ai.get("name"), ai.get("country")] if b),
+            ai.get("name"), ai.get("country"))
         return
 
     # 2. Wikidata employer that carries coordinates (highest quality)
@@ -559,6 +664,8 @@ def build():
     _merge_orcid(idx, by_orcid, by_name)
     _merge_wikipedia(idx, by_orcid, by_name)
     n_ricabib = _merge_ricabib(idx, by_name)
+    n_inspire = _merge_inspire(idx, by_orcid, by_name)
+    n_ads = _merge_ads(idx, by_orcid, by_name)
     n_manual = _merge_csv(idx, by_name, MANUAL_CSV, "manual")
 
     # OpenAlex: enrich existing people + add high-confidence ORCID-less authors,
@@ -575,7 +682,8 @@ def build():
         print(f"blocklist: removed {before - len(idx)}")
 
     print(f"merged: {len(idx)} distinct people "
-          f"(+{n_ricabib} ricabib, +{n_manual} manual, +{n_review} reviewed)")
+          f"(+{n_ricabib} ricabib, +{n_inspire} inspire, +{n_ads} ads, "
+          f"+{n_manual} manual, +{n_review} reviewed)")
 
     # ---- resolve locations (batch-geocode, first hit in each chain wins) -- #
     for rec in idx.values():
@@ -630,6 +738,7 @@ def build():
             _classify(human_blob, DISCIPLINE_RULES, default=None)
             or _classify(" ".join(rec["degrees"]), DISCIPLINE_RULES, default=None)
             or _classify(" ".join(sorted(rec["concepts"])), DISCIPLINE_RULES, default=None)
+            or _classify(" ".join(sorted(rec["arxiv_categories"])), ARXIV_DISCIPLINE_RULES, default=None)
             or _classify(rec["employer_name"] or "", DISCIPLINE_RULES, default=None)
             or PROGRAM_TO_DISCIPLINE.get(program, "Not specified")
         )
@@ -672,7 +781,9 @@ def build():
             "h_index": rec["h_index"],
             "thesis": ({"title": rec["thesis_title"], "year": rec["thesis_year"]}
                        if rec["thesis_title"] else None),
-            "confidence": ("confirmed" if rec["wikidata_alumnus"]
+            "career": rec["career"] or None,
+            "advisors": sorted(rec["advisors"]) or None,
+            "confidence": ("confirmed" if rec["wikidata_alumnus"] or rec["ib_trained"]
                            or {"orcid", "wikipedia", "manual", "ricabib", "reviewed"} & rec["sources"]
                            else "inferred"),
             "orcid": rec["orcid"],
@@ -699,8 +810,8 @@ def build():
             "confirmed": sum(1 for p in out if p["confidence"] == "confirmed"),
             "sources": {
                 s: sum(1 for p in out if s in p["sources"])
-                for s in ("wikidata", "orcid", "openalex", "reviewed",
-                          "wikipedia", "ricabib", "manual")
+                for s in ("wikidata", "orcid", "openalex", "reviewed", "inspire",
+                          "ads", "wikipedia", "ricabib", "manual")
             },
             "disclaimer": (
                 "Compiled automatically from public data (Wikidata, ORCID, "

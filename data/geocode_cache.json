@@ -4174,5 +4174,51 @@
   "display_name": "Pamplona / Iruña, Iruñerria, Navarra, Navarra / Nafarroa, España",
   "country": "España",
   "country_code": "ES"
+ },
+ "Balseiro Inst., San Carlos de Bariloche, San Carlos de Bariloche, Argentina": {},
+ "IST, Austria": {
+  "lat": 48.1977425,
+  "lon": 16.3657642,
+  "display_name": "IST, 32, Operngasse, Freihausviertel, Wieden, Wien, 1040, Österreich",
+  "country": "Österreich",
+  "country_code": "AT"
+ },
+ "Cartagena Politecnica U., Cartagena, Spain": {},
+ "Cartagena, Spain": {
+  "lat": 37.6155018,
+  "lon": -0.987511,
+  "display_name": "Cartagena, Campo de Cartagena y Mar Menor, Región de Murcia, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Pierre Auger Observ., San Carlos de Bariloche, Argentina": {},
+ "Cuyo U., Bariloche, Argentina": {},
+ "Fundacao U., Rio Grande, Rio Grande, Brazil": {
+  "lat": -30.077732,
+  "lon": -51.2453919,
+  "display_name": "Fundação Iberê Camargo, 2000, Avenida Padre Cacique, Cristal, Porto Alegre, Rio Grande do Sul, Região Sul, 90810-240, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Rio Grande, Brazil": {
+  "lat": -25.8598258,
+  "lon": -51.7005236,
+  "display_name": "Rio Grande, Pinhão, Paraná, Região Sul, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Valparaiso U., Valparaiso, Chile": {
+  "lat": -33.0458456,
+  "lon": -71.6196749,
+  "display_name": "Valparaíso, Provincia de Valparaíso, Región de Valparaíso, Chile",
+  "country": "Chile",
+  "country_code": "CL"
+ },
+ "IJCLab, Orsay, Orsay, France": {
+  "lat": 48.6983272,
+  "lon": 2.1768071,
+  "display_name": "Laboratoire de Physique des 2 infinis Irène Joliot-Curie – IJCLab, Avenue Irène et Frédéric Joliot-Curie, Orsay Gare, La Boissière, Orsay, Palaiseau, Essonne, Île-de-France, France métropolitaine, 91400, France",
+  "country": "France",
+  "country_code": "FR"
  }
 }

@@ -22,10 +22,14 @@ scraped and is deliberately not used):
 | [Wikidata](https://www.wikidata.org) | `educated at` / `employer` / `affiliation` = Instituto Balseiro; employers (often with coordinates), fields, photos, Wikipedia links | confirmed |
 | [ORCID](https://orcid.org) | Anyone with Instituto Balseiro in their **education** history — grad year, degree, current employer + city/country, keywords. Candidate iDs come from ORCID's own search **and** from OpenAlex. | confirmed |
 | [OpenAlex](https://openalex.org) | ~2,900 authors who ever published with a Balseiro affiliation. ORCID ones are verified above; high-scoring ORCID-less ones are added directly; the rest go to a review queue. Also adds publication counts, h-index and research concepts to everyone. | inferred (unless verified) |
+| [INSPIRE-HEP](https://inspirehep.net) | The particle / string / gravitation / cosmology / astro-particle slice. Full **career history** (every institution with years + coordinates) and the person's **PhD advisor**. Confirmed when their earliest recorded position was at Balseiro. | inferred / confirmed |
+| [NASA ADS](https://ui.adsabs.harvard.edu) | Astronomy / astrophysics authors — most-recent-paper affiliation. **Needs a free API token** (see `scripts/collect_ads.py`); silently skipped without one. | inferred |
 | Thesis reconciliation (`reconcile_theses.py`) | For thesis-roster people with no location: an ORCID name search (kept only when Balseiro is in the record), then a match of the exact thesis title to its OpenAlex `dissertation` work → that author's current institution. | confirmed |
 | Wikipedia | Curated *Alumnado / Profesores del Instituto Balseiro* categories — bios and portraits | confirmed |
 | IB thesis repository (RICABIB, harvested via the public [NUCLEA](https://nuclea.cnea.gob.ar) mirror) | Author + year + title of ~1,000 IB theses — the authoritative roster. No employer, so many are confirmed-but-unmapped. | confirmed |
 | `data/manual_alumni.csv` | Anyone **you** add by hand | confirmed |
+
+The site shows **confirmed people by default** (toggle "Include inferred (OpenAlex-only) entries" in the sidebar for the rest).
 
 `build_dataset.py` merges duplicates (by ORCID iD, then by normalised name),
 resolves each person's location from Wikidata/OpenAlex coordinates or

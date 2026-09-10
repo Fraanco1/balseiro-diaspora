@@ -14,6 +14,8 @@ data/raw/*
 !data/raw/ricabib_theses.json
 !data/raw/thesis_orcid.json
 !data/raw/thesis_reconciled.json
+!data/raw/inspire_authors.json
+!data/raw/ads_authors.json
 
 # site/data/alumni.json is committed (GitHub Pages serves it).
 # The pretty-printed copy is a local debugging aid only.
