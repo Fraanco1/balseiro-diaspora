@@ -1,0 +1,6 @@
+name,grad_year,degree_program,field,role,employer,city,country,lat,lon,links,notes
+# Add people you find yourself (former classmates, LinkedIn contacts, talks you attended...).
+# Only 'name' is required. If you leave lat/lon blank the builder geocodes "employer, city, country".
+# 'links' can hold several URLs separated by spaces. Lines starting with # are ignored.
+# Example:
+# Jane Doe,2016,Physics,Quantum optics,Postdoc,ETH Zurich,Zurich,Switzerland,,,https://example.com,met at APS March meeting
