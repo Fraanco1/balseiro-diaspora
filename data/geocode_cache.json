@@ -5297,5 +5297,12 @@
   "display_name": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
   "country": "Deutschland",
   "country_code": "DE"
+ },
+ "INVAP": {
+  "lat": -41.1219256,
+  "lon": -71.4156348,
+  "display_name": "Invap, Puente estilo romano, Perito Moreno, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
  }
 }
