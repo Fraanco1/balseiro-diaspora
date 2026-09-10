@@ -5304,5 +5304,77 @@
   "display_name": "Invap, Puente estilo romano, Perito Moreno, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
   "country": "Argentina",
   "country_code": "AR"
+ },
+ "Universidade Estadual de Campinas, Campinas, Brazil": {
+  "lat": -22.822656,
+  "lon": -47.0627959,
+  "display_name": "Universidade Estadual de Campinas, Rua Delcio Almeida Filho, Jardim Santa Genebra 2, Barão Geraldo, Campinas, São Paulo, Região Sudeste, 13084-791, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Universidade Estadual de Campinas, Brazil": {
+  "lat": -22.822656,
+  "lon": -47.0627959,
+  "display_name": "Universidade Estadual de Campinas, Rua Doutor José Anderson, Barão Geraldo, Campinas, São Paulo, Região Sudeste, 13083-593, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Campinas, Brazil": {
+  "lat": -22.9056391,
+  "lon": -47.059564,
+  "display_name": "Campinas, São Paulo, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Guangdong Technion-Israel Institute of Technology, Shantou, China": {
+  "lat": 23.4125696,
+  "lon": 116.636155,
+  "display_name": "广东以色列理工学院, 241号, 大学路, 𬶍江街道, 金平区, 汕头市, 广东省, 515063, 中国",
+  "country": "中国",
+  "country_code": "CN"
+ },
+ "Guangdong Technion-Israel Institute of Technology, China": {
+  "lat": 23.4125696,
+  "lon": 116.636155,
+  "display_name": "广东以色列理工学院, 241号, 大学路, 𬶍江街道, 金平区, 汕头市, 广东省, 515063, 中国",
+  "country": "中国",
+  "country_code": "CN"
+ },
+ "Shantou, China": {
+  "lat": 23.3563921,
+  "lon": 116.6775856,
+  "display_name": "汕头市, 广东省, 中国",
+  "country": "中国",
+  "country_code": "CN"
+ },
+ "China": {
+  "lat": 34.5412252,
+  "lon": 108.9237067,
+  "display_name": "中国",
+  "country": "中国",
+  "country_code": "CN"
+ },
+ "Centro Atomico Bariloche, San Carlos de Bariloche, Argentina": {
+  "lat": -41.1200731,
+  "lon": -71.4147157,
+  "display_name": "CNEA - Centro Atómico Bariloche, 9500, Sendero Playa Bonita - Puerto Moreno, Barrio Militar Virgen de las Nieves, Perito Moreno, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Centro Atomico Bariloche, Argentina": {
+  "lat": -41.1200731,
+  "lon": -71.4147157,
+  "display_name": "CNEA - Centro Atómico Bariloche, 9500, Sendero Playa Bonita - Puerto Moreno, Barrio Militar Virgen de las Nieves, Perito Moreno, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Qruise GmbH, Saarbruecken, Germany": {},
+ "Qruise GmbH, Germany": {},
+ "Saarbruecken, Germany": {
+  "lat": 49.234362,
+  "lon": 6.996379,
+  "display_name": "Saarbrücken, Regionalverband Saarbrücken, Saarland, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
  }
 }

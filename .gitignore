@@ -31,3 +31,7 @@ data/raw/*
 # site/data/alumni.json is committed (GitHub Pages serves it).
 # The pretty-printed copy is a local debugging aid only.
 site/data/alumni.pretty.json
+
+# Local source list of IB graduates — not for the public repo.
+egresadosGradoIB1958-2014.docx
+*.docx

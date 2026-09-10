@@ -153,7 +153,8 @@ def _blank_person():
         "works_count": None, "h_index": None, "concepts": set(),
         "thesis_title": None, "thesis_year": None,
         "career": [], "advisors": set(), "arxiv_categories": set(),
-        "loc_asof": None,          # approx year the current-location info is from
+        "loc_asof": None,          # year the displayed location is from, or "manual"
+        "_hand_location": False,   # a CSV row supplied an explicit location
         "wikidata_alumnus": None,   # None unknown / True P69 / False staff-only
         "ib_trained": False,        # earliest known position/degree was at Balseiro
         "_wd_employers": [], "_orcid_current": None, "_openalex": None,
@@ -263,6 +264,11 @@ def _merge_csv(idx, by_name, path, source_tag, kept_only=False):
             for u in re.split(r"[;\s]+", row.get("links", "") + " " + row.get("openalex_url", "")):
                 if u:
                     rec["urls"].add(u)
+            # a hand-supplied location = the person actually checked it; a bare
+            # kept review-queue row (no city/country/coords) is still just the
+            # OpenAlex guess in `current_institution` and must NOT count as one.
+            hand_loc = bool(row.get("city") or row.get("country")
+                            or row.get("employer") or row.get("lat"))
             if row.get("employer") or row.get("current_institution"):
                 rec["employer_name"] = row.get("employer") or row.get("current_institution")
             if row.get("city"):
@@ -272,8 +278,11 @@ def _merge_csv(idx, by_name, path, source_tag, kept_only=False):
             try:
                 if row.get("lat") and row.get("lon"):
                     rec["lat"], rec["lon"] = float(row["lat"]), float(row["lon"])
+                    hand_loc = True
             except ValueError:
                 pass
+            if hand_loc:
+                rec["_hand_location"] = True
             by_name.setdefault(nk, key)
             n += 1
     return n
@@ -313,6 +322,84 @@ def _build_ikey_index(idx):
         by_ikey[ik] = key if ik not in by_ikey else (
             by_ikey[ik] if by_ikey[ik] == key else None)
     return by_ikey
+
+
+def _absorb(target, other):
+    """Fold `other`'s data into `target` (both are _blank_person dicts)."""
+    for k, v in other.items():
+        if isinstance(v, set):
+            target[k] |= v
+        elif isinstance(v, list):
+            if not target.get(k):
+                target[k] = v
+        elif k == "name":
+            if v and (not target["name"] or len(v) > len(target["name"])):
+                if target["name"]:
+                    target["aka"].add(target["name"])
+                target["name"] = v
+            elif v and v != target["name"]:
+                target["aka"].add(v)
+        elif v is not None and not target.get(k):
+            target[k] = v
+
+
+_COMMON_GIVEN = {
+    "roberto", "juan", "jose", "maria", "ana", "carlos", "luis", "jorge", "daniel",
+    "pablo", "diego", "martin", "gabriel", "alejandro", "fernando", "ricardo",
+    "eduardo", "francisco", "miguel", "andres", "pedro", "javier", "sergio",
+    "gustavo", "mario", "raul", "oscar", "hugo", "hector", "adrian", "ariel",
+    "marcelo", "gonzalo", "matias", "nicolas", "santiago", "agustin", "ignacio",
+    "laura", "lucia", "sofia", "julia", "paula", "elena", "silvia", "claudia",
+    "john", "david", "michael", "paul", "peter", "mark",
+}
+
+
+def _name_tokens(name):
+    from common import _name_parts
+    return {t for t in _name_parts(name) if len(t) >= 4}
+
+
+def _dedupe_by_initials(idx):
+    """Merge records that are clearly the same person under different name forms
+    ("Ana A. Gramajo" / "Ana Alicia Gramajo"): same surname+given-initials key,
+    a shared real surname token, ORCIDs that don't conflict, countries
+    compatible."""
+    groups: dict[str, list] = {}
+    for key, rec in idx.items():
+        ik = initial_key(rec["name"] or "")
+        if ik and not ik.endswith("|"):
+            groups.setdefault(ik, []).append(key)
+
+    merged = 0
+    for ik, keys in groups.items():
+        if len(keys) < 2:
+            continue
+        pairs = [(k, idx[k]) for k in keys if k in idx]
+        pairs.sort(key=lambda kv: (-kv[1]["_hand_location"], -len(kv[1]["sources"]),
+                                   -bool(kv[1]["orcid"])))
+        anchor = pairs[0][1]
+        anchor_toks = _name_tokens(anchor["name"])
+        for r_key, r in pairs[1:]:
+            orc_conflict = anchor["orcid"] and r["orcid"] and anchor["orcid"] != r["orcid"]
+            c1, c2 = anchor["employer_country"], r["employer_country"]
+            country_conflict = c1 and c2 and c1 != c2
+            hand = anchor["_hand_location"] or r["_hand_location"]
+            # need a shared surname-like token (not just a shared common first name)
+            shared_real = (anchor_toks & _name_tokens(r["name"])) - _COMMON_GIVEN
+            if not shared_real or orc_conflict or (country_conflict and not hand):
+                continue
+            # a hand-checked location on the loser overrides the anchor's
+            if r["_hand_location"] and not anchor["_hand_location"]:
+                for f in ("employer_name", "employer_city", "employer_country",
+                          "employer_country_code", "lat", "lon", "role"):
+                    anchor[f] = r[f] if r[f] is not None else anchor[f]
+                anchor["_hand_location"] = True
+            _absorb(anchor, r)
+            del idx[r_key]
+            merged += 1
+    if merged:
+        print(f"dedupe: merged {merged} name-variant duplicates")
+    return merged
 
 
 def _enrich_openalex(idx, by_orcid, by_name, blocked):
@@ -453,7 +540,9 @@ def _merge_inspire(idx, by_orcid, by_name):
             rec["ib_trained"] = True
         ci = a.get("current_institution")
         if ci and ci.get("name"):
-            rec["_inspire_inst"] = ci
+            cur_yrs = [int(c["start"]) for c in (a.get("career") or [])
+                       if c.get("current") and c.get("start")]
+            rec["_inspire_inst"] = dict(ci, year=max(cur_yrs) if cur_yrs else None)
         if a.get("orcid"):
             by_orcid.setdefault(a["orcid"], key)
         by_name.setdefault(nk, key)
@@ -566,27 +655,40 @@ def _chain(*queries):
     return out
 
 
+_THIS_YEAR = dt.date.today().year
+
+
+def _asof(year):
+    """Clamp a location-vintage year to something sensible (no future dates)."""
+    try:
+        y = int(year)
+    except (TypeError, ValueError):
+        return None
+    return y if 1955 <= y <= _THIS_YEAR else None
+
+
 def _resolve_location(rec):
-    """Fill employer_name / city / country and set rec['_geo_chain'].
+    """Fill employer_name / city / country, set rec['_geo_chain'], and record
+    rec['loc_asof'] (the year the *chosen* location dates from, or 'manual').
 
     The chain lists progressively looser geocode queries; the first that
-    resolves wins (institution -> city -> country). City-level is good enough
-    for a world map and rescues long, messy institution names.
+    resolves wins (institution -> city -> country).
     """
     oc = rec["_orcid_current"]
     wd = [e for e in rec["_wd_employers"] if e.get("name")]
     wd_with_coord = [e for e in wd if e.get("lat") is not None]
     rec["_geo_chain"] = []
+    rec["loc_asof"] = None
 
-    # 1. explicit manual coords already set
+    # 1. explicit coordinates already set (from a CSV row)
     if rec["lat"] is not None and rec["lon"] is not None:
         rec["employer_name"] = rec["employer_name"] or (oc or {}).get("org") or (wd[0]["name"] if wd else None)
+        if rec["_hand_location"]:
+            rec["loc_asof"] = "manual"
         return
 
-    # 1b. a hand-checked row (manual / reviewed) with an employer/city/country
-    #     ALWAYS wins over the automatic sources -- it's a human correction,
-    #     typically fixing a stale location. (Explicit lat/lon already won above.)
-    if ({"manual", "reviewed"} & rec["sources"]) and (
+    # 1b. a hand-checked CSV location ALWAYS wins over the automatic sources.
+    if rec["_hand_location"] and (
             rec["employer_name"] or rec["employer_city"] or rec["employer_country"]):
         org, city, country = rec["employer_name"], rec["employer_city"], rec["employer_country"]
         rec["loc_asof"] = "manual"
@@ -606,9 +708,10 @@ def _resolve_location(rec):
         rec["employer_country"] = rec["employer_country"] or ii.get("country")
         rec["employer_country_code"] = rec["employer_country_code"] or ii.get("country_code")
         rec["lat"], rec["lon"] = ii["lat"], ii["lon"]
+        rec["loc_asof"] = _asof(ii.get("year"))
         return
 
-    # 2. Wikidata employer that carries coordinates (highest quality)
+    # 2. Wikidata employer that carries coordinates (no date available)
     if wd_with_coord and not (oc and oc.get("ongoing")):
         e = wd_with_coord[0]
         rec.update(employer_name=e["name"], employer_country=e.get("country"),
@@ -625,6 +728,7 @@ def _resolve_location(rec):
         rec["employer_country_code"] = cc or None
         rec["employer_country"] = COUNTRY_BY_CODE.get(cc, rec["employer_country"])
         rec["role"] = rec["role"] or oc.get("role")
+        rec["loc_asof"] = _asof(oc.get("start_year") if oc.get("ongoing") else oc.get("end_year"))
         rec["_geo_chain"] = _chain(
             ", ".join(b for b in [oc["org"], oc.get("city"), country] if b),
             ", ".join(b for b in [oc["org"], country] if b),
@@ -679,6 +783,7 @@ def _resolve_location(rec):
     ai = rec.get("_ads_inst")
     if ai and ai.get("name"):
         rec["employer_name"] = rec["employer_name"] or ai["name"]
+        rec["loc_asof"] = _asof(ai.get("year"))
         rec["_geo_chain"] = _chain(ai["name"], ai["name"].split(",")[-1].strip())
         return
 
@@ -721,6 +826,8 @@ def build():
     _enrich_openalex(idx, by_orcid, by_name, blocked)
     _write_review_queue(idx, by_orcid, by_name, blocked)
     n_review = _merge_csv(idx, by_name, REVIEW_CSV, "reviewed", kept_only=True)
+
+    _dedupe_by_initials(idx)
 
     # honour the blocklist (name keys to always drop)
     if blocked:
@@ -767,25 +874,6 @@ def build():
     print(f"  located {located_by_chain} more via geocoding")
 
     # ---- finalise records --------------------------------------------------#
-    def _loc_asof(rec):
-        if rec.get("loc_asof") == "manual":
-            return "manual"
-        yrs = []
-        oc = rec["_orcid_current"] or {}
-        if oc.get("org"):
-            yrs.append(oc.get("start_year") if oc.get("ongoing") else oc.get("end_year"))
-        for c in rec["career"]:
-            if c.get("current") and c.get("start"):
-                yrs.append(int(c["start"]))
-        ai = rec.get("_ads_inst") or {}
-        if ai.get("year"):
-            try:
-                yrs.append(int(ai["year"]))
-            except (TypeError, ValueError):
-                pass
-        yrs = [y for y in yrs if y]
-        return max(yrs) if yrs else None
-
     out = []
     for rec in idx.values():
         degree_blob = " ".join(rec["degrees"]) + " " + (rec["description"] or "") \
@@ -833,7 +921,7 @@ def build():
             "lat": round(rec["lat"], 5) if rec["lat"] is not None else None,
             "lon": round(rec["lon"], 5) if rec["lon"] is not None else None,
             "loc_precision": rec.get("loc_precision"),
-            "loc_asof": _loc_asof(rec),
+            "loc_asof": rec["loc_asof"] if rec["loc_asof"] == "manual" else _asof(rec["loc_asof"]),
             "discipline": discipline,
             "sector": sector,
             "program": program,
