@@ -4793,5 +4793,509 @@
  "Centro Atómico Bariloche, Comisión Nacional de Energía Atómica (CNEA) 1": {},
  "Comisión Nacional de Energía Atómica (CNEA) 1": {},
  "INN-CNEA-CONICET, Centro Atómico Bariloche": {},
- "G. Física CAB-CNEA, Centro Atómico Bariloche": {}
+ "G. Física CAB-CNEA, Centro Atómico Bariloche": {},
+ "Comisión Nacional de Energía Atómica, Gobierno de Argentina, Bariloche, Argentina": {},
+ "Comisión Nacional de Energía Atómica, Gobierno de Argentina, Argentina": {},
+ "Comisión Nacional de Energía Atómica, Bariloche, Argentina": {},
+ "Comisión Nacional de Energía Atómica, Argentina": {
+  "lat": -34.5397766,
+  "lon": -58.4651352,
+  "display_name": "Comisión Nacional de Energía Atómica, 8250, Avenida Del Libertador, Núñez, Buenos Aires, Comuna 13, Ciudad Autónoma de Buenos Aires, C1429BNP, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Comisión Nacional de Energía Atómica, Buenos Aires, Argentina": {
+  "lat": -34.5397766,
+  "lon": -58.4651352,
+  "display_name": "Comisión Nacional de Energía Atómica, 8250, Avenida Del Libertador, Núñez, Buenos Aires, Comuna 13, Ciudad Autónoma de Buenos Aires, C1429BNP, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Comisión Nacional de Energía Atómica, Gobierno de Argentina, Buenos Aires, Argentina": {},
+ "Bariloche, Patagonia, Argentina": {},
+ "Argentine Army – Directorate General for Research and Development, Buenos Aires, Argentina": {},
+ "Argentine Army – Directorate General for Research and Development, Argentina": {},
+ "Institute of Advanced Chemistry of Catalonia, Barcelona, Spain": {},
+ "Institute of Advanced Chemistry of Catalonia, Spain": {},
+ "Comisión Nacional de Energía Atómica, BARILOCHE, Argentina": {},
+ "BARILOCHE, Río Negro, Argentina": {
+  "lat": -41.1334781,
+  "lon": -71.3101474,
+  "display_name": "San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "BARILOCHE, Argentina": {
+  "lat": -41.1334781,
+  "lon": -71.3101474,
+  "display_name": "San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Facultad de Ciencias Exactas, Naturales y Agrimensura de la Universidad Nacional del Nordeste, Corrientes, Argentina": {},
+ "Facultad de Ciencias Exactas, Naturales y Agrimensura de la Universidad Nacional del Nordeste, Argentina": {},
+ "Corrientes, Corrientes, Argentina": {
+  "lat": -27.4818684,
+  "lon": -58.7955872,
+  "display_name": "Corrientes, Departamento Capital, Corrientes, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Corrientes, Argentina": {
+  "lat": -29.0177384,
+  "lon": -57.8869739,
+  "display_name": "Corrientes, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Departamento de Física de Neutrones, Centro Atómico Bariloche": {},
+ "CNRS Délégation Rhône-Auvergne, Villeurbanne, France": {
+  "lat": 45.78047,
+  "lon": 4.8746534,
+  "display_name": "Délégation Rhône Auvergne du CNRS, Avenue Albert Einstein, Les Poulettes, Croix-Luizet, Villeurbanne, Lyon, Métropole de Lyon, Rhône, Auvergne-Rhône-Alpes, France métropolitaine, 69100, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "CNRS Délégation Rhône-Auvergne, France": {
+  "lat": 45.78047,
+  "lon": 4.8746534,
+  "display_name": "Délégation Rhône Auvergne du CNRS, Avenue Albert Einstein, Les Poulettes, Croix-Luizet, Villeurbanne, Lyon, Métropole de Lyon, Rhône, Auvergne-Rhône-Alpes, France métropolitaine, 69100, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "Villeurbanne, Rhône-Alpes, France": {
+  "lat": 45.7660581,
+  "lon": 4.8796267,
+  "display_name": "Villeurbanne, Lyon, Métropole de Lyon, Rhône, Auvergne-Rhône-Alpes, France métropolitaine, 69100, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "Villeurbanne, France": {
+  "lat": 45.7660581,
+  "lon": 4.8796267,
+  "display_name": "Villeurbanne, Lyon, Métropole de Lyon, Rhône, Auvergne-Rhône-Alpes, France métropolitaine, 69100, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "Centro Atomico Constituyentes, San Rafael, Argentina": {},
+ "San Rafael, Mendoza, Argentina": {
+  "lat": -34.6126025,
+  "lon": -68.330514,
+  "display_name": "Distrito Ciudad de San Rafael, Departamento San Rafael, Mendoza, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "San Rafael, Argentina": {
+  "lat": -34.6126025,
+  "lon": -68.330514,
+  "display_name": "Distrito Ciudad de San Rafael, Departamento San Rafael, Mendoza, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Instituto de Física Teórica, Madrid, Spain": {
+  "lat": 40.5496477,
+  "lon": -3.6874113,
+  "display_name": "Instituto de Física Teórica - IFT, 13, Calle Nicolás Cabrera, El Goloso, Fuencarral-El Pardo, Madrid, Comunidad de Madrid, 28049, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Instituto de Física Teórica, Spain": {
+  "lat": 40.5496477,
+  "lon": -3.6874113,
+  "display_name": "Instituto de Física Teórica - IFT, 13, Calle Nicolás Cabrera, El Goloso, Fuencarral-El Pardo, Madrid, Comunidad de Madrid, 28049, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Grupo de Comunicaciones Ópticas, Depto. de Ingeniería en Telecomunicaciones": {},
+ "Depto. de Ingeniería en Telecomunicaciones": {},
+ "Max Planck Institute for Chemical Phyisics of Solids, Dresden, Germany": {},
+ "Max Planck Institute for Chemical Phyisics of Solids, Germany": {},
+ "Dresden, Sachsen, Germany": {
+  "lat": 51.0493286,
+  "lon": 13.7381437,
+  "display_name": "Dresden, Sachsen, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Dresden, Germany": {
+  "lat": 51.0493286,
+  "lon": 13.7381437,
+  "display_name": "Dresden, Sachsen, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "University of Applied Sciences and Arts Western Switzerland, Sion, Switzerland": {},
+ "University of Applied Sciences and Arts Western Switzerland, Switzerland": {},
+ "Sion, Switzerland": {
+  "lat": 46.2311749,
+  "lon": 7.3588795,
+  "display_name": "Sion, Valais central, Valais/Wallis, 1950, Schweiz/Suisse/Svizzera/Svizra",
+  "country": "Schweiz/Suisse/Svizzera/Svizra",
+  "country_code": "CH"
+ },
+ "Comisión Nacional de Energía Atómica, San Carlos de Bariloche, Argentina": {},
+ "Universitat de Barcelona, Barcelona, Spain": {
+  "lat": 41.3868595,
+  "lon": 2.1634784,
+  "display_name": "Universitat de Barcelona, Carrer de Balmes, l'Antiga Esquerra de l'Eixample, l'Eixample, Barcelona, Barcelonès, Barcelona, Catalunya, 08007, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Universitat de Barcelona, Spain": {
+  "lat": 41.3868595,
+  "lon": 2.1634784,
+  "display_name": "Universitat de Barcelona, Carrer d'Enric Granados, l'Antiga Esquerra de l'Eixample, l'Eixample, Barcelona, Barcelonès, Barcelona, Catalunya, 08007, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Nuclear and Energy Research Institute - IPEN-CNEN/SP, São Paulo, Brazil": {},
+ "Nuclear and Energy Research Institute - IPEN-CNEN/SP, Brazil": {},
+ "São Paulo, SP, Brazil": {
+  "lat": -23.5506507,
+  "lon": -46.6333824,
+  "display_name": "São Paulo, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "ParityQC, München, Germany": {},
+ "ParityQC, Germany": {},
+ "München, Bayern, Germany": {
+  "lat": 48.1371079,
+  "lon": 11.5753822,
+  "display_name": "München, Bayern, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Universidade Federal Fluminense, Niterói, Brazil": {
+  "lat": -22.8864249,
+  "lon": -43.1157188,
+  "display_name": "Universidade Federal Fluminense - Campus Mequinho, 174, Avenida Jansen de Melo, Centro, Região Praias da Baía, Niterói, Rio de Janeiro, Região Sudeste, 24030-220, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Universidade Federal Fluminense, Brazil": {
+  "lat": -22.5323633,
+  "lon": -43.2076213,
+  "display_name": "Universidade Federal Fluminense, Rua Domingos Silverio, Independência, Petrópolis, Rio de Janeiro, Região Sudeste, 25651-000, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Niterói, Rio de Janeiro, Brazil": {
+  "lat": -22.8884,
+  "lon": -43.1147,
+  "display_name": "Niterói, Rio de Janeiro, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Niterói, Brazil": {
+  "lat": -22.8884,
+  "lon": -43.1147,
+  "display_name": "Niterói, Rio de Janeiro, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Universidad del Aconcagua, Mendoza, Argentina": {
+  "lat": -32.8902113,
+  "lon": -68.8360677,
+  "display_name": "Universidad del Aconcagua, 129, Catamarca, Ciudad de Mendoza, Sección 3ª Parque O'Higgins, Departamento Capital, Mendoza, M5500CLA, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universidad del Aconcagua, Argentina": {
+  "lat": -32.8902113,
+  "lon": -68.8360677,
+  "display_name": "Universidad del Aconcagua, 129, Catamarca, Ciudad de Mendoza, Sección 3ª Parque O'Higgins, Departamento Capital, Mendoza, M5500CLA, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Instituto de Física del Sur, Bahía Blanca, Argentina": {
+  "lat": -38.6934432,
+  "lon": -62.2750915,
+  "display_name": "IFISUR, 1865, 12 de Octubre, Villa del Parque, Villa Floresta, Bahía Blanca, Cuartel II, Partido de Bahía Blanca, Buenos Aires, 8000, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Instituto de Física del Sur, Argentina": {
+  "lat": -38.6934432,
+  "lon": -62.2750915,
+  "display_name": "IFISUR, 1865, 12 de Octubre, Villa del Parque, Villa Floresta, Bahía Blanca, Cuartel II, Partido de Bahía Blanca, Buenos Aires, 8000, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Bahía Blanca, Argentina": {
+  "lat": -38.7176522,
+  "lon": -62.2654871,
+  "display_name": "Bahía Blanca, Cuartel I, Partido de Bahía Blanca, Buenos Aires, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universidad Tecnológica de Panamá, Panama City, PA": {},
+ "Universidad Tecnológica de Panamá, PA": {
+  "lat": 9.0238215,
+  "lon": -79.5334607,
+  "display_name": "Universidad Tecnológica de Panamá, Vía Centenario, The Springs, Ancón, Distrito de Panamá, Provincia de Panamá, 0818, Panamá",
+  "country": "Panamá",
+  "country_code": "PA"
+ },
+ "Panama City, PA": {
+  "lat": 8.9714493,
+  "lon": -79.5341802,
+  "display_name": "Panamá, Calidonia, Distrito de Panamá, Provincia de Panamá, 0843, Panamá",
+  "country": "Panamá",
+  "country_code": "PA"
+ },
+ "PA": {
+  "lat": 8.559559,
+  "lon": -81.1308434,
+  "display_name": "Panamá",
+  "country": "Panamá",
+  "country_code": "PA"
+ },
+ "Pontificia Universidad Católica Argentina, Buenos Aires, Argentina": {},
+ "Pontificia Universidad Católica Argentina, Argentina": {
+  "lat": -32.9512575,
+  "lon": -60.6711825,
+  "display_name": "Pontificia Universidad Católica Argentina, 3314, Echesortu, Distrito Centro, Rosario, Municipio de Rosario, Gran Rosario, Departamento Rosario, Santa Fe, S2000, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universidade Federal do ABC, Santo Andre, Brazil": {
+  "lat": -23.6446564,
+  "lon": -46.528415,
+  "display_name": "Universidade Federal do ABC, 5001, Avenida dos Estados, Casas Populares, Bangú, Santo André, São Paulo, Região Sudeste, 09220-520, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Universidade Federal do ABC, Brazil": {
+  "lat": -23.6446564,
+  "lon": -46.528415,
+  "display_name": "Universidade Federal do ABC, 5001, Avenida dos Estados, Casas Populares, Bangú, Santo André, São Paulo, Região Sudeste, 09220-520, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Santo Andre, SP, Brazil": {
+  "lat": -23.6533509,
+  "lon": -46.5279039,
+  "display_name": "Santo André, São Paulo, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Santo Andre, Brazil": {
+  "lat": -23.6533509,
+  "lon": -46.5279039,
+  "display_name": "Santo André, São Paulo, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Centro Universitário SENAI-Cimatec, Salvador, Brazil": {},
+ "Centro Universitário SENAI-Cimatec, Brazil": {},
+ "Salvador, Bahia, Brazil": {
+  "lat": -12.9822499,
+  "lon": -38.4812772,
+  "display_name": "Salvador, Bahia, Região Nordeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Salvador, Brazil": {
+  "lat": -12.9822499,
+  "lon": -38.4812772,
+  "display_name": "Salvador, Bahia, Região Nordeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Brussels, Wallonia-Brussels, Belgium": {
+  "lat": 50.6402293,
+  "lon": 4.2389946,
+  "display_name": "Canal Charleroi-Bruxelles, Nivelles, Brabant wallon, Wallonie, België / Belgique / Belgien",
+  "country": "België / Belgique / Belgien",
+  "country_code": "BE"
+ },
+ "Comisión Nacional de Energía Atómica, Gobierno de Argentina, Ezeiza, Argentina": {},
+ "Pontifícia Universidade Católica do Rio de Janeiro Departamento de Física, Rio de Janeiro, Brazil": {},
+ "Pontifícia Universidade Católica do Rio de Janeiro Departamento de Física, Brazil": {},
+ "Rio de Janeiro, RJ, Brazil": {
+  "lat": -22.9110137,
+  "lon": -43.2093727,
+  "display_name": "Rio de Janeiro, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Rio de Janeiro, Brazil": {
+  "lat": -22.9110137,
+  "lon": -43.2093727,
+  "display_name": "Rio de Janeiro, Região Sudeste, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Balseiro Institute (National Atomic Energy Commission": {},
+ "Comisión Nacional de Energía Atómica, Gobierno de Argentina, S.C. de Bariloche, Argentina": {},
+ "S.C. de Bariloche, Rio Negro, Argentina": {
+  "lat": -41.0965991,
+  "lon": -71.5188553,
+  "display_name": "Camping S.A.C., Ruta Provincial 79 \"Napoleón Beveraggi\", San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8409, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Viedma, Rio Negro, Argentina": {
+  "lat": -40.8084274,
+  "lon": -62.994722,
+  "display_name": "Municipio de Viedma, Departamento Adolfo Alsina, Río Negro, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Comisión Nacional de Energía Atómica, San carlos de Bariloche, Argentina": {},
+ "San carlos de Bariloche, Río Negro, Argentina": {
+  "lat": -41.1334781,
+  "lon": -71.3101474,
+  "display_name": "San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "San carlos de Bariloche, Argentina": {
+  "lat": -41.1334781,
+  "lon": -71.3101474,
+  "display_name": "San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universidad de Concepción, Concepción, Chile": {
+  "lat": -36.8325885,
+  "lon": -73.0349081,
+  "display_name": "Universidad de Concepción, Victoria, Barrio Universitario, Concepción, Provincia de Concepción, Región del Biobío, 4070386, Chile",
+  "country": "Chile",
+  "country_code": "CL"
+ },
+ "Universidad de Concepción, Chile": {
+  "lat": -36.8266386,
+  "lon": -73.0374283,
+  "display_name": "Universidad de Concepción, Avenida Augusto Rivera Parga, Plaza Perú, Concepción, Provincia de Concepción, Región del Biobío, 4070386, Chile",
+  "country": "Chile",
+  "country_code": "CL"
+ },
+ "Concepción, Biobío, Chile": {
+  "lat": -36.8270698,
+  "lon": -73.0502064,
+  "display_name": "Concepción, Provincia de Concepción, Región del Biobío, Chile",
+  "country": "Chile",
+  "country_code": "CL"
+ },
+ "Concepción, Chile": {
+  "lat": -36.8270698,
+  "lon": -73.0502064,
+  "display_name": "Concepción, Provincia de Concepción, Región del Biobío, Chile",
+  "country": "Chile",
+  "country_code": "CL"
+ },
+ "Comisión Nacional de Energía Atómica, Gobierno de Argentina, San Carlos de Bariloche, Argentina": {},
+ "Universidad Nacional del Comahue, San Carlos de Bariloche, Argentina": {
+  "lat": -41.1450338,
+  "lon": -71.3161202,
+  "display_name": "Universidad Nacional del Comahue, Los Andes, La Cumbre, San Carlos de Bariloche, Municipio de San Carlos de Bariloche, Departamento Bariloche, Río Negro, 8400, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universidad Nacional del Comahue, Argentina": {
+  "lat": -38.9394882,
+  "lon": -68.0503365,
+  "display_name": "Universidad Nacional del Comahue, 1400, Buenos Aires, Área Centro Este, Neuquén, Municipio de Neuquén, Departamento Confluencia, Neuquén, Q8300, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "ICCUB, Barcelona, Spain": {},
+ "ICCUB, Spain": {},
+ "Laboratoire Charles Fabry, Palaiseau, France": {},
+ "Laboratoire Charles Fabry, France": {},
+ "CONICET, La Plata, Argentina": {
+  "lat": -34.9240087,
+  "lon": -57.9401541,
+  "display_name": "CONICET La Plata, 1467, Calle 8, La Plata, Partido de La Plata, Buenos Aires, B1904DVC, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universidad Central Marta Abreu de las Villas, Villa Clara, CU": {
+  "lat": 22.4383079,
+  "lon": -79.8959038,
+  "display_name": "Universidad Central «Marta Abreu» de Las Villas, km 5½, Carretera a Camajuaní, Santa Clara, Villa Clara, 59100, Cuba",
+  "country": "Cuba",
+  "country_code": "CU"
+ },
+ "Universidad Central Marta Abreu de las Villas, CU": {
+  "lat": 22.4383079,
+  "lon": -79.8959038,
+  "display_name": "Universidad Central «Marta Abreu» de Las Villas, km 5½, Carretera a Camajuaní, Santa Clara, Villa Clara, Cuba",
+  "country": "Cuba",
+  "country_code": "CU"
+ },
+ "Villa Clara, Villa Clara, CU": {
+  "lat": 22.2363183,
+  "lon": -80.0002441,
+  "display_name": "Villa Clara, Mataguá, Manicaragua, Villa Clara, Cuba",
+  "country": "Cuba",
+  "country_code": "CU"
+ },
+ "Villa Clara, CU": {
+  "lat": 22.6952188,
+  "lon": -79.6882171,
+  "display_name": "Villa Clara, Cuba",
+  "country": "Cuba",
+  "country_code": "CU"
+ },
+ "Universidad Nacional de Rio Negro, Sede Andina, San Carlos de Bariloche, Argentina": {},
+ "Universidad Nacional de Rio Negro, Sede Andina, Argentina": {},
+ "University of the Witwatersrand, Johannesburg, South Africa": {
+  "lat": -26.1888766,
+  "lon": 28.0247912,
+  "display_name": "University of the Witwatersrand, Empire Road, Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "country": "South Africa",
+  "country_code": "ZA"
+ },
+ "University of the Witwatersrand, South Africa": {
+  "lat": -26.1888766,
+  "lon": 28.0247912,
+  "display_name": "University of the Witwatersrand, Empire Road, Parktown, Johannesburg Ward 87, Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "country": "South Africa",
+  "country_code": "ZA"
+ },
+ "Johannesburg, South Africa": {
+  "lat": -26.205,
+  "lon": 28.049722,
+  "display_name": "Johannesburg, City of Johannesburg Metropolitan Municipality, Gauteng, 2001, South Africa",
+  "country": "South Africa",
+  "country_code": "ZA"
+ },
+ "South Africa": {
+  "lat": -28.8166236,
+  "lon": 24.991639,
+  "display_name": "South Africa",
+  "country": "South Africa",
+  "country_code": "ZA"
+ },
+ "Albert-Ludwigs-Universität Freiburg, Freiburg im Breisgau, Germany": {
+  "lat": 48.0022957,
+  "lon": 7.8491401,
+  "display_name": "Albert-Ludwigs-Universität Freiburg, 4, Elsässer Straße, Mooswald-Ost, Mooswald, Freiburg im Breisgau, Baden-Württemberg, 79110, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Albert-Ludwigs-Universität Freiburg, Germany": {
+  "lat": 48.0022957,
+  "lon": 7.8491401,
+  "display_name": "Albert-Ludwigs-Universität Freiburg, 4, Elsässer Straße, Mooswald-Ost, Mooswald, Freiburg im Breisgau, Baden-Württemberg, 79110, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Freiburg im Breisgau, Baden-Württemberg, Germany": {
+  "lat": 47.9960901,
+  "lon": 7.8494005,
+  "display_name": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Freiburg im Breisgau, Germany": {
+  "lat": 47.9960901,
+  "lon": 7.8494005,
+  "display_name": "Freiburg im Breisgau, Baden-Württemberg, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ }
 }

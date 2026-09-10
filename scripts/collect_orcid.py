@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import json
 
-from common import BALSEIRO_NAME_PATTERNS, RAW, cached_get, strip_accents
+from common import RAW, cached_get, _matches_balseiro_text
 
 SEARCH_TERMS = [
     'affiliation-org-name:"Instituto Balseiro"',
@@ -23,15 +23,13 @@ SEARCH_TERMS = [
     'affiliation-org-name:"Centro Atómico Bariloche"',
     'affiliation-org-name:"Centro Atomico Bariloche"',
     'affiliation-org-name:"Bariloche Atomic Centre"',
+    'affiliation-org-name:"Comisión Nacional de Energía Atómica" AND affiliation-org-name:Bariloche',
 ]
 PUB = "https://pub.orcid.org/v3.0"
 
 
 def _matches_balseiro(text: str | None) -> bool:
-    if not text:
-        return False
-    t = strip_accents(text).lower()
-    return any(p in t for p in BALSEIRO_NAME_PATTERNS)
+    return _matches_balseiro_text(text) if text else False
 
 
 def _find_ids() -> set[str]:
@@ -128,13 +126,30 @@ def parse_record(oid: str, rec: dict, *, require_balseiro: bool = True):
     employments = list(_iter_affils(activities, "employments"))
 
     balseiro_edu = [e for e in educations + qualifications if _matches_balseiro(e["org"])]
-    if require_balseiro and not balseiro_edu:
+
+    # Argentine PhD students often log their CONICET/CNEA fellowship at CAB as
+    # *employment*, not education. Count an early Balseiro employment (a
+    # doctoral / fellowship / assistant role, or one starting before they were
+    # ~30) as "trained there" too.
+    _STUDENTY = ("phd", "doctora", "becari", "fellow", "estudiante", "student",
+                 "assistant", "ayudante", "graduate")
+    all_emp_years = [e["start_year"] for e in employments if e["start_year"]]
+    career_start = min(all_emp_years) if all_emp_years else None
+    balseiro_emp_early = [
+        e for e in employments if _matches_balseiro(e["org"]) and (
+            any(s in (e["role"] or "").lower() for s in _STUDENTY)
+            or (e["start_year"] and career_start and e["start_year"] <= career_start + 1))
+    ]
+    trained = bool(balseiro_edu) or bool(balseiro_emp_early)
+    if require_balseiro and not trained:
         return None
 
-    grad_year = max((e["end_year"] for e in balseiro_edu if e["end_year"]), default=None)
+    grad_year = max((e["end_year"] for e in balseiro_edu + balseiro_emp_early
+                     if e["end_year"]), default=None)
     degrees = sorted({e["role"] for e in balseiro_edu if e["role"]})
 
-    non_balseiro_emp = [e for e in employments if not _matches_balseiro(e["org"])]
+    non_balseiro_emp = [e for e in employments if not _matches_balseiro(e["org"])
+                        and e not in balseiro_emp_early]
     ongoing = [e for e in non_balseiro_emp if e["ongoing"]]
     if ongoing:
         current = max(ongoing, key=lambda e: e["start_year"] or 0)
@@ -158,7 +173,7 @@ def parse_record(oid: str, rec: dict, *, require_balseiro: bool = True):
         "biography": ((person.get("biography") or {}) or {}).get("content"),
         "current_employer": current, "all_employers": non_balseiro_emp,
         "all_education": [e["org"] for e in educations + qualifications if e["org"]],
-        "balseiro_edu": bool(balseiro_edu),
+        "balseiro_edu": trained,
         "balseiro_affiliate": any(_matches_balseiro(e["org"]) for e in employments),
     }
 

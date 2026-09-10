@@ -200,6 +200,17 @@
     "ongoing": false
    },
    {
+    "role": "Ingeniero de Sistemas Embebidos - Python & C Developer",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Reactor Nuclear RA0",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires F.D.",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2019,
+    "ongoing": false
+   },
+   {
     "role": "Options and Futures Trader - Algorithmic Trading (Python)",
     "org": "Matba-Rofex",
     "department": "Research",
@@ -299,6 +310,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0009-7326-1109",
+  "orcid": "0009-0009-7326-1109",
+  "name": "Agustin Bernardo",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-0800-5060",
   "orcid": "0000-0003-0800-5060",
   "name": "Agustín  Silva",
@@ -337,6 +361,19 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-3905-5389",
+  "orcid": "0000-0002-3905-5389",
+  "name": "Agustín Hernández Rocha",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-2782-8452",
   "orcid": "0000-0002-2782-8452",
   "name": "Aitor Fernández",
@@ -349,6 +386,197 @@
   "biography": null,
   "current_employer": null,
   "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0009-0655-9087",
+  "orcid": "0009-0009-0655-9087",
+  "name": "Alberto Fabián Lara",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Researcher",
+   "org": "Argentine Army – Directorate General for Research and Development",
+   "department": "Directorate General for Research and Development",
+   "city": "Buenos Aires",
+   "region": "Buenos Aires",
+   "country_code": "AR",
+   "start_year": 2023,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "Argentine Army – Directorate General for Research and Development",
+    "department": "Directorate General for Research and Development",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2023,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-4901-6527",
+  "orcid": "0000-0002-4901-6527",
+  "name": "Alberto Guillermo Arias",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": "I am a medical doctor and predoctoral researcher focusing on the development of novel therapies for the treatment of gliomas, particularly high-grade gliomas. My current research explores photodynamic therapy as a therapeutic strategy, utilizing both endogenous and exogenous photosensitizers to improve outcomes in these highly resistant tumors. I work at the Bariloche Atomic Center (CNEA) and am pursuing my PhD at the Faculty of Medicine, University of Buenos Aires (UBA), collaborating with international institutions in the study of new tumor biomarkers and ligands.",
+  "current_employer": {
+   "role": "Visiting Research Fellow. Study of peptide-drug conjugates for photodynamic therapy and the aberrant expression of the SNAP25 protein as a therapeutic target in high-grade gliomas. These approaches are also being explored for targeted radiotherapy with Lutetium-177",
+   "org": "Institute of Advanced Chemistry of Catalonia",
+   "department": "Biological Chemistry",
+   "city": "Barcelona",
+   "region": "Catalonia",
+   "country_code": "ES",
+   "start_year": 2025,
+   "end_year": 2025,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Visiting Research Fellow. Study of peptide-drug conjugates for photodynamic therapy and the aberrant expression of the SNAP25 protein as a therapeutic target in high-grade gliomas. These approaches are also being explored for targeted radiotherapy with Lutetium-177",
+    "org": "Institute of Advanced Chemistry of Catalonia",
+    "department": "Biological Chemistry",
+    "city": "Barcelona",
+    "region": "Catalonia",
+    "country_code": "ES",
+    "start_year": 2025,
+    "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": "In-hospital rotation",
+    "org": "FLENI",
+    "department": "Neurosurgery and Neuropathology & Molecular Biology Departments",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires F.D.",
+    "country_code": "AR",
+    "start_year": 2024,
+    "end_year": 2024,
+    "ongoing": false
+   },
+   {
+    "role": "Dora Plus visiting fellowship program. Preclinical study in Photodynamic Therapy in Glioblastoma treatment.",
+    "org": "University of Tartu",
+    "department": "Laboratory of Precision and Nanomedicine, Institute of Biomedicine and Translational Medicine, Faculty of Medicine",
+    "city": "Tartu",
+    "region": null,
+    "country_code": "EE",
+    "start_year": 2021,
+    "end_year": 2021,
+    "ongoing": false
+   },
+   {
+    "role": "Developing as a clinical doctor in inter medicine room. Monitoring and control of pacients with oncologic, infectologic, post surgical and puerperium among other pathologies",
+    "org": "Instituto Materno Infantil-IMI",
+    "department": "Clinica Medica",
+    "city": "San Carlos de Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2019,
+    "end_year": 2021,
+    "ongoing": false
+   },
+   {
+    "role": "Doing asistencial medicine including:  Complejo Tecnológico Pilcaniyeu (CNEA).  Until April 2019 Health center of Centro Atómico Bariloche (CNEA)  Until April 2019 Central guard of Hospital Privado Regional,  Activa emergencias médicas,",
+    "org": "Hospital Privado Regional",
+    "department": null,
+    "city": "San Carlos de Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2018,
+    "end_year": 2019,
+    "ongoing": false
+   },
+   {
+    "role": "Resident doctor. Responsible for biopsy entry and processing; Preparation of microscopic diagnoses including work with surgical material. Freezing biopsies including cytological diagnoses. Preparation, exposure and presence in-hospital athenaeums. International bibliography research. Rotation in neuropathology was included",
+    "org": "Hospital General de Agudos Dr Ignacio Pirovano",
+    "department": "Department of Pathology",
+    "city": "Buenos Aires",
+    "region": "Federal District",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2018,
+    "ongoing": false
+   },
+   {
+    "role": "Rotation",
+    "org": "Hospital General de Agudos Carlos G Durand",
+    "department": "Department of Pathology",
+    "city": "Buenos Aires",
+    "region": "Federal District",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2016,
+    "ongoing": false
+   },
+   {
+    "role": "Rotation",
+    "org": "Hospital de Clínicas José de San Martín",
+    "department": "Department of Pathology",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": 2015,
+    "ongoing": false
+   },
+   {
+    "role": "Research team where I could contemplate how to work in this area, the dynamics of publications and, among other things, assess their relationship with Pathological Anatomy.",
+    "org": "Instituto de Fisiopatología Cardiovascular of the UBA",
+    "department": null,
+    "city": "Buenos Aires",
+    "region": "City of Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": 2015,
+    "ongoing": false
+   },
+   {
+    "role": "Rotation",
+    "org": "Hospital Dr. Cosme Argerich",
+    "department": "Department of Pathology",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": 2015,
+    "ongoing": false
+   },
+   {
+    "role": "Ad honorem practice as MD student",
+    "org": "Fundación para la Lucha contra las Enfermedades Neurológicas de la Infancia",
+    "department": "Neurology Department",
+    "city": "Buenos Aires",
+    "region": "Federal District",
+    "country_code": "AR",
+    "start_year": 2011,
+    "end_year": 2011,
+    "ongoing": false
+   },
+   {
+    "role": "Ad honorem practice as a MD student",
+    "org": "Hospital Fernández",
+    "department": "Department of Neurology",
+    "city": "City of Buenos Aires",
+    "region": "City of Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2011,
+    "end_year": 2011,
+    "ongoing": false
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -394,6 +622,17 @@
     "country_code": "DE",
     "start_year": 2018,
     "end_year": 2022,
+    "ongoing": false
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Servicio de resonancia Magnética. Fundación Escuela Medicina Nuclear",
+    "city": "Mendoza",
+    "region": "Mendoza",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2018,
     "ongoing": false
    }
   ]
@@ -459,17 +698,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Investigador Adjunto",
-   "org": "CONICET Patagonia Norte",
-   "department": "Departamento de Caracterización de materiales, Centro atómico- Bariloche",
-   "city": "Rio Negro",
+   "role": "Investigador",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Caracterización de materiales",
+   "city": "BARILOCHE",
    "region": "Río Negro",
    "country_code": "AR",
-   "start_year": 2021,
+   "start_year": 2022,
    "end_year": null,
    "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Investigador",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Caracterización de materiales",
+    "city": "BARILOCHE",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2022,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Investigador Adjunto",
     "org": "CONICET Patagonia Norte",
@@ -616,17 +866,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Investigador Principal",
-   "org": "CONICET Patagonia Norte",
-   "department": "Instituto de Nanociencia y nanotencnología",
+   "role": "Jefe División Resonancias Magnéticas",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": "Ciencia de Materiales",
    "city": "Bariloche",
    "region": "Río Negro",
    "country_code": "AR",
-   "start_year": 1998,
+   "start_year": 2016,
    "end_year": null,
    "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Jefe División Resonancias Magnéticas",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Ciencia de Materiales",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Investigador Principal",
     "org": "CONICET Patagonia Norte",
@@ -648,6 +909,78 @@
     "start_year": 1992,
     "end_year": null,
     "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-7875-3609",
+  "orcid": "0000-0001-7875-3609",
+  "name": "Alejandro Fainstein",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-8106-4193",
+  "orcid": "0000-0001-8106-4193",
+  "name": "alejandro ferron",
+  "grad_year": 2011,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://sites.google.com/site/alejandroferronwp/home"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Professor/PhD Physics",
+   "org": "Facultad de Ciencias Exactas, Naturales y Agrimensura de la Universidad Nacional del Nordeste",
+   "department": "Physics",
+   "city": "Corrientes",
+   "region": "Corrientes",
+   "country_code": "AR",
+   "start_year": 2012,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Professor/PhD Physics",
+    "org": "Facultad de Ciencias Exactas, Naturales y Agrimensura de la Universidad Nacional del Nordeste",
+    "department": "Physics",
+    "city": "Corrientes",
+    "region": "Corrientes",
+    "country_code": "AR",
+    "start_year": 2012,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Researcher",
+    "org": "Instituto de Modelado e Innovación Tecnológica (CONICET-UNNE)",
+    "department": "NanoPhysics",
+    "city": "Corrientes",
+    "region": "Corrientes",
+    "country_code": "AR",
+    "start_year": 2011,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Postdoc",
+    "org": "International Iberian Nanotechnology Laboratory",
+    "department": null,
+    "city": "Braga",
+    "region": null,
+    "country_code": "PT",
+    "start_year": 2013,
+    "end_year": 2015,
+    "ongoing": false
    }
   ]
  },
@@ -783,6 +1116,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0001-9703-0526",
+  "orcid": "0009-0001-9703-0526",
+  "name": "Alejandro Said Núñez Selin",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-9475-6356",
   "orcid": "0000-0002-9475-6356",
   "name": "Alejo Rossia",
@@ -855,6 +1201,76 @@
   "biography": null,
   "current_employer": null,
   "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-8953-3924",
+  "orcid": "0000-0002-8953-3924",
+  "name": "Alexandre NICOLAS",
+  "grad_year": 2016,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://ilm-perso.univ-lyon1.fr/~anicolas"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Researcher",
+   "org": "CNRS Délégation Rhône-Auvergne",
+   "department": null,
+   "city": "Villeurbanne",
+   "region": "Rhône-Alpes",
+   "country_code": "FR",
+   "start_year": 2019,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "CNRS Délégation Rhône-Auvergne",
+    "department": null,
+    "city": "Villeurbanne",
+    "region": "Rhône-Alpes",
+    "country_code": "FR",
+    "start_year": 2019,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Research analyst",
+    "org": "Explain Consultancy",
+    "department": null,
+    "city": "LYON",
+    "region": null,
+    "country_code": "FR",
+    "start_year": 2018,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Postdoctoral Researcher",
+    "org": "CNRS Délégation Ile-de-France Sud",
+    "department": "LPTMS",
+    "city": "Orsay",
+    "region": "Île-de-France",
+    "country_code": "FR",
+    "start_year": 2016,
+    "end_year": 2018,
+    "ongoing": false
+   },
+   {
+    "role": null,
+    "org": "Université Grenoble-Alpes",
+    "department": "Laboratoire Interdisciplinaire de Physique",
+    "city": "Grenoble",
+    "region": null,
+    "country_code": "FR",
+    "start_year": 2011,
+    "end_year": 2015,
+    "ongoing": false
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -1116,6 +1532,17 @@
     "start_year": 2023,
     "end_year": 2026,
     "ongoing": false
+   },
+   {
+    "role": "Scholarship holder",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Balseiro Institute",
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2019,
+    "end_year": 2022,
+    "ongoing": false
    }
   ]
  },
@@ -1203,6 +1630,41 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-6579-0424",
+  "orcid": "0000-0002-6579-0424",
+  "name": "Analia Zwick",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Researcher",
+   "org": "National Scientific and Technical Research Council",
+   "department": "Medical Physics, Nanoscience and Nanotechnology Institute",
+   "city": "Bariloche",
+   "region": "Rio Negro",
+   "country_code": "AR",
+   "start_year": 2016,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "National Scientific and Technical Research Council",
+    "department": "Medical Physics, Nanoscience and Nanotechnology Institute",
+    "city": "Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0009-0003-6299-0134",
   "orcid": "0009-0003-6299-0134",
   "name": "Analía Soldati",
@@ -1244,6 +1706,41 @@
     "region": "Rio Negro",
     "country_code": "AR",
     "start_year": 2010,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-8963-7950",
+  "orcid": "0000-0002-8963-7950",
+  "name": "Andrea Juarez",
+  "grad_year": 2022,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "researcher",
+   "org": "Centro Atomico Constituyentes",
+   "department": "Laboratorio Bioambiental",
+   "city": "San Rafael",
+   "region": "Mendoza",
+   "country_code": "AR",
+   "start_year": 2022,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "researcher",
+    "org": "Centro Atomico Constituyentes",
+    "department": "Laboratorio Bioambiental",
+    "city": "San Rafael",
+    "region": "Mendoza",
+    "country_code": "AR",
+    "start_year": 2022,
     "end_year": null,
     "ongoing": true
    }
@@ -1323,6 +1820,63 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-9391-6047",
+  "orcid": "0000-0002-9391-6047",
+  "name": "Andres Daniel Perez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Postdoctoral position",
+   "org": "Instituto de Física Teórica",
+   "department": null,
+   "city": "Madrid",
+   "region": "Madrid",
+   "country_code": "ES",
+   "start_year": 2022,
+   "end_year": 2025,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Postdoctoral position",
+    "org": "Instituto de Física Teórica",
+    "department": null,
+    "city": "Madrid",
+    "region": "Madrid",
+    "country_code": "ES",
+    "start_year": 2022,
+    "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral position",
+    "org": "Instituto de Física La Plata",
+    "department": null,
+    "city": "La Plata",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2020,
+    "end_year": 2022,
+    "ongoing": false
+   },
+   {
+    "role": "Doctoral position",
+    "org": "Universidad de Buenos Aires, Departamento de Física",
+    "department": "Physics Department",
+    "city": "Buenos Aires",
+    "region": "Ciudad de Bs As",
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": 2020,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-6256-8545",
   "orcid": "0000-0002-6256-8545",
   "name": "Andrés Felipe Rivera Romero",
@@ -1357,6 +1911,19 @@
     "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0003-8998-9344",
+  "orcid": "0009-0003-8998-9344",
+  "name": "Andrés Matías Boasso",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -1438,7 +2005,7 @@
   "id": "0000-0002-9113-3532",
   "orcid": "0000-0002-9113-3532",
   "name": "Ariel Megevand",
-  "grad_year": 1999,
+  "grad_year": 2000,
   "degrees": [
    "Graduate",
    "PhD"
@@ -1578,10 +2145,23 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0003-6339-9979",
+  "orcid": "0009-0003-6339-9979",
+  "name": "Armando Palacio Romeu",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-2370-4014",
   "orcid": "0000-0002-2370-4014",
   "name": "Arnaldi, L. H.",
-  "grad_year": 2021,
+  "grad_year": 2023,
   "degrees": [
    "PhD"
   ],
@@ -1631,6 +2211,17 @@
     "country_code": "FR",
     "start_year": 2023,
     "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": "R&D Engineer",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Partículas y Campos",
+    "city": "San Carlos de Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2010,
+    "end_year": 2023,
     "ongoing": false
    }
   ]
@@ -1707,6 +2298,131 @@
     "country_code": "AR",
     "start_year": 2017,
     "end_year": 2022,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-4461-8289",
+  "orcid": "0000-0002-4461-8289",
+  "name": "Aurelia Chenu",
+  "grad_year": 2006,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://chenulab.com"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Associate Professor",
+   "org": "University of Luxembourg",
+   "department": "DPhyMS",
+   "city": "Luxembourg",
+   "region": null,
+   "country_code": "LU",
+   "start_year": 2021,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Associate Professor",
+    "org": "University of Luxembourg",
+    "department": "DPhyMS",
+    "city": "Luxembourg",
+    "region": null,
+    "country_code": "LU",
+    "start_year": 2021,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Research Scientist",
+    "org": "University of Luxembourg",
+    "department": "Physics and Materials Science (PhyMS)",
+    "city": "Luxembourg",
+    "region": null,
+    "country_code": "LU",
+    "start_year": 2021,
+    "end_year": 2021,
+    "ongoing": false
+   },
+   {
+    "role": "Ikerbasque Research Fellow",
+    "org": "Donostia International Physics Center",
+    "department": "DIPC",
+    "city": "San Sebastian",
+    "region": null,
+    "country_code": "ES",
+    "start_year": 2019,
+    "end_year": 2020,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Associate",
+    "org": "Los Alamos National Laboratory",
+    "department": "Condensed Matter",
+    "city": "Los Alamos",
+    "region": "New Mexico",
+    "country_code": "US",
+    "start_year": 2018,
+    "end_year": 2019,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Fellow",
+    "org": "Massachusetts Institute of Technology",
+    "department": "Chemistry",
+    "city": "Cambridge",
+    "region": "MA",
+    "country_code": "US",
+    "start_year": 2016,
+    "end_year": 2018,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Fellow",
+    "org": "University of Toronto",
+    "department": "Theoretical Chemical Physics",
+    "city": "Toronto",
+    "region": "ON",
+    "country_code": "CA",
+    "start_year": 2013,
+    "end_year": 2015,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Associate",
+    "org": "Charles University",
+    "department": "Faculty of Mathematics and Physics",
+    "city": "Prague",
+    "region": null,
+    "country_code": "CZ",
+    "start_year": 2011,
+    "end_year": 2012,
+    "ongoing": false
+   },
+   {
+    "role": "PhD Candidate",
+    "org": "Paul Scherrer Institute",
+    "department": null,
+    "city": "Villigen",
+    "region": null,
+    "country_code": "CH",
+    "start_year": 2007,
+    "end_year": 2011,
+    "ongoing": false
+   },
+   {
+    "role": "Master Research Project",
+    "org": "Commissariat à l'Energie Atomique et aux énergies alternatives",
+    "department": null,
+    "city": "Cadarache",
+    "region": null,
+    "country_code": "FR",
+    "start_year": 2007,
+    "end_year": 2007,
     "ongoing": false
    }
   ]
@@ -1791,6 +2507,17 @@
     "country_code": "AR",
     "start_year": 2000,
     "end_year": 2024,
+    "ongoing": false
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Centro Atómico Bariloche, Río Negro, Argentina",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 1985,
+    "end_year": 1997,
     "ongoing": false
    }
   ]
@@ -1882,6 +2609,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0009-3089-0642",
+  "orcid": "0009-0009-3089-0642",
+  "name": "Berenice Rosa Ester Alvarez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-1885-0436",
   "orcid": "0000-0003-1885-0436",
   "name": "Boris Maiorov",
@@ -1917,6 +2657,19 @@
     "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0000-6764-9793",
+  "orcid": "0009-0000-6764-9793",
+  "name": "Bruno Mosconi",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -1985,9 +2738,8 @@
   "id": "0000-0002-8376-924X",
   "orcid": "0000-0002-8376-924X",
   "name": "Carlos Alberto RAMOS",
-  "grad_year": 2017,
+  "grad_year": 1985,
   "degrees": [
-   "Jefe Laboratorio Resonancias Magnétias",
    "PhD Physics"
   ],
   "keywords": [],
@@ -2013,6 +2765,17 @@
     "region": "Rio Negro",
     "country_code": "AR",
     "start_year": 2012,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "RESEARCHER",
+    "org": "COMISION NACIONAL DE ENERGIA ATOMICA",
+    "department": null,
+    "city": "Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 1983,
     "end_year": null,
     "ongoing": true
    },
@@ -2079,17 +2842,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Physics Teacher",
-   "org": "Buenos Aires Ciudad Ministerio de Educación",
-   "department": null,
+   "role": "Energy Enalyst",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Division of Nuclear Prospective and Strategic Planning",
    "city": "Buenos Aires",
-   "region": "Buenos Aires",
+   "region": null,
    "country_code": "AR",
-   "start_year": 2019,
+   "start_year": 2020,
    "end_year": null,
    "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Energy Enalyst",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Division of Nuclear Prospective and Strategic Planning",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2020,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Physics Teacher",
     "org": "Buenos Aires Ciudad Ministerio de Educación",
@@ -2102,6 +2876,19 @@
     "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0009-9826-9510",
+  "orcid": "0009-0009-9826-9510",
+  "name": "Carlos Eduardo Valencia Urbina",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -2349,7 +3136,7 @@
   "id": "0000-0002-7991-933X",
   "orcid": "0000-0002-7991-933X",
   "name": "Cecilia Ileana Ventura",
-  "grad_year": 1993,
+  "grad_year": 2004,
   "degrees": [
    "Doctor in Physics"
   ],
@@ -2444,6 +3231,26 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0003-0112-6035",
+  "orcid": "0009-0003-0112-6035",
+  "name": "Cecilia Nahir Jandar",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "Fiber optic",
+   "Optical sensors",
+   "Optical thermometry",
+   "Upconversion nanoparticles"
+  ],
+  "urls": [
+   "http://www.linkedin.com/in/ jandarcecilia"
+  ],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0009-0002-3838-7813",
   "orcid": "0009-0002-3838-7813",
   "name": "Celina Selena  Minue",
@@ -2492,7 +3299,7 @@
   "id": "0000-0002-2597-5061",
   "orcid": "0000-0002-2597-5061",
   "name": "Cesar Clauser",
-  "grad_year": null,
+  "grad_year": 2018,
   "degrees": [
    "PhD in Physics"
   ],
@@ -2565,6 +3372,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0005-5658-8493",
+  "orcid": "0009-0005-5658-8493",
+  "name": "Chiara Nicole Lombardo MZ",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-6485-6305",
   "orcid": "0000-0002-6485-6305",
   "name": "Christian Marcel",
@@ -2593,6 +3413,17 @@
     "department": "Thermalhydraulics",
     "city": "Rio Negro",
     "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2007,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Thermalhydraulics",
+    "city": "Bariloche",
+    "region": "Rio Negro",
     "country_code": "AR",
     "start_year": 2007,
     "end_year": null,
@@ -2774,6 +3605,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0006-4569-3105",
+  "orcid": "0009-0006-4569-3105",
+  "name": "Claudio Sebastian Sigvard",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-5103-0248",
   "orcid": "0000-0002-5103-0248",
   "name": "Craievich A F",
@@ -2915,6 +3759,17 @@
     "start_year": 2022,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Radioprotection officer",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Radiological Protection",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2022,
+    "ongoing": false
    }
   ]
  },
@@ -3058,6 +3913,32 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0001-9046-0243",
+  "orcid": "0000-0001-9046-0243",
+  "name": "Cristina Guibaldo",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0003-5107-8297",
+  "orcid": "0009-0003-5107-8297",
+  "name": "Cristopher Rolando Tene Chávez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-5086-0779",
   "orcid": "0000-0001-5086-0779",
   "name": "César Daniel Fosco",
@@ -3156,8 +4037,41 @@
    "https://www.linkedin.com/in/leocorzi/"
   ],
   "biography": "A proactive Ph.D. in Engineering Sciences and Electronic Engineer with an exceptional ability to collaborate within multidisciplinary teams. An enthusiastic professional, specialized in Experimental Particle and Nuclear Physics Instrumentation, continuously seeking challenges in the design of detection systems.\nDoctoral research at the Instituto Balseiro focused on the application of CMOS sensors for direct radiation detection, specifically for high-spatial resolution radiographic imaging and computed tomography. Expertise encompasses radiation-matter interaction, semiconductor detector operation, mitigation of radiation damage effects, and digital image processing. Technical background is further strengthened by the development of an FPGA-based Multichannel Scaler for neutron noise analysis, carried out during the Postgraduate Specialization in Technological Applications of Nuclear Energy. This project involved studying the temporal distribution of neutron populations using signals from scintillation detectors. Foundational expertise was established through an Electronic Engineering degree from the Universidad Tecnológica Nacional, with a strong focus on the implementation of embedded systems into microcontrollers, hardware description for Field-Programmable Gate Arrays (FPGA), and digital image processing.\nCurrently serving as a Development Engineer at the National Atomic Energy Commission (Comisión Nacional de Energía Atómica, CNEA). R&D activities are focused on microelectronics, embedded systems, the effects of radiation on electronic devices, and radiation detectors. Projects are led regarding the design and characterization of CMOS image sensors for high-spatial resolution radiography and computed tomography. Collaboration involves the execution of multidisciplinary activities to develop custom instrumentation for nuclear applications and radiation detection systems. In parallel, a position is held as a Teaching Assistant at the Department of Telecommunication Engineering of the Instituto Balseiro. Lectures and laboratory sessions are delivered for the undergraduate courses “Teoría de Circuitos” (Circuit Theory) and “Introducción a la Electrónica” (Introduction to Electronics).",
-  "current_employer": null,
-  "all_employers": []
+  "current_employer": {
+   "role": "Development Engineer",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Departamento de Ingeniería en Telecomunicaciones",
+   "city": "Buenos Aires",
+   "region": "Buenos Aires F.D.",
+   "country_code": "AR",
+   "start_year": 2023,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Development Engineer",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Departamento de Ingeniería en Telecomunicaciones",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires F.D.",
+    "country_code": "AR",
+    "start_year": 2023,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Research Scholar",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": null,
+    "city": "San Carlos de Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2020,
+    "end_year": 2023,
+    "ongoing": false
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -3352,6 +4266,19 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0001-6777-9184",
+  "orcid": "0000-0001-6777-9184",
+  "name": "Daniel Julio Garcia",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-8421-7781",
   "orcid": "0000-0001-8421-7781",
   "name": "Daniel Levi",
@@ -3456,6 +4383,32 @@
     "ongoing": false
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-4822-2193",
+  "orcid": "0000-0002-4822-2193",
+  "name": "Daniel Romero Rosales",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0009-2038-704X",
+  "orcid": "0009-0009-2038-704X",
+  "name": "Daniela Lioren Suarez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -3584,6 +4537,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0005-6955-7469",
+  "orcid": "0009-0005-6955-7469",
+  "name": "David Eduardo Tolabin",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-5180-3685",
   "orcid": "0000-0002-5180-3685",
   "name": "Denise  Cammarota",
@@ -3607,7 +4573,7 @@
   "id": "0000-0002-4518-6895",
   "orcid": "0000-0002-4518-6895",
   "name": "Diana Betancourth",
-  "grad_year": null,
+  "grad_year": 2020,
   "degrees": [
    "PhD. Physics"
   ],
@@ -3849,6 +4815,41 @@
     "country_code": "DE",
     "start_year": 2001,
     "end_year": 2003,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-4103-0316",
+  "orcid": "0000-0002-4103-0316",
+  "name": "Diego G. Franco",
+  "grad_year": 2015,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Pos-doc",
+   "org": "Max Planck Institute for Chemical Phyisics of Solids",
+   "department": "Physics of Quantum Materials",
+   "city": "Dresden",
+   "region": "Sachsen",
+   "country_code": "DE",
+   "start_year": 2015,
+   "end_year": 2018,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Pos-doc",
+    "org": "Max Planck Institute for Chemical Phyisics of Solids",
+    "department": "Physics of Quantum Materials",
+    "city": "Dresden",
+    "region": "Sachsen",
+    "country_code": "DE",
+    "start_year": 2015,
+    "end_year": 2018,
     "ongoing": false
    }
   ]
@@ -4226,6 +5227,28 @@
     "start_year": 2017,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Ingeniero",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Departamento Materiales Nucleares",
+    "city": "Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2013,
+    "end_year": 2017,
+    "ongoing": false
+   },
+   {
+    "role": "Becario Maestría",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Departamento Materiales Nucleares - División Aplicaciones Médicas e Industriales",
+    "city": "Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2010,
+    "end_year": 2012,
+    "ongoing": false
    }
   ]
  },
@@ -4241,8 +5264,30 @@
   "keywords": [],
   "urls": [],
   "biography": null,
-  "current_employer": null,
-  "all_employers": []
+  "current_employer": {
+   "role": "Becario",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Robótica - Proyecto CAREM",
+   "city": "Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2015,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Becario",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Robótica - Proyecto CAREM",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -4283,10 +5328,83 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-2082-4790",
+  "orcid": "0000-0002-2082-4790",
+  "name": "Efrain Carreño-Morelli",
+  "grad_year": 1995,
+  "degrees": [],
+  "keywords": [
+   "additive manufacturing",
+   "powder metallurgy"
+  ],
+  "urls": [
+   "https://www.linkedin.com/in/efra%C3%ADn-carre%C3%B1o-morelli-2a7ab819a/"
+  ],
+  "biography": "Efraín Carreño-Morelli, Professor of Materials Technology, was born in 1966 in Córdoba (Argentina) and has the swiss, argentinian and italian citizenships. At the age of 15 he entered National University of Córdoba, from which he graduated in 1989 with a MSc in Physics. Then, he moved to the Atomic Centre of Bariloche to pursue a PhD Thesis on the subject \"Metallurgical properties of Al-Mg-Si alloys subjected to neutron irradiation and thermomechanical treatments\", which he submitted in 1994. In parallel with his studies of physics and materials science, he also followed courses of astronomy, medicine and philosophy. Working with the oil industry in Patagonia, he developed in 1994 a monitoring system to evaluate the operation condition of sucker rod pumps (pumpjacks), which was successfully tested, commercialized, and used in several oil wells. Arriving at the Swiss Federal Institute of Technology Lausanne EPFL in 1995, he was a research assistant in the Physics Department, where he performed investigations on the processing and damping behaviour of metal matrix composites, dislocation dynamics in ordered intermetallic compounds, and anelastic properties of aluminium alloys. In 2000 he joined the Swiss Federal Institute of Materials Testing and Research EMPA in Thun, where he was a project manager in the development of metal matrix composites.\nDr. Carreño-Morelli assumed in 2001 his present position with the University of Applied Sciences and Arts Western Switzerland in Sion. He currently teaches in several courses of materials science and engineering, including powder metallurgy, composite materials and ceramics technology. His research interests are in the fields of powder metallurgy, additive manufacturing, and processing of metal-ceramic composites. At the Institute of Systems Engineering, he has been responsible for setting-up the technologies of powder injection moulding for metals and ceramics, press and sintering, laser powder bed fusion, binder jetting and ink-jet based three dimensional printing.  Among his major achievements are the powder injection moulding of titanium from titanium hydride, the additive manufacturing of fully dense hard metals and the net-shape processing of superelastic and shape memory alloys. He is the inventor of the Solvent on Granules 3D Printing (SG-3DP) technique, which led to five patent applications and one granted patent.",
+  "current_employer": {
+   "role": "Full Professor on Materials Science and Technology",
+   "org": "University of Applied Sciences and Arts Western Switzerland",
+   "department": "School of Engineering",
+   "city": "Sion",
+   "region": null,
+   "country_code": "CH",
+   "start_year": 2001,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Full Professor on Materials Science and Technology",
+    "org": "University of Applied Sciences and Arts Western Switzerland",
+    "department": "School of Engineering",
+    "city": "Sion",
+    "region": null,
+    "country_code": "CH",
+    "start_year": 2001,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Project leader",
+    "org": "Empa Materials Science and Technology",
+    "department": "Materials Technology",
+    "city": "Thun",
+    "region": null,
+    "country_code": "CH",
+    "start_year": 2000,
+    "end_year": 2001,
+    "ongoing": false
+   },
+   {
+    "role": "Research assistant",
+    "org": "EPFL Swiss Federal Institute of Technology",
+    "department": "Physical Metallurgy - Institute \"Génie Atomique\"",
+    "city": "Lausanne",
+    "region": null,
+    "country_code": "CH",
+    "start_year": 1995,
+    "end_year": 2000,
+    "ongoing": false
+   },
+   {
+    "role": "Teaching Assistant",
+    "org": "National University of Córdoba",
+    "department": "FaMAF Faculty of Mathematics, Astronomy and Physics",
+    "city": "Córdoba",
+    "region": "Cordoba",
+    "country_code": "AR",
+    "start_year": 1985,
+    "end_year": 1988,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0009-0002-4369-8085",
   "orcid": "0009-0002-4369-8085",
   "name": "Eider D. Torres",
-  "grad_year": 2025,
+  "grad_year": 2031,
   "degrees": [
    "MSc in Physics"
   ],
@@ -4351,6 +5469,17 @@
     "country_code": "ES",
     "start_year": 2019,
     "end_year": 2024,
+    "ongoing": false
+   },
+   {
+    "role": "Técnico de Sala Limpia",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Departamento de Micro y Nanotecnología",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2012,
+    "end_year": 2014,
     "ongoing": false
    }
   ]
@@ -4482,6 +5611,22 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-6028-4274",
+  "orcid": "0000-0002-6028-4274",
+  "name": "Enio Lima Jr",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "Nanomagnetism",
+   "Nanoparticles"
+  ],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-5793-534X",
   "orcid": "0000-0001-5793-534X",
   "name": "Enrique Miranda",
@@ -4532,16 +5677,27 @@
   "biography": null,
   "current_employer": {
    "role": "Researcher",
-   "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
-   "department": "Engineering",
-   "city": "Buenos Aires",
-   "region": "Buenos Aires F.D.",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Computational Mechanics",
+   "city": "San Carlos de Bariloche",
+   "region": "Río Negro",
    "country_code": "AR",
    "start_year": 1997,
    "end_year": null,
    "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Computational Mechanics",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 1997,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Researcher",
     "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
@@ -4862,6 +6018,65 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0001-8516-6146",
+  "orcid": "0000-0001-8516-6146",
+  "name": "Ezequiel E. Ferrero",
+  "grad_year": 2013,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://www.ezequielferrero.com"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Researcher",
+   "org": "Universitat de Barcelona",
+   "department": "Condensed Matter Physics",
+   "city": "Barcelona",
+   "region": null,
+   "country_code": "ES",
+   "start_year": 2022,
+   "end_year": 2024,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "Universitat de Barcelona",
+    "department": "Condensed Matter Physics",
+    "city": "Barcelona",
+    "region": null,
+    "country_code": "ES",
+    "start_year": 2022,
+    "end_year": 2024,
+    "ongoing": false
+   },
+   {
+    "role": "postdoc",
+    "org": "Università degli Studi di Milano",
+    "department": "Physics Department",
+    "city": "Milano",
+    "region": "Lombardia",
+    "country_code": "IT",
+    "start_year": 2017,
+    "end_year": 2017,
+    "ongoing": false
+   },
+   {
+    "role": "postdoc",
+    "org": "Université Grenoble Alpes",
+    "department": "LIPhy",
+    "city": "Saint-Martin-d'Heres",
+    "region": "Rhône-Alpes",
+    "country_code": "FR",
+    "start_year": 2013,
+    "end_year": 2017,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-4388-5606",
   "orcid": "0000-0003-4388-5606",
   "name": "Ezequiel Lozano",
@@ -4969,6 +6184,59 @@
     "country_code": "AR",
     "start_year": 2016,
     "end_year": 2018,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-9339-8286",
+  "orcid": "0000-0002-9339-8286",
+  "name": "F. Matias",
+  "grad_year": 2020,
+  "degrees": [],
+  "keywords": [
+   "Hadron Therapy",
+   "Real-time TDDFT-Penn",
+   "Stopping Cross Section",
+   "and Nuclear Batteries"
+  ],
+  "urls": [
+   "https://publons.com/researcher/2481200/flavio-matias/"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Post-doctoral Researcher",
+   "org": "Nuclear and Energy Research Institute - IPEN-CNEN/SP",
+   "department": "Nuclear Engineering Center (CEENG)",
+   "city": "São Paulo",
+   "region": "SP",
+   "country_code": "BR",
+   "start_year": 2022,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Post-doctoral Researcher",
+    "org": "Nuclear and Energy Research Institute - IPEN-CNEN/SP",
+    "department": "Nuclear Engineering Center (CEENG)",
+    "city": "São Paulo",
+    "region": "SP",
+    "country_code": "BR",
+    "start_year": 2022,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Professor",
+    "org": "Federal University of Paraná",
+    "department": "Department of Physics",
+    "city": "Curitiba",
+    "region": "Paraná",
+    "country_code": "BR",
+    "start_year": 2019,
+    "end_year": 2020,
     "ongoing": false
    }
   ]
@@ -5121,17 +6389,28 @@
   ],
   "biography": null,
   "current_employer": {
-   "role": "Project and General Manager",
-   "org": "ARSAT/CEATSA",
-   "department": "Space",
-   "city": "Bariloche",
-   "region": "Rio Negro",
+   "role": "Gerente",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": "Empresas y Desarrollo de Recursos Económicos",
+   "city": "Buenos Aires",
+   "region": null,
    "country_code": "AR",
-   "start_year": 2010,
-   "end_year": 2017,
-   "ongoing": false
+   "start_year": 2018,
+   "end_year": null,
+   "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Gerente",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Empresas y Desarrollo de Recursos Económicos",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2018,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Project and General Manager",
     "org": "ARSAT/CEATSA",
@@ -5188,6 +6467,47 @@
     "region": "La Pampa",
     "country_code": "AR",
     "start_year": null,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-8011-5737",
+  "orcid": "0000-0001-8011-5737",
+  "name": "Federico D. Domínguez",
+  "grad_year": 2020,
+  "degrees": [],
+  "keywords": [
+   "Decoherence",
+   "Nuclear Magnetic Resonance",
+   "Quantum Computation"
+  ],
+  "urls": [
+   "https://www.linkedin.com/in/federico-dominguez-/"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Quantum Software Engineer",
+   "org": "ParityQC",
+   "department": null,
+   "city": "München",
+   "region": "Bayern",
+   "country_code": "DE",
+   "start_year": 2022,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Quantum Software Engineer",
+    "org": "ParityQC",
+    "department": null,
+    "city": "München",
+    "region": "Bayern",
+    "country_code": "DE",
+    "start_year": 2022,
     "end_year": null,
     "ongoing": true
    }
@@ -5409,6 +6729,63 @@
     "country_code": "FR",
     "start_year": 1995,
     "end_year": 1999,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0003-3078-3811",
+  "orcid": "0000-0003-3078-3811",
+  "name": "Fernando Fabris",
+  "grad_year": 2019,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Professor",
+   "org": "Universidade Federal Fluminense",
+   "department": "Physics",
+   "city": "Niterói",
+   "region": "Rio de Janeiro",
+   "country_code": "BR",
+   "start_year": 2025,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Professor",
+    "org": "Universidade Federal Fluminense",
+    "department": "Physics",
+    "city": "Niterói",
+    "region": "Rio de Janeiro",
+    "country_code": "BR",
+    "start_year": 2025,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Professor",
+    "org": "Universidade Federal do Mato grosso",
+    "department": "Ciências Exatas e da Terra",
+    "city": "Barra do Garças",
+    "region": "MT",
+    "country_code": "BR",
+    "start_year": 2025,
+    "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": null,
+    "org": "State University of Campinas",
+    "department": "Gleb Wataghin Physics Institute",
+    "city": "Campinas",
+    "region": "sao paulo",
+    "country_code": "BR",
+    "start_year": 2019,
+    "end_year": 2025,
     "ongoing": false
    }
   ]
@@ -5672,6 +7049,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0006-9573-709X",
+  "orcid": "0009-0006-9573-709X",
+  "name": "Francisco Valentín Pereyra Aponte",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-9117-4860",
   "orcid": "0000-0002-9117-4860",
   "name": "Franco Nicolas PINAN BASUALDO",
@@ -5784,11 +7174,10 @@
   "id": "0009-0005-8708-9195",
   "orcid": "0009-0005-8708-9195",
   "name": "Franco Pasian",
-  "grad_year": 2018,
+  "grad_year": 2016,
   "degrees": [
    "Bachelor's degree",
-   "Master of Science in Applied Physics and Technology",
-   "Specialization in Medical Physics"
+   "Master of Science in Applied Physics and Technology"
   ],
   "keywords": [
    "Data Science",
@@ -5857,6 +7246,65 @@
     "start_year": 2018,
     "end_year": 2019,
     "ongoing": false
+   },
+   {
+    "role": "Research and Development Fellow",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Bioengineer",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2018,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0004-2843-5898",
+  "orcid": "0009-0004-2843-5898",
+  "name": "Gaston Avetta",
+  "grad_year": 2024,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0003-0625-8854",
+  "orcid": "0009-0003-0625-8854",
+  "name": "Gaston Burlot",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": null,
+   "org": "Universidad del Aconcagua",
+   "department": null,
+   "city": "Mendoza",
+   "region": null,
+   "country_code": "AR",
+   "start_year": null,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": null,
+    "org": "Universidad del Aconcagua",
+    "department": null,
+    "city": "Mendoza",
+    "region": null,
+    "country_code": "AR",
+    "start_year": null,
+    "end_year": null,
+    "ongoing": true
    }
   ]
  },
@@ -5909,6 +7357,32 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0003-4964-2015",
+  "orcid": "0000-0003-4964-2015",
+  "name": "Gastón  Alonso",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0005-6157-1207",
+  "orcid": "0009-0005-6157-1207",
+  "name": "Gastón Sebastian Villafañe",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-8945-0539",
   "orcid": "0000-0002-8945-0539",
   "name": "Georgina De Micco",
@@ -5942,8 +7416,32 @@
     "start_year": 2009,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Head Division/Ph.D.",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Centro Atómico Bariloche",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2002,
+    "end_year": null,
+    "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-9471-8811",
+  "orcid": "0000-0001-9471-8811",
+  "name": "Geraldina Golup",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -6088,30 +7586,8 @@
    "https://scholar.google.com/citations?user=LUH06dgAAAAJ&hl=en"
   ],
   "biography": null,
-  "current_employer": {
-   "role": "Researcher and Professor",
-   "org": "Bariloche Atomic Centre",
-   "department": "Instituto Balseiro",
-   "city": "Bariloche",
-   "region": "Rio Negro",
-   "country_code": "AR",
-   "start_year": null,
-   "end_year": null,
-   "ongoing": true
-  },
-  "all_employers": [
-   {
-    "role": "Researcher and Professor",
-    "org": "Bariloche Atomic Centre",
-    "department": "Instituto Balseiro",
-    "city": "Bariloche",
-    "region": "Rio Negro",
-    "country_code": "AR",
-    "start_year": null,
-    "end_year": null,
-    "ongoing": true
-   }
-  ]
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -6283,6 +7759,242 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-3471-0962",
+  "orcid": "0000-0002-3471-0962",
+  "name": "Gieberth Rodriguez-Lopez",
+  "grad_year": 2024,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Postdoctoral Researcher",
+   "org": "Instituto de Física del Sur",
+   "department": "IFISUR",
+   "city": "Bahía Blanca",
+   "region": null,
+   "country_code": "AR",
+   "start_year": 2024,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Postdoctoral Researcher",
+    "org": "Instituto de Física del Sur",
+    "department": "IFISUR",
+    "city": "Bahía Blanca",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2024,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Postdoctoral Researcher",
+    "org": "Instituto Venezolano de Investigaciones Científicas",
+    "department": "Centro de Estudios Interdisciplinarios de la Física (CEIF)",
+    "city": "Caracas",
+    "region": "Distrito Capital",
+    "country_code": "VE",
+    "start_year": 2019,
+    "end_year": 2023,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0000-6546-4445",
+  "orcid": "0009-0000-6546-4445",
+  "name": "Gilberto Ortiz",
+  "grad_year": 2008,
+  "degrees": [
+   "Política Energética para el Desarrollo Sustentable y uso del Modelo LEAP",
+   "Regulación y Tarifas Aplicado a la Industria Energética"
+  ],
+  "keywords": [],
+  "urls": [
+   "http://www.investigadores.utp.ac.pa/investigadores/gilberto.ortiz",
+   "https://giecelee.utp.ac.pa/",
+   "http://conecto.senacyt.gob.pa/conecto/display/n1364"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Ingeniero",
+   "org": "Universidad Tecnológica de Panamá",
+   "department": "Energía y Ambiente",
+   "city": "Panama City",
+   "region": null,
+   "country_code": "PA",
+   "start_year": 1997,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Ingeniero",
+    "org": "Universidad Tecnológica de Panamá",
+    "department": "Energía y Ambiente",
+    "city": "Panama City",
+    "region": null,
+    "country_code": "PA",
+    "start_year": 1997,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-7328-357X",
+  "orcid": "0000-0002-7328-357X",
+  "name": "Gonzalo A. Alvarez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "brain imaging",
+   "decoherence",
+   "diffusion weighted imaging",
+   "dynamical decoupling",
+   "irreversibility",
+   "magnetic resonance imaging",
+   "many body physics",
+   "molecular diffusion",
+   "nmr",
+   "non-invasive imaging",
+   "quantum information and computation",
+   "quantum physics",
+   "quantum technologies",
+   "quantum zeno effect",
+   "spin chains",
+   "spin coherence",
+   "spin dynamics",
+   "spin systems",
+   "tissue microstructure"
+  ],
+  "urls": [
+   "https://fisica.cab.cnea.gov.ar/nmrsi/",
+   "http://fisica.cab.cnea.gov.ar/galvarez",
+   "http://gaalvarez.wordpress.com/",
+   "http://www.famaf.unc.edu.ar/~galvarez"
+  ],
+  "biography": "My research activity is directed towards exploiting hitherto unexplored foundations of quantum control methods for tailoring spin evolutions in order to develop novel technologies and applications in the areas of nuclear magnetic resonance spectroscopy (NMR) and imaging (MRI). The main topic of my publications is about the spin dynamics of open quantum systems interacting with environments focusing on the characterization of the system dynamics and how it is modified by the environment (decoherence and dissipation). At the practical level, using both NMR experiments and theoretical tools, I am exploiting that by monitoring the changes on the system due to the environmental effects, one can sense the environment for characterizing physical, chemical, biological and medical processes to lead to new applications and technologies in magnetic resonance. At the fundamental level, the understanding and control of quantum interference phenomena, and in particular the propagation of spin excitations can improve our comprehension and control of quantum systems, their decoherence and irreversible processes.",
+  "current_employer": {
+   "role": "Independent Researcher (Investigador Independiente)",
+   "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
+   "department": null,
+   "city": "Bariloche",
+   "region": null,
+   "country_code": "AR",
+   "start_year": 2019,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Independent Researcher (Investigador Independiente)",
+    "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
+    "department": null,
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2019,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Adjoint Researcher (Investigador adjunto)",
+    "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
+    "department": null,
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2019,
+    "ongoing": false
+   },
+   {
+    "role": "Visiting Scientist",
+    "org": "Weizmann Institute of Science",
+    "department": "Chemical Physics Department",
+    "city": "Rehovot",
+    "region": null,
+    "country_code": "IL",
+    "start_year": 2015,
+    "end_year": 2015,
+    "ongoing": false
+   },
+   {
+    "role": "Marie Curie Senior Fellow of the European Commission and Visiting Scientist",
+    "org": "Weizmann Institute of Science",
+    "department": "Chemical Physics Department",
+    "city": "Rehovot",
+    "region": null,
+    "country_code": "IL",
+    "start_year": 2013,
+    "end_year": 2015,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Fellow",
+    "org": "Weizmann Institute of Science",
+    "department": "Chemical Physics Department",
+    "city": "Rehovot",
+    "region": null,
+    "country_code": "IL",
+    "start_year": 2012,
+    "end_year": 2013,
+    "ongoing": false
+   },
+   {
+    "role": "Associated Scientist (Forschungsmitarbeiter)",
+    "org": "Technische Universität Dortmund Fakultät Physik",
+    "department": null,
+    "city": "Dortmund",
+    "region": "Nordrhein-Westfalen",
+    "country_code": "DE",
+    "start_year": 2011,
+    "end_year": 2012,
+    "ongoing": false
+   },
+   {
+    "role": "•\tPostdoctoral Fellow of the Alexander von Humboldt Foundation",
+    "org": "Technische Universität Dortmund Fakultät Physik",
+    "department": null,
+    "city": "Dortmund",
+    "region": "Nordrhein-Westfalen",
+    "country_code": "DE",
+    "start_year": 2008,
+    "end_year": 2011,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Fellow of CONICET",
+    "org": "Universidad Nacional de Córdoba Facultad de Matemática Astronomía y Física",
+    "department": null,
+    "city": "Cordoba",
+    "region": "Córdoba",
+    "country_code": "AR",
+    "start_year": 2007,
+    "end_year": 2009,
+    "ongoing": false
+   },
+   {
+    "role": "Doctoral Fellow of CONICET",
+    "org": "Universidad Nacional de Córdoba Facultad de Matemática Astronomía y Física",
+    "department": null,
+    "city": "Cordoba",
+    "region": "Córdoba",
+    "country_code": "AR",
+    "start_year": 2002,
+    "end_year": 2007,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-2836-9478",
   "orcid": "0000-0003-2836-9478",
   "name": "Guido Giuntoli",
@@ -6363,10 +8075,84 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0003-1276-7500",
+  "orcid": "0000-0003-1276-7500",
+  "name": "Guillermo R. Zemba",
+  "grad_year": 1999,
+  "degrees": [],
+  "keywords": [
+   "Conformal Field Theory",
+   "Effective Field Theories",
+   "Mott Transition",
+   "Quantum Hall Effect",
+   "Quantum Phase Transitions"
+  ],
+  "urls": [],
+  "biography": "I am a Theoretical Physicist interested in Effective Field Theories and their applications to Condensed Matter and Statistical Systems. I am active in the application of extended Conformal Field Theories to the Quantum Hall Effect and to the Algebraic Bosonization of one-dimensional systems. I'm also interested in the Bosonization of higher dimensional systems, and in applications of Field Theoretic methods to Biology. I also give special attention to recent mathematical results which are connected to my research, like the W-infinity Algebras and higher-dimensional Modular Geometry.",
+  "current_employer": {
+   "role": "Professor",
+   "org": "Pontificia Universidad Católica Argentina",
+   "department": "Physics - Facultad de Ingeniería y Ciencias Agrarias",
+   "city": "Buenos Aires",
+   "region": null,
+   "country_code": "AR",
+   "start_year": 2004,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Professor",
+    "org": "Pontificia Universidad Católica Argentina",
+    "department": "Physics - Facultad de Ingeniería y Ciencias Agrarias",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2004,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Physics Dept - Tandar Lab.",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 1996,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Professor",
+    "org": "Universidad Nacional de Mar del Plata",
+    "department": "Physics and Astronomy",
+    "city": "Mar del Plata",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2001,
+    "end_year": 2006,
+    "ongoing": false
+   },
+   {
+    "role": "Professor",
+    "org": "Universidad Favaloro",
+    "department": "Physics",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 1999,
+    "end_year": 2004,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-5912-0646",
   "orcid": "0000-0001-5912-0646",
   "name": "Guillermo Rozas",
-  "grad_year": 2011,
+  "grad_year": 2020,
   "degrees": [
    "Bachelor in Physics",
    "Doctor in Physics",
@@ -6398,6 +8184,17 @@
     "region": "Río Negro",
     "country_code": "AR",
     "start_year": 2013,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "LASIE Spectroscopy Lab, Bariloche Atomic Center",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2011,
     "end_year": null,
     "ongoing": true
    },
@@ -6512,6 +8309,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0003-5346-4976",
+  "orcid": "0009-0003-5346-4976",
+  "name": "Gustavo Mauricio Meneses Ancalle",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-8825-4253",
   "orcid": "0000-0002-8825-4253",
   "name": "Gustavo Quintero Marquina",
@@ -6592,7 +8402,7 @@
   "id": "0000-0002-4559-8785",
   "orcid": "0000-0002-4559-8785",
   "name": "H. Asorey",
-  "grad_year": 2012,
+  "grad_year": 2013,
   "degrees": [
    "Doctor in Physics",
    "Licenciado in Physics",
@@ -6633,6 +8443,39 @@
     "country_code": "AR",
     "start_year": 2018,
     "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Medical Physics Department",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": "Head of the Medical Physics Department",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Medical Physics Department",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2021,
+    "ongoing": false
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Particles and Radiation Detection Laboratory",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2010,
+    "end_year": 2016,
     "ongoing": false
    },
    {
@@ -6710,6 +8553,28 @@
     "country_code": "AR",
     "start_year": 2006,
     "end_year": 2006,
+    "ongoing": false
+   },
+   {
+    "role": "MSc student fellow",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Centro Atómico Bariloche",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2005,
+    "end_year": 2005,
+    "ongoing": false
+   },
+   {
+    "role": "Undergradaute student (fellow)",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Centro Atómico Bariloche",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2002,
+    "end_year": 2004,
     "ongoing": false
    },
    {
@@ -6795,16 +8660,55 @@
     "start_year": 2019,
     "end_year": 2025,
     "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-7690-014X",
+  "orcid": "0000-0002-7690-014X",
+  "name": "Herculano da Silva Martinho",
+  "grad_year": 2001,
+  "degrees": [
+   "Advanced School on Condensed Matter Physics"
+  ],
+  "keywords": [],
+  "urls": [
+   "http://pesquisa.ufabc.edu.br/gbiof/"
+  ],
+  "biography": "Has degree in Physics (1997) from Campinas State University (UNICAMP). He conducted his post-graduate studies (master and PhD) on Condensed Matter field  working superconductors and magnetic materials in the same University. Has experience on Raman spectroscopy, thermal and magnetic characterization of materials. At present he is Assistant Professor at ABC Federal University  (UFABC) working with physical properties of biological systems and optical biopsy. He is the head of the Multiuser Central Facilities of UFABC.",
+  "current_employer": {
+   "role": "Associate Professor",
+   "org": "Universidade Federal do ABC",
+   "department": "Centro de Ciências Naturais e Humanas",
+   "city": "Santo Andre",
+   "region": "SP",
+   "country_code": "BR",
+   "start_year": 2008,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Associate Professor",
+    "org": "Universidade Federal do ABC",
+    "department": "Centro de Ciências Naturais e Humanas",
+    "city": "Santo Andre",
+    "region": "SP",
+    "country_code": "BR",
+    "start_year": 2008,
+    "end_year": null,
+    "ongoing": true
    },
    {
-    "role": "PhD in Physics",
-    "org": "Bariloche Atomic Centre",
-    "department": "Low temperature Lab",
-    "city": "Bariloche",
-    "region": "Rio Negro",
-    "country_code": "AR",
-    "start_year": 2014,
-    "end_year": 2018,
+    "role": "Assistant Professor",
+    "org": "Universidade do Vale do Paraiba",
+    "department": "Instituto de Pesquisa & Desenvolvimento",
+    "city": "Sao Jose dos Campos",
+    "region": "SP",
+    "country_code": "BR",
+    "start_year": 2005,
+    "end_year": 2008,
     "ongoing": false
    }
   ]
@@ -6889,6 +8793,17 @@
     "start_year": 2012,
     "end_year": 2012,
     "ongoing": false
+   },
+   {
+    "role": "Research Engineer",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Thermohidraulica",
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2010,
+    "end_year": 2011,
+    "ongoing": false
    }
   ]
  },
@@ -6920,8 +8835,30 @@
   "keywords": [],
   "urls": [],
   "biography": null,
-  "current_employer": null,
-  "all_employers": []
+  "current_employer": {
+   "role": "Scholar",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Radioprotection",
+   "city": "Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2021,
+   "end_year": 2023,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Scholar",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Radioprotection",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2021,
+    "end_year": 2023,
+    "ongoing": false
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -6988,6 +8925,19 @@
    "Licenciatura en Física",
    "M.Sc."
   ],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0005-5399-9107",
+  "orcid": "0009-0005-5399-9107",
+  "name": "Ignacio Lembo Ferrari",
+  "grad_year": null,
+  "degrees": [],
   "keywords": [],
   "urls": [],
   "biography": null,
@@ -7065,6 +9015,67 @@
     "start_year": 2021,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Gerente de Área",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Gerencia de Área de Investigación y Aplicaciones No Nucleares",
+    "city": "San Carlos de Bariloche",
+    "region": "Río negro",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2021,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-4525-2346",
+  "orcid": "0000-0002-4525-2346",
+  "name": "Ivan da Cunha Lima",
+  "grad_year": 1970,
+  "degrees": [],
+  "keywords": [
+   "Condensed Matter Physics",
+   "Fluid Dynamics",
+   "Physics"
+  ],
+  "urls": [],
+  "biography": "Professor of the Graduate Program in Computational Modeling in Industrial Technology at Centro Universitário SENAI-Cimatec, Bahia. Director of the company Pursuelife - Consultancy on Applied Science. Retired Full Professor at the Physics Institute of the State University of Rio de Janeiro. Retired Full Researcher at the National Institute for Space Research - INPE / MCT. Invited Full Professor, Universités de Paris VI et VII, approved in an international public competition (1996-1999). Associate Member (1985-1989) and Senior Associate (1989-1993) of the International Center for Theoretical Physics, Trieste, Italy. Honorary Citizen of Huntsville, Alabama, United States of America, home of NASA's Marshall Space Flight Center (1982). Professor at the Physics Institute of the University of São Paulo (1989). Fulbright Schollar (1982-1983). Postdoctoral fellow at the Department of Physics, Brown University (1982-1983). Post-doctorate at Hochfeldmagnetlabor, Max-Planck Institute für Festkorperforschung (1976-1977). PhD from the Physics Institute of the State University of Campinas (1976). Master by the Physics Institute of the State University of Campinas (1972). Research Intern at Centro Atómico Bariloche, Argentina (1968-1970). Bachelor of Physics from the Institute of Physics of the Federal University of Bahia (1968), graduating from the School of Geology of the Federal University of Bahia (1964-1967). Work areas: previously, Condensed Matter Physics (semiconductor nanostructures, diluted magnetic semiconductors, spintronics, charge and spin transport). Currently, fluid dynamics, (correlations of fields in turbulent external and internal flow; fluid dynamics in Ocean Engineering; fluid flow in porous media; reservoir simulation). Captain Amateur certified by the Brazilian Navy for ocean navigation.",
+  "current_employer": {
+   "role": "Professor",
+   "org": "Centro Universitário SENAI-Cimatec",
+   "department": null,
+   "city": "Salvador",
+   "region": "Bahia",
+   "country_code": "BR",
+   "start_year": 2016,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Professor",
+    "org": "Centro Universitário SENAI-Cimatec",
+    "department": null,
+    "city": "Salvador",
+    "region": "Bahia",
+    "country_code": "BR",
+    "start_year": 2016,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": null,
+    "org": "Pursuelife-Consultancy on Applied Science",
+    "department": null,
+    "city": "Salvador",
+    "region": "Bahia",
+    "country_code": "BR",
+    "start_year": 2015,
+    "end_year": null,
+    "ongoing": true
    }
   ]
  },
@@ -7100,6 +9111,17 @@
     "region": "Rio Negro",
     "country_code": "AR",
     "start_year": 2024,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Head",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Departamento de Física de Neutrones",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2022,
     "end_year": null,
     "ongoing": true
    },
@@ -7560,17 +9582,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Postdoc",
-   "org": "Laboratoire de Photonique et de Nanostructures",
-   "department": "ELPHYSE",
-   "city": "Marcoussis",
-   "region": "Ile-de-France",
-   "country_code": "FR",
-   "start_year": 2009,
-   "end_year": 2011,
-   "ongoing": false
+   "role": null,
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": null,
+   "city": "Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2004,
+   "end_year": null,
+   "ongoing": true
   },
   "all_employers": [
+   {
+    "role": null,
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": null,
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2004,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Postdoc",
     "org": "Laboratoire de Photonique et de Nanostructures",
@@ -7656,6 +9689,41 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0003-0289-7838",
+  "orcid": "0000-0003-0289-7838",
+  "name": "Javier Dawidowski",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Head",
+   "org": "Consejo Nacional de Investigaciones Cientificas y Tecnicas",
+   "department": "Física de Neutrones",
+   "city": "Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 1995,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Head",
+    "org": "Consejo Nacional de Investigaciones Cientificas y Tecnicas",
+    "department": "Física de Neutrones",
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 1995,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-0912-4141",
   "orcid": "0000-0003-0912-4141",
   "name": "Javier Hernán Lohr",
@@ -7680,6 +9748,17 @@
   "all_employers": [
    {
     "role": null,
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Laboratorio Argentino de Haces de Neutrones",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires F.D.",
+    "country_code": "AR",
+    "start_year": null,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": null,
     "org": "Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET)",
     "department": "Laboratorio Argentino de Haces de Neutrones",
     "city": "Buenos Aires",
@@ -7696,7 +9775,7 @@
   "id": "0000-0001-8430-8747",
   "orcid": "0000-0001-8430-8747",
   "name": "Javier Luzuriaga",
-  "grad_year": 1979,
+  "grad_year": 2017,
   "degrees": [
    "PHD"
   ],
@@ -7705,6 +9784,52 @@
   "biography": null,
   "current_employer": null,
   "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-9019-0367",
+  "orcid": "0000-0002-9019-0367",
+  "name": "Jeremías Aguilera Damia",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Postdoc",
+   "org": "Université Libre de Bruxelles",
+   "department": "Physics",
+   "city": "Brussels",
+   "region": "Wallonia-Brussels",
+   "country_code": "BE",
+   "start_year": 2020,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Postdoc",
+    "org": "Université Libre de Bruxelles",
+    "department": "Physics",
+    "city": "Brussels",
+    "region": "Wallonia-Brussels",
+    "country_code": "BE",
+    "start_year": 2020,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Visitor",
+    "org": "Stanford University",
+    "department": "Physics",
+    "city": "Stanford",
+    "region": "California",
+    "country_code": "US",
+    "start_year": 2018,
+    "end_year": 2019,
+    "ongoing": false
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -7752,6 +9877,19 @@
   "degrees": [
    "Mg."
   ],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0003-2255-0487",
+  "orcid": "0000-0003-2255-0487",
+  "name": "Joaquín Fernández",
+  "grad_year": null,
+  "degrees": [],
   "keywords": [],
   "urls": [],
   "biography": null,
@@ -8206,8 +10344,30 @@
   "keywords": [],
   "urls": [],
   "biography": null,
-  "current_employer": null,
-  "all_employers": []
+  "current_employer": {
+   "role": "Senior Scientist",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Neutron Physics",
+   "city": "Buenos Aires",
+   "region": "Buenos Aires",
+   "country_code": "AR",
+   "start_year": 1976,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Senior Scientist",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Neutron Physics",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 1976,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -8392,7 +10552,7 @@
   "id": "0000-0002-8252-7273",
   "orcid": "0000-0002-8252-7273",
   "name": "José D. Querales-Flores",
-  "grad_year": 2016,
+  "grad_year": 2017,
   "degrees": [
    "Doctor in Physics"
   ],
@@ -8428,17 +10588,6 @@
     "start_year": 2017,
     "end_year": null,
     "ongoing": true
-   },
-   {
-    "role": "Postdoctoral Fellow",
-    "org": "Bariloche Atomic Centre",
-    "department": null,
-    "city": "Bariloche",
-    "region": null,
-    "country_code": "AR",
-    "start_year": 2016,
-    "end_year": 2017,
-    "ongoing": false
    }
   ]
  },
@@ -8622,8 +10771,30 @@
   "keywords": [],
   "urls": [],
   "biography": null,
-  "current_employer": null,
-  "all_employers": []
+  "current_employer": {
+   "role": "Investigador",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": "Irradiación de Alimentos",
+   "city": "Ezeiza",
+   "region": "Buenos Aires",
+   "country_code": "AR",
+   "start_year": 2015,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Investigador",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Irradiación de Alimentos",
+    "city": "Ezeiza",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -9044,6 +11215,19 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-1114-4611",
+  "orcid": "0000-0002-1114-4611",
+  "name": "Julio César Azcárate",
+  "grad_year": 2016,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-1697-6433",
   "orcid": "0000-0002-1697-6433",
   "name": "Julio David Melon Fuksman",
@@ -9126,6 +11310,23 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-0167-9364",
+  "orcid": "0000-0002-0167-9364",
+  "name": "Julio Marín",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "Neutron imaging"
+  ],
+  "urls": [
+   "https://www.linkedin.com/pub/julio-mar%C3%ADn/19/942/598"
+  ],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-3469-7112",
   "orcid": "0000-0002-3469-7112",
   "name": "Karen Hallberg",
@@ -9204,7 +11405,7 @@
   "id": "0000-0003-3285-9891",
   "orcid": "0000-0003-3285-9891",
   "name": "L. Avilés-Félix",
-  "grad_year": 2015,
+  "grad_year": 2018,
   "degrees": [
    "Ph.D. in Physics"
   ],
@@ -9529,6 +11730,32 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0006-5624-9210",
+  "orcid": "0009-0006-5624-9210",
+  "name": "Lautaro Giordano",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0001-2078-0062",
+  "orcid": "0009-0001-2078-0062",
+  "name": "lautaro saba",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0009-0001-7034-7953",
   "orcid": "0009-0001-7034-7953",
   "name": "Leandro Martinek",
@@ -9628,6 +11855,41 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0003-0687-0288",
+  "orcid": "0000-0003-0687-0288",
+  "name": "Leonardo de Jesus Salazar Alarcon",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Asistant Researcher",
+   "org": "CONICET-PATAGONIA NORTE",
+   "department": "CNEA-Dispositivos y Sensores",
+   "city": "Bariloche",
+   "region": "Rio Negro",
+   "country_code": "AR",
+   "start_year": 2023,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Asistant Researcher",
+    "org": "CONICET-PATAGONIA NORTE",
+    "department": "CNEA-Dispositivos y Sensores",
+    "city": "Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2023,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-0883-7134",
   "orcid": "0000-0002-0883-7134",
   "name": "Leonardo Oña",
@@ -9704,17 +11966,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Investigador Independiente",
-   "org": "CONICET Patagonia Norte",
+   "role": "Investigador TNG310",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
    "department": "Departamento Caracterización de Materiales-Centro Atómico Bariloche-Gerencia de Investigación Aplicada",
-   "city": "Rio Negro",
-   "region": "Río Negro",
+   "city": "Bariloche",
+   "region": null,
    "country_code": "AR",
    "start_year": 2016,
    "end_year": null,
    "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Investigador TNG310",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Departamento Caracterización de Materiales-Centro Atómico Bariloche-Gerencia de Investigación Aplicada",
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Investigador Independiente",
     "org": "CONICET Patagonia Norte",
@@ -9997,8 +12270,32 @@
     "start_year": 2014,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Research reactor RA-6",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2006,
+    "end_year": null,
+    "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0005-2492-9871",
+  "orcid": "0009-0005-2492-9871",
+  "name": "Lucas Agustin Becerra",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -10049,6 +12346,19 @@
     "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0006-4010-7023",
+  "orcid": "0009-0006-4010-7023",
+  "name": "Lucas Marcio Brugevin",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -10482,6 +12792,41 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0001-7057-8789",
+  "orcid": "0000-0001-7057-8789",
+  "name": "Luiz Menon",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "PhD. candidate",
+   "org": "Pontifícia Universidade Católica do Rio de Janeiro Departamento de Física",
+   "department": "Physics",
+   "city": "Rio de Janeiro",
+   "region": "RJ",
+   "country_code": "BR",
+   "start_year": 2021,
+   "end_year": 2026,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "PhD. candidate",
+    "org": "Pontifícia Universidade Católica do Rio de Janeiro Departamento de Física",
+    "department": "Physics",
+    "city": "Rio de Janeiro",
+    "region": "RJ",
+    "country_code": "BR",
+    "start_year": 2021,
+    "end_year": 2026,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-0935-7949",
   "orcid": "0000-0003-0935-7949",
   "name": "M N Kuperman",
@@ -10580,6 +12925,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0008-7492-4755",
+  "orcid": "0009-0008-7492-4755",
+  "name": "Malen Maria Arias",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-1456-1645",
   "orcid": "0000-0003-1456-1645",
   "name": "Manuel Gonzalez",
@@ -10619,10 +12977,49 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-2135-3126",
+  "orcid": "0000-0002-2135-3126",
+  "name": "Manuel O. Caceres",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "Disorder.",
+   "Non-equilibrium",
+   "Statistical Physics"
+  ],
+  "urls": [],
+  "biography": "Prof. Dr. in Physics",
+  "current_employer": {
+   "role": "Senior Research",
+   "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
+   "department": "Physics",
+   "city": "Bariloche",
+   "region": "Patagonia",
+   "country_code": "AR",
+   "start_year": 1997,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Senior Research",
+    "org": "Consejo Nacional de Investigaciones Científicas y Técnicas",
+    "department": "Physics",
+    "city": "Bariloche",
+    "region": "Patagonia",
+    "country_code": "AR",
+    "start_year": 1997,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-0757-654X",
   "orcid": "0000-0003-0757-654X",
   "name": "Mara Granada",
-  "grad_year": 2007,
+  "grad_year": 2009,
   "degrees": [
    "Doctora en Física (PhD in Physics)",
    "Licenciada en Física"
@@ -10631,17 +13028,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Researcher at CONICET",
-   "org": "Instituto de Nanociencia y Nanotecnología, CNEA-CONICET",
-   "department": null,
+   "role": "Researcher",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Dept. of Magnetism and Magnetic Materials",
    "city": "San Carlos de Bariloche",
    "region": "Río Negro",
    "country_code": "AR",
-   "start_year": 2009,
+   "start_year": 2023,
    "end_year": null,
    "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Dept. of Magnetism and Magnetic Materials",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2023,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Researcher at CONICET",
     "org": "Instituto de Nanociencia y Nanotecnología, CNEA-CONICET",
@@ -10841,6 +13249,19 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-3829-7722",
+  "orcid": "0000-0002-3829-7722",
+  "name": "Marcelo Vasquez Mansilla",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0009-0007-2486-9252",
   "orcid": "0009-0007-2486-9252",
   "name": "Marco Antonio  Morales Ovalle",
@@ -10992,6 +13413,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0009-4256-3040",
+  "orcid": "0009-0009-4256-3040",
+  "name": "Maria Emilia Battista Peragallo",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-4856-3032",
   "orcid": "0000-0003-4856-3032",
   "name": "Maria Guraya",
@@ -10999,6 +13433,41 @@
   "degrees": [
    "Dr"
   ],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Head",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": "Separación Isotópica",
+   "city": "S.C. de Bariloche",
+   "region": "Rio Negro",
+   "country_code": "AR",
+   "start_year": 2007,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Head",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Separación Isotópica",
+    "city": "S.C. de Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2007,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0003-0011-4294",
+  "orcid": "0009-0003-0011-4294",
+  "name": "Maria Jose Orozco",
+  "grad_year": null,
+  "degrees": [],
   "keywords": [],
   "urls": [],
   "biography": null,
@@ -11137,6 +13606,71 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0000-1961-0149",
+  "orcid": "0009-0000-1961-0149",
+  "name": "Maria Victoria Castro",
+  "grad_year": 2021,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": "Former researcher in Metal Physics and materials for hydrogen storage. Experience in characterization techniques for materials research, mainly Transmission Electron Microscopy (TEM), but also Scanning Electron Microscopy (SEM), X-Ray Diffraction (XRD), hardness tests, electrical resistivity and others. Currently studying materials for smart coatings.",
+  "current_employer": {
+   "role": null,
+   "org": "Universidad de Cádiz",
+   "department": "Chemistry Physics",
+   "city": "Cadiz",
+   "region": "Andalusia",
+   "country_code": "ES",
+   "start_year": null,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": null,
+    "org": "Universidad de Cádiz",
+    "department": "Chemistry Physics",
+    "city": "Cadiz",
+    "region": "Andalusia",
+    "country_code": "ES",
+    "start_year": null,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-5073-3937",
+  "orcid": "0000-0002-5073-3937",
+  "name": "MARIA VICTORIA ROSATO-SIRI",
+  "grad_year": null,
+  "degrees": [
+   "PhD"
+  ],
+  "keywords": [
+   "Animal Physiology & Morphology",
+   "Materials",
+   "Mathematical Model (Medical)",
+   "Mechanical Systems",
+   "Medical Physics Metabolism",
+   "Metabolism",
+   "Molecular Probes",
+   "Neural Networks",
+   "Neurophysiology",
+   "Physical Properties",
+   "Physiological & Development Process",
+   "Physiological Controls & Systems",
+   "Physiological Processes",
+   "Protein Molecular & Cellular Entities"
+  ],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-9619-1379",
   "orcid": "0000-0002-9619-1379",
   "name": "Mariano Santaya",
@@ -11148,28 +13682,17 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Researcher",
-   "org": "Bariloche Atomic Centre",
-   "department": "Departamento de Caracterización de Materiales",
-   "city": "Bariloche",
+   "role": "Teacher",
+   "org": "National University of Río Negro",
+   "department": null,
+   "city": "Viedma",
    "region": "Rio Negro",
    "country_code": "AR",
-   "start_year": 2017,
-   "end_year": null,
-   "ongoing": true
+   "start_year": 2022,
+   "end_year": 2025,
+   "ongoing": false
   },
   "all_employers": [
-   {
-    "role": "Researcher",
-    "org": "Bariloche Atomic Centre",
-    "department": "Departamento de Caracterización de Materiales",
-    "city": "Bariloche",
-    "region": "Rio Negro",
-    "country_code": "AR",
-    "start_year": 2017,
-    "end_year": null,
-    "ongoing": true
-   },
    {
     "role": "Teacher",
     "org": "National University of Río Negro",
@@ -11266,6 +13789,19 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0003-3644-3754",
+  "orcid": "0000-0003-3644-3754",
+  "name": "Marina Arcagni",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-5596-5457",
   "orcid": "0000-0001-5596-5457",
   "name": "Mario Alberto Storti",
@@ -11350,7 +13886,7 @@
   "id": "0000-0001-6139-075X",
   "orcid": "0000-0001-6139-075X",
   "name": "Mario Solís",
-  "grad_year": 2016,
+  "grad_year": 2024,
   "degrees": [
    "Master in Physics",
    "PhD Physics"
@@ -11610,13 +14146,13 @@
   "urls": [],
   "biography": "Electronic Engineer and PhD in Engineering with experience in the development and evaluation of semiconductor radiation detectors. During my PhD thesis I worked in the development and applications of radiation detectors based on CMOS image sensors to use in thermal neutron detection, neutron imaging, and X-ray spectroscopy. Since 2021 I also have a researcher position at the Atomic Energy Commission of Argentina.",
   "current_employer": {
-   "role": "Postdoctoral Researcher",
-   "org": "Instituto de Microelectrónica de Barcelona",
-   "department": "Radiation Detector Group",
-   "city": "Cerdanyola del Vallès",
-   "region": null,
-   "country_code": "ES",
-   "start_year": null,
+   "role": "Researcher",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Gerencia Física",
+   "city": "San carlos de Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2021,
    "end_year": null,
    "ongoing": true
   },
@@ -11629,6 +14165,17 @@
     "region": null,
     "country_code": "ES",
     "start_year": null,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Gerencia Física",
+    "city": "San carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2021,
     "end_year": null,
     "ongoing": true
    }
@@ -11699,8 +14246,30 @@
   "keywords": [],
   "urls": [],
   "biography": null,
-  "current_employer": null,
-  "all_employers": []
+  "current_employer": {
+   "role": "Proffessional Staff",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": null,
+   "city": "Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": null,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Proffessional Staff",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": null,
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": null,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -11760,6 +14329,44 @@
     "start_year": null,
     "end_year": null,
     "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-9207-0089",
+  "orcid": "0000-0001-9207-0089",
+  "name": "María José Cortés Burgos",
+  "grad_year": 2025,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://www.researchgate.net/profile/Maria_Cortes62",
+   "https://www.linkedin.com/in/mar%C3%ADa-jos%C3%A9-cort%C3%A9s-burgos-367ab6198/"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Postdoctoral researcher",
+   "org": "Universidad de Concepción",
+   "department": "Departamento de Física, Facultad de Ciencias Físicas y Matemáticas",
+   "city": "Concepción",
+   "region": "Biobío",
+   "country_code": "CL",
+   "start_year": 2025,
+   "end_year": 2028,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Postdoctoral researcher",
+    "org": "Universidad de Concepción",
+    "department": "Departamento de Física, Facultad de Ciencias Físicas y Matemáticas",
+    "city": "Concepción",
+    "region": "Biobío",
+    "country_code": "CL",
+    "start_year": 2025,
+    "end_year": 2028,
+    "ongoing": false
    }
   ]
  },
@@ -11880,6 +14487,48 @@
     "region": "Buenos Aires",
     "country_code": "AR",
     "start_year": 2014,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0003-3814-3413",
+  "orcid": "0000-0003-3814-3413",
+  "name": "Matias Marticorena",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "Condition Monitoring",
+   "Dynamic Simulation",
+   "Finite Element Analysis",
+   "Vibration Analysis"
+  ],
+  "urls": [
+   "https://www.researchgate.net/profile/Matias-Marticorena"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "Head of Division",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": "Vibrations Division",
+   "city": "San Carlos de Bariloche",
+   "region": null,
+   "country_code": "AR",
+   "start_year": 2006,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Head of Division",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Vibrations Division",
+    "city": "San Carlos de Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2006,
     "end_year": null,
     "ongoing": true
    }
@@ -12020,6 +14669,21 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0004-1535-2313",
+  "orcid": "0009-0004-1535-2313",
+  "name": "Mauricio Jesús Pacheco Rodríguez",
+  "grad_year": 2025,
+  "degrees": [
+   "Pasantía"
+  ],
+  "keywords": [],
+  "urls": [],
+  "biography": "Undergraduate researcher interested in spintronics, spin rectification phenomena, and magnetic materials. Member of the SPIN-UNI research group.",
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-5808-4102",
   "orcid": "0000-0001-5808-4102",
   "name": "Mauro Namías",
@@ -12074,6 +14738,83 @@
     "start_year": 2005,
     "end_year": 2021,
     "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-9109-0499",
+  "orcid": "0000-0002-9109-0499",
+  "name": "Maximiliano Palacios Amaya",
+  "grad_year": 2015,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Profesor Adjunto interino",
+   "org": "Universidad Nacional del Comahue",
+   "department": "CRUB",
+   "city": "San Carlos de Bariloche",
+   "region": "Rio Negro",
+   "country_code": "AR",
+   "start_year": 2015,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Profesor Adjunto interino",
+    "org": "Universidad Nacional del Comahue",
+    "department": "CRUB",
+    "city": "San Carlos de Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2015,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-7564-5805",
+  "orcid": "0000-0001-7564-5805",
+  "name": "Micaela Gómez Jousse",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [
+   "Bioremediation",
+   "Biotechnology",
+   "Lipids",
+   "Metals",
+   "Microalgae",
+   "Microbiology"
+  ],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Becaria doctoral",
+   "org": "Centro Científico Tecnológico - Patagonia Norte",
+   "department": null,
+   "city": "Bariloche",
+   "region": null,
+   "country_code": "AR",
+   "start_year": 2021,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Becaria doctoral",
+    "org": "Centro Científico Tecnológico - Patagonia Norte",
+    "department": null,
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2021,
+    "end_year": null,
+    "ongoing": true
    }
   ]
  },
@@ -12144,17 +14885,6 @@
     "department": "Laboratorio Argentino de Haces de Neutrones",
     "city": "Buenos Aires",
     "region": "Buenos Aires F.D.",
-    "country_code": "AR",
-    "start_year": 2009,
-    "end_year": null,
-    "ongoing": true
-   },
-   {
-    "role": "Researcher",
-    "org": "Bariloche Atomic Centre",
-    "department": "Laboratorio Argentino de Haces de Neutrones",
-    "city": "Bariloche",
-    "region": "Rio Negro",
     "country_code": "AR",
     "start_year": 2009,
     "end_year": null,
@@ -12487,6 +15217,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0001-7175-4841",
+  "orcid": "0009-0001-7175-4841",
+  "name": "Nicolás Abate",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-7040-9341",
   "orcid": "0000-0002-7040-9341",
   "name": "Nicolás Chiaraviglio",
@@ -12506,7 +15249,7 @@
   "id": "0009-0005-0316-5497",
   "orcid": "0009-0005-0316-5497",
   "name": "Nicolás Ezequiel Avalos",
-  "grad_year": null,
+  "grad_year": 2025,
   "degrees": [
    "Doctor en Física"
   ],
@@ -12769,6 +15512,17 @@
     "start_year": 2022,
     "end_year": 2025,
     "ongoing": false
+   },
+   {
+    "role": "Graduate Student Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Neutron Physics Department, Bariloche Atomic Centre",
+    "city": "San Carlos de Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2019,
+    "end_year": 2022,
+    "ongoing": false
    }
   ]
  },
@@ -12819,6 +15573,17 @@
     "country_code": "AR",
     "start_year": 2015,
     "end_year": 2016,
+    "ongoing": false
+   },
+   {
+    "role": "Research and development engineer",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Isotopic separation",
+    "city": "Buenos Aires",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2013,
+    "end_year": 2015,
     "ongoing": false
    }
   ]
@@ -13126,17 +15891,28 @@
   "urls": [],
   "biography": null,
   "current_employer": {
-   "role": "Profesor invitado",
-   "org": "Universidad Mayor de San Simón",
-   "department": "Dirección de Posgrado FCYT - Departamento de Física",
-   "city": "Cochabamba",
-   "region": null,
-   "country_code": "BO",
-   "start_year": 2023,
-   "end_year": 2023,
-   "ongoing": false
+   "role": "Head of Department",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": "Radiation Protection",
+   "city": "San Carlos de Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2008,
+   "end_year": null,
+   "ongoing": true
   },
   "all_employers": [
+   {
+    "role": "Head of Department",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Radiation Protection",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2008,
+    "end_year": null,
+    "ongoing": true
+   },
    {
     "role": "Profesor invitado",
     "org": "Universidad Mayor de San Simón",
@@ -13149,6 +15925,111 @@
     "ongoing": false
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0006-4749-2008",
+  "orcid": "0009-0006-4749-2008",
+  "name": "Pablo Antonio Grizzi",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-9841-4169",
+  "orcid": "0000-0002-9841-4169",
+  "name": "Pablo Bueno",
+  "grad_year": 2021,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Associate Professor",
+   "org": "ICCUB",
+   "department": null,
+   "city": "Barcelona",
+   "region": "Catalonia",
+   "country_code": "ES",
+   "start_year": 2025,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Associate Professor",
+    "org": "ICCUB",
+    "department": null,
+    "city": "Barcelona",
+    "region": "Catalonia",
+    "country_code": "ES",
+    "start_year": 2025,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Junior",
+    "org": "Instituto de Ciencias del Cosmos, Universitat de Barcelona",
+    "department": null,
+    "city": "Barcelona",
+    "region": "Barcelona",
+    "country_code": "ES",
+    "start_year": 2022,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Senior Fellow",
+    "org": "CERN",
+    "department": "Theory Department",
+    "city": "Meyrin",
+    "region": null,
+    "country_code": "CH",
+    "start_year": 2021,
+    "end_year": 2022,
+    "ongoing": false
+   },
+   {
+    "role": "POSTDOC",
+    "org": "INSTITUTE FOR THEORETICAL PHYSICS",
+    "department": null,
+    "city": "LEUVEN",
+    "region": null,
+    "country_code": "BE",
+    "start_year": 2015,
+    "end_year": 2018,
+    "ongoing": false
+   },
+   {
+    "role": "VISITING GRADUATE FELLOW",
+    "org": "Perimeter Institute for Theoretical Physics",
+    "department": null,
+    "city": "Waterloo",
+    "region": "ON",
+    "country_code": "CA",
+    "start_year": 2013,
+    "end_year": 2014,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0002-0774-1787",
+  "orcid": "0009-0002-0774-1787",
+  "name": "Pablo Chehade",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -13265,6 +16146,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0004-9627-1055",
+  "orcid": "0009-0004-9627-1055",
+  "name": "Pablo Garcia Martinez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-5051-7193",
   "orcid": "0000-0002-5051-7193",
   "name": "Pablo Guillermo del Corro",
@@ -13344,6 +16238,107 @@
     "country_code": "FR",
     "start_year": 1997,
     "end_year": 2000,
+    "ongoing": false
+   },
+   {
+    "role": "Research engineer",
+    "org": "Comisión Nacional de Energía Atómica (CNEA)",
+    "department": "Centro Atomico Bariloche",
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 1996,
+    "end_year": 1997,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-8865-0144",
+  "orcid": "0000-0001-8865-0144",
+  "name": "Pablo Schönhals",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": "I’m a materials engineer currently working as a researcher in one of the most important organizations for R&D in Argentina. I also have experience in the private industry and have travelled the world. \nThe specific areas where I work on a daily basis are Fourier Transform Infrared Spectroscopy (FTIR), compressible flows through nozzles and cluster formation. As a part of a research group oriented to achieve a novel isotope separation processes, I have to deal with a lot of laboratory work, experiment design, prototype developing, extensive bibliographic search and creativity to explain phenomena and solve problems.\nI also have 3 years’ experience working on an international private company as a metallurgy analyst assessing quality control on the metallurgy aspect of the product, new products development, technical assistance on field, destructive and non-destructive tests data analysis.\nThese means I’ve experienced both the industry production and the public research sectors so I have a good understanding of their needs and trends.\nI’ve also spent some time abroad where I learned German, travelled the world and started informative blogging about travel. This really improved my creative writing and how to communicate to people in a comprehensive way. This has proved very useful to me on all my texts and when giving speeches as well.",
+  "current_employer": {
+   "role": "Researcher",
+   "org": "Comisión Nacional de Energía Atómica",
+   "department": null,
+   "city": "Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2019,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Researcher",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": null,
+    "city": "Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2019,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Metallurgy Analyst",
+    "org": "Tenaris Siderca",
+    "department": null,
+    "city": "Campana",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2014,
+    "end_year": 2016,
+    "ongoing": false
+   },
+   {
+    "role": "Junior Engineer",
+    "org": "Tenaris Siderca",
+    "department": null,
+    "city": "Campana",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2013,
+    "end_year": 2014,
+    "ongoing": false
+   },
+   {
+    "role": "Intern",
+    "org": "DNV GL Maritime",
+    "department": null,
+    "city": "Hamburg",
+    "region": "Hamburg",
+    "country_code": "DE",
+    "start_year": 2012,
+    "end_year": 2012,
+    "ongoing": false
+   },
+   {
+    "role": "Intern",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": null,
+    "city": "Buenos Aires",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2011,
+    "end_year": 2011,
+    "ongoing": false
+   },
+   {
+    "role": "Intern",
+    "org": "Universidad Nacional de Misiones",
+    "department": null,
+    "city": "Posadas",
+    "region": "Misiones",
+    "country_code": "AR",
+    "start_year": 2010,
+    "end_year": 2010,
     "ongoing": false
    }
   ]
@@ -13871,6 +16866,67 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-7232-865X",
+  "orcid": "0000-0002-7232-865X",
+  "name": "Pedro I. Soubelet",
+  "grad_year": 2019,
+  "degrees": [
+   "BSc. in Physics",
+   "MSc. in Physics",
+   "PhD. in Physics"
+  ],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Postdoc",
+   "org": "Laboratoire Charles Fabry",
+   "department": null,
+   "city": "Palaiseau",
+   "region": "Île-de-France",
+   "country_code": "FR",
+   "start_year": 2025,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Postdoc",
+    "org": "Laboratoire Charles Fabry",
+    "department": null,
+    "city": "Palaiseau",
+    "region": "Île-de-France",
+    "country_code": "FR",
+    "start_year": 2025,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Walter Benjamin Position",
+    "org": "Technical University of Munich",
+    "department": "Walter Schottky Institute",
+    "city": "Munich",
+    "region": "Bavaria",
+    "country_code": "DE",
+    "start_year": 2023,
+    "end_year": 2025,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoctoral Researcher",
+    "org": "TUM",
+    "department": "Walter Schottky Institute",
+    "city": "Munich",
+    "region": "Bavaria",
+    "country_code": "DE",
+    "start_year": 2019,
+    "end_year": 2023,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-2415-9812",
   "orcid": "0000-0002-2415-9812",
   "name": "Peter Thieberger",
@@ -14043,10 +17099,60 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-4851-4524",
+  "orcid": "0000-0002-4851-4524",
+  "name": "Raul Arias",
+  "grad_year": 2016,
+  "degrees": [
+   "Postdoc"
+  ],
+  "keywords": [],
+  "urls": [
+   "http://inspirehep.net/author/profile/R.E.Arias.1"
+  ],
+  "biography": "At present I'm Adjoint Researcher at Instituto de Física La Plata (IFLP) in Argentina. I obtained my PhD on Universidad Nacional de La Plata (UNLP) in Argentina on AdS/CFT (PhD advisor Guillermo Silva). After that I did a Postdoc on Centro Atómico Bariloche (Argentina) under the supervision of Horacio Casini and another two year research position on SISSA (Trieste, Italy) to work in the statistical physics group under the supervision of Erik Tonni.\nMy research interests are the study of quantum information quantities (like the modular Hamiltonian, entanglement entropy, entaglement negativity, ....) in quantum field theory and quantum gravity and also in statistical models.",
+  "current_employer": {
+   "role": "Associate Researcher",
+   "org": "CONICET",
+   "department": "Physics",
+   "city": "La Plata",
+   "region": "Buenos Aires",
+   "country_code": "AR",
+   "start_year": 2016,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Associate Researcher",
+    "org": "CONICET",
+    "department": "Physics",
+    "city": "La Plata",
+    "region": "Buenos Aires",
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Postdoctoral position",
+    "org": "Scuola Internazionale Superiore di Studi Avanzati",
+    "department": "Statistical Physics",
+    "city": "Trieste",
+    "region": "Friuli-Venezia Giulia",
+    "country_code": "IT",
+    "start_year": 2018,
+    "end_year": 2020,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-2404-8311",
   "orcid": "0000-0002-2404-8311",
   "name": "Raul Barrachina",
-  "grad_year": 1985,
+  "grad_year": 1989,
   "degrees": [
    "Licenciatura in Physics (equivalent to M.Sc.)",
    "Ph.D. in Physics"
@@ -14078,6 +17184,17 @@
     "ongoing": true
    },
    {
+    "role": "Principal Researcher A",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": null,
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 1986,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
     "role": "Vice-president of the Board of Directors",
     "org": "Institute of Nuclear Technologies for Health (INTECNUS)",
     "department": null,
@@ -14086,6 +17203,39 @@
     "country_code": "AR",
     "start_year": 2018,
     "end_year": 2022,
+    "ongoing": false
+   },
+   {
+    "role": "General Manager",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Academic Area",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2021,
+    "ongoing": false
+   },
+   {
+    "role": "Coordinator",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Academic Council",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2010,
+    "end_year": 2017,
+    "ongoing": false
+   },
+   {
+    "role": "Head",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Department of Interaction of Radiation with Matter, Bariloche Atomic Centre",
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2011,
+    "end_year": 2015,
     "ongoing": false
    },
    {
@@ -14379,6 +17529,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0005-3147-9127",
+  "orcid": "0009-0005-3147-9127",
+  "name": "Reinaldo Raviolo",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0002-8239-0203",
   "orcid": "0000-0002-8239-0203",
   "name": "Reinel Ivan Rodriguez Delgadillo",
@@ -14391,6 +17554,67 @@
   "biography": null,
   "current_employer": null,
   "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0005-9506-8896",
+  "orcid": "0009-0005-9506-8896",
+  "name": "Renzo Zagarra Saez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0005-6848-9097",
+  "orcid": "0009-0005-6848-9097",
+  "name": "Ricardo  Anaya",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-4662-4818",
+  "orcid": "0000-0002-4662-4818",
+  "name": "Rigoberto Acosta-González",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Profesor/Investigador",
+   "org": "Universidad Central Marta Abreu de las Villas",
+   "department": "Electrónica y Telecomunicaciones",
+   "city": "Villa Clara",
+   "region": "Villa Clara",
+   "country_code": "CU",
+   "start_year": 2017,
+   "end_year": 2022,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Profesor/Investigador",
+    "org": "Universidad Central Marta Abreu de las Villas",
+    "department": "Electrónica y Telecomunicaciones",
+    "city": "Villa Clara",
+    "region": "Villa Clara",
+    "country_code": "CU",
+    "start_year": 2017,
+    "end_year": 2022,
+    "ongoing": false
+   }
+  ]
  },
  {
   "source": "orcid",
@@ -14725,6 +17949,17 @@
     "start_year": 1995,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Gerente (Manager)",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Gerencia de Area de Investigación, Desarrollo e Innovavión (Reserach, Development, and Innovation Management)",
+    "city": "San Carlos de Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2021,
+    "end_year": 2024,
+    "ongoing": false
    }
   ]
  },
@@ -14905,6 +18140,17 @@
     "ongoing": false
    },
    {
+    "role": "Wireless Sensor network Researcher",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Centro Atomico Bariloche. Departamento de control",
+    "city": "Bariloche",
+    "region": "Rio Negro",
+    "country_code": "AR",
+    "start_year": 2011,
+    "end_year": 2016,
+    "ongoing": false
+   },
+   {
     "role": "Instrumentation and Control Engineer",
     "org": "Nucleoelectrica Argentina",
     "department": null,
@@ -15015,6 +18261,54 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0008-9626-9018",
+  "orcid": "0009-0008-9626-9018",
+  "name": "Santiago A.  Ibáñez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "Investigador",
+   "org": "Universidad Nacional de Rio Negro, Sede Andina",
+   "department": "Centro Interdisciplinario de Telecomunicaciones, Electrónica, Computación y Ciencia Aplicada",
+   "city": "San Carlos de Bariloche",
+   "region": "Río Negro",
+   "country_code": "AR",
+   "start_year": 2017,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Investigador",
+    "org": "Universidad Nacional de Rio Negro, Sede Andina",
+    "department": "Centro Interdisciplinario de Telecomunicaciones, Electrónica, Computación y Ciencia Aplicada",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0009-0003-7811-1704",
+  "orcid": "0009-0003-7811-1704",
+  "name": "Santiago Abel Retamoso",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0003-4014-8731",
   "orcid": "0000-0003-4014-8731",
   "name": "Santiago Capriotti",
@@ -15065,6 +18359,120 @@
  },
  {
   "source": "orcid",
+  "id": "0000-0002-4870-343X",
+  "orcid": "0000-0002-4870-343X",
+  "name": "Santiago Daniel Barrionuevo",
+  "grad_year": 2015,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://www.drsantiagobarrionuevo.com/"
+  ],
+  "biography": "My research focuses on synthesizing and characterizing innovative graphene-derived nanomaterials, primarily using CVD graphene as a starting point. These materials demonstrate significant potential across various applications, including water contaminant degradation, fluorescence-based ion detection, efficient photoanodes, and electrochemical glucose sensing.\n\nI've successfully developed Twisted Bilayer Graphene (TBLG) from CVD graphene on Cu substrates using substrate chemical attack, allowing precise control over electronic properties based on rotation angles.\n\nFurthermore, my work involves direct ethanol electrooxidation on Ni foam electrodes, yielding ultra-small carbon quantum dots (CQDs) with a diameter of 2.8 nm. These CQDs, rich in oxygenated groups, effectively degrade organic dyes under light exposure. Additionally, electrochemical exfoliation of 3D graphene on Ni foams produces graphene quantum dots (GQDs) with confined electrons that exhibit UV-Visible light absorption and emission.\n\nModified GQDs enhance fluorescence-based sensing of Hg2+ and Fe3+ ions in water and wine samples, and they serve as reducing agents in synthesizing metal-graphene nanohybrids (e.g., Au or Pt), which improve electrocatalysis and glucose detection.\n\nTo understand and optimize these materials, I've developed TDDFT models that simulate GQD optoelectronic properties, such as emission and absorbance characteristics relevant for ion detection and quantum confinement analysis.\n\nThe characterization of these nanomaterials is challenging due to their size, requiring advanced techniques like HRTEM, EELS, and STEM-HAADF to investigate their size, nanostructure, and composition. These insights inform novel synthesis strategies to leverage unique nanomaterial attributes, such as fluorescence, size, and biocompatibility, for impactful scientific and industrial applications.\n\nFor more information, please contact me at sbarrionuevo@inifta.unlp.edu.ar.\n\nAlso you can visit my webpage at drsantiagobarrionuevo.com",
+  "current_employer": {
+   "role": "Postdoctoral Research Fellow",
+   "org": "CONICET",
+   "department": null,
+   "city": "Buenos Aires",
+   "region": null,
+   "country_code": "AR",
+   "start_year": 2024,
+   "end_year": 2027,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "Postdoctoral Research Fellow",
+    "org": "CONICET",
+    "department": null,
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2024,
+    "end_year": 2027,
+    "ongoing": false
+   },
+   {
+    "role": "Postdoc-H2020 Marie Skłodowska-Curie Research and Innovation Staff Exchange (RISE)",
+    "org": "Universidad de Zaragoza",
+    "department": null,
+    "city": "Zaragoza",
+    "region": null,
+    "country_code": "ES",
+    "start_year": 2024,
+    "end_year": 2026,
+    "ongoing": false
+   },
+   {
+    "role": "Doctoral Fellow",
+    "org": "CONICET",
+    "department": null,
+    "city": "Buenos Aires",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2018,
+    "end_year": 2024,
+    "ongoing": false
+   },
+   {
+    "role": "H2020 Marie Skłodowska-Curie Research and Innovation Staff Exchange (RISE)",
+    "org": "Universidad de Zaragoza",
+    "department": null,
+    "city": "Zaragoza",
+    "region": null,
+    "country_code": "ES",
+    "start_year": 2022,
+    "end_year": 2022,
+    "ongoing": false
+   },
+   {
+    "role": "Teaching Assistant- Summer School",
+    "org": "Universidad Nacional de La Plata",
+    "department": null,
+    "city": "La Plata",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2021,
+    "end_year": 2021,
+    "ongoing": false
+   },
+   {
+    "role": "Teaching Assistant-M0680 - Nanotechnology & Nanomaterials",
+    "org": "Universidad Nacional de La Plata",
+    "department": null,
+    "city": "La Plata",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2018,
+    "end_year": 2020,
+    "ongoing": false
+   },
+   {
+    "role": "Visiting Researcher",
+    "org": "Universidad Nacional de Córdoba",
+    "department": "Instituto de Investigaciones en Físico-Química de Córdoba",
+    "city": "Córdoba",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2018,
+    "end_year": 2018,
+    "ongoing": false
+   },
+   {
+    "role": "Research Intern",
+    "org": "Instituto de Investigaciones Fisicoquímicas Teóricas y Aplicadas",
+    "department": null,
+    "city": "La Plata",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2017,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
   "id": "0009-0006-0398-8888",
   "orcid": "0009-0006-0398-8888",
   "name": "Santiago Elian Mallerman",
@@ -15101,6 +18509,19 @@
     "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-5265-620X",
+  "orcid": "0000-0002-5265-620X",
+  "name": "Santiago Hernandez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  },
  {
   "source": "orcid",
@@ -15480,6 +18901,41 @@
   "keywords": [],
   "urls": [],
   "biography": null,
+  "current_employer": {
+   "role": "Head",
+   "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+   "department": "Laboratorio de Análisis por Activación Neutrónica",
+   "city": "Bariloche",
+   "region": "Patagonia",
+   "country_code": "AR",
+   "start_year": 1996,
+   "end_year": null,
+   "ongoing": true
+  },
+  "all_employers": [
+   {
+    "role": "Head",
+    "org": "Comisión Nacional de Energía Atómica, Gobierno de Argentina",
+    "department": "Laboratorio de Análisis por Activación Neutrónica",
+    "city": "Bariloche",
+    "region": "Patagonia",
+    "country_code": "AR",
+    "start_year": 1996,
+    "end_year": null,
+    "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-3438-5055",
+  "orcid": "0000-0002-3438-5055",
+  "name": "Silvina Bengió",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
   "current_employer": null,
   "all_employers": []
  },
@@ -15517,6 +18973,17 @@
     "start_year": 2022,
     "end_year": null,
     "ongoing": true
+   },
+   {
+    "role": "Analista de Materiales",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "División Física de Metales",
+    "city": "San Carlos de Bariloche",
+    "region": "Río Negro",
+    "country_code": "AR",
+    "start_year": 2017,
+    "end_year": 2022,
+    "ongoing": false
    }
   ]
  },
@@ -15700,6 +19167,17 @@
     "start_year": 2019,
     "end_year": 2019,
     "ongoing": false
+   },
+   {
+    "role": "Simulator Modeling Engineer",
+    "org": "Comision Nacional de Energia Atomica",
+    "department": null,
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2017,
+    "ongoing": false
    }
   ]
  },
@@ -15787,6 +19265,43 @@
     "start_year": null,
     "end_year": null,
     "ongoing": true
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-0571-1712",
+  "orcid": "0000-0002-0571-1712",
+  "name": "Tanay Kibe",
+  "grad_year": 2028,
+  "degrees": [],
+  "keywords": [],
+  "urls": [
+   "https://inspirehep.net/authors/1925179"
+  ],
+  "biography": null,
+  "current_employer": {
+   "role": "PostDoc",
+   "org": "University of the Witwatersrand",
+   "department": "School of Physics",
+   "city": "Johannesburg",
+   "region": null,
+   "country_code": "ZA",
+   "start_year": 2024,
+   "end_year": 2026,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "PostDoc",
+    "org": "University of the Witwatersrand",
+    "department": "School of Physics",
+    "city": "Johannesburg",
+    "region": null,
+    "country_code": "ZA",
+    "start_year": 2024,
+    "end_year": 2026,
+    "ongoing": false
    }
   ]
  },
@@ -16070,17 +19585,6 @@
     "start_year": 2019,
     "end_year": 2023,
     "ongoing": false
-   },
-   {
-    "role": "PhD Student",
-    "org": "Bariloche Atomic Centre",
-    "department": "Photonics and Optoelectronics Laboratory",
-    "city": "Bariloche",
-    "region": "Rio Negro",
-    "country_code": "AR",
-    "start_year": 2014,
-    "end_year": 2019,
-    "ongoing": false
    }
   ]
  },
@@ -16166,6 +19670,19 @@
  },
  {
   "source": "orcid",
+  "id": "0009-0006-2141-6242",
+  "orcid": "0009-0006-2141-6242",
+  "name": "WILLIAM ISMAEL MACHACA ABREGU",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
+ },
+ {
+  "source": "orcid",
   "id": "0000-0001-9987-8777",
   "orcid": "0000-0001-9987-8777",
   "name": "Yanet Mansilla",
@@ -16200,6 +19717,28 @@
     "ongoing": true
    },
    {
+    "role": "Investigadora",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Caracterización de Materiales",
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2020,
+    "end_year": null,
+    "ongoing": true
+   },
+   {
+    "role": "Becaria",
+    "org": "Comisión Nacional de Energía Atómica",
+    "department": "Caracterización de Materiales",
+    "city": "Bariloche",
+    "region": null,
+    "country_code": "AR",
+    "start_year": 2016,
+    "end_year": 2020,
+    "ongoing": false
+   },
+   {
     "role": "Ingeniera Junior",
     "org": "Tecfor Ingeniería",
     "department": "Procesos",
@@ -16219,6 +19758,63 @@
     "country_code": "AR",
     "start_year": 2012,
     "end_year": 2014,
+    "ongoing": false
+   }
+  ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0002-0390-2582",
+  "orcid": "0000-0002-0390-2582",
+  "name": "Yanis Taege",
+  "grad_year": 2017,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": {
+   "role": "PhD Student",
+   "org": "Albert-Ludwigs-Universität Freiburg",
+   "department": "Department of Microsystems Engineering - IMTEK",
+   "city": "Freiburg im Breisgau",
+   "region": "Baden-Württemberg",
+   "country_code": "DE",
+   "start_year": 2020,
+   "end_year": 2023,
+   "ongoing": false
+  },
+  "all_employers": [
+   {
+    "role": "PhD Student",
+    "org": "Albert-Ludwigs-Universität Freiburg",
+    "department": "Department of Microsystems Engineering - IMTEK",
+    "city": "Freiburg im Breisgau",
+    "region": "Baden-Württemberg",
+    "country_code": "DE",
+    "start_year": 2020,
+    "end_year": 2023,
+    "ongoing": false
+   },
+   {
+    "role": null,
+    "org": "Universitätsklinikum Freiburg",
+    "department": "Department of Radiology - Medical Physics",
+    "city": "Freiburg",
+    "region": "Baden-Württemberg",
+    "country_code": "DE",
+    "start_year": 2018,
+    "end_year": 2019,
+    "ongoing": false
+   },
+   {
+    "role": null,
+    "org": "University at Buffalo",
+    "department": "Department of Neurology, Jacobs School of Medicine and Biomedical Sciences",
+    "city": "Buffalo",
+    "region": "NY",
+    "country_code": "US",
+    "start_year": 2016,
+    "end_year": 2016,
     "ongoing": false
    }
   ]
@@ -16298,5 +19894,18 @@
     "ongoing": true
    }
   ]
+ },
+ {
+  "source": "orcid",
+  "id": "0000-0001-8479-5688",
+  "orcid": "0000-0001-8479-5688",
+  "name": "Ángel Alejandro Pérez Martínez",
+  "grad_year": null,
+  "degrees": [],
+  "keywords": [],
+  "urls": [],
+  "biography": null,
+  "current_employer": null,
+  "all_employers": []
  }
 ]

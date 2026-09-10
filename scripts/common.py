@@ -36,11 +36,25 @@ WIKIDATA_QID = "Q3151718"
 BALSEIRO_NAME_PATTERNS = [
     "instituto balseiro",
     "balseiro institute",
-    "instituto balseiro",  # common misspelling in the wild
+    "institut balseiro",   # fr / common misspelling
     "centro atomico bariloche",
-    "centro atómico bariloche",
-    "comision nacional de energia atomica",  # a few records list only the parent
+    "bariloche atomic",
+    # CNEA only counts when it's the Bariloche site (CNEA also has
+    # Constituyentes and Ezeiza, which are not Balseiro):
+    ("energia atomica", "bariloche"),
 ]
+
+
+def _matches_balseiro_text(text: str) -> bool:
+    from unicodedata import normalize, combining
+    t = "".join(c for c in normalize("NFKD", text or "") if not combining(c)).lower()
+    for p in BALSEIRO_NAME_PATTERNS:
+        if isinstance(p, tuple):
+            if all(x in t for x in p):
+                return True
+        elif p in t:
+            return True
+    return False
 
 _last_call: dict[str, float] = {}
 
