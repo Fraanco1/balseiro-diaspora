@@ -5572,5 +5572,51 @@
   "display_name": "Embalse, Municipio de Embalse, Pedanía Cóndores, Departamento Calamuchita, Córdoba, X5191, Argentina",
   "country": "Argentina",
   "country_code": "AR"
+ },
+ "Instituto de Fisica La Plata (IFLP) CONICET-UNLP, La Plata, Argentina": {},
+ "Instituto de Fisica La Plata (IFLP) CONICET-UNLP, Argentina": {},
+ "Skyloom Global, Broomfield, United States": {},
+ "Skyloom Global, United States": {},
+ "Instituto Balseiro / Centro Atomico Bariloche (CNEA), San Carlos de Bariloche, Argentina": {},
+ "Instituto Balseiro / Centro Atomico Bariloche (CNEA), Argentina": {},
+ "Vulcanic Group, Santander, Spain": {},
+ "Vulcanic Group, Spain": {},
+ "Santander, Spain": {
+  "lat": 43.4618932,
+  "lon": -3.8100255,
+  "display_name": "Santander, Cantabria, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "World Association of Nuclear Operators (WANO), Paris, France": {},
+ "World Association of Nuclear Operators (WANO), France": {},
+ "d-fine, Frankfurt, Germany": {},
+ "d-fine, Germany": {
+  "lat": 51.8259424,
+  "lon": 12.2313765,
+  "display_name": "An der Fine, Innerstädtischer Bereich Mitte, Dessau, Dessau-Roßlau, Sachsen-Anhalt, 06842, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Frankfurt, Germany": {
+  "lat": 50.1106444,
+  "lon": 8.6820917,
+  "display_name": "Frankfurt am Main, Hessen, Deutschland",
+  "country": "Deutschland",
+  "country_code": "DE"
+ },
+ "Pan American Energy, Buenos Aires, Argentina": {
+  "lat": -34.5939422,
+  "lon": -58.3738679,
+  "display_name": "Pan American Energy, 1180, Avenida Leandro N. Alem, Catalinas Norte, Retiro, Buenos Aires, Comuna 1, Ciudad Autónoma de Buenos Aires, C1004AAW, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Pan American Energy, Argentina": {
+  "lat": -34.5939422,
+  "lon": -58.3738679,
+  "display_name": "Pan American Energy, 1180, Avenida Leandro N. Alem, Catalinas Norte, Retiro, Buenos Aires, Comuna 1, Ciudad Autónoma de Buenos Aires, C1004AAW, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
  }
 }
