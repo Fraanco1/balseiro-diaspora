@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import json
 
-from common import RAW, cached_get, strip_accents
+from common import RAW, cached_get, strip_accents, RateLimitExceeded
 
 OA = "https://api.openalex.org"
 MAILTO = "fraanco.borgarello@gmail.com"
@@ -103,7 +103,14 @@ def _score(author, balseiro_years, all_years):
 def collect() -> dict:
     authors = []
     n_orcid = 0
-    for a in _page_authors():
+    try:
+        author_pages = list(_page_authors())
+    except RateLimitExceeded as exc:
+        if (RAW / "openalex_authors.json").exists():
+            print(f"OpenAlex: {exc} -- keeping the previously harvested authors")
+            return {"authors": [], "orcid_ids": []}
+        raise
+    for a in author_pages:
         affils = a.get("affiliations") or []
         by_inst = {af["institution"]["id"]: (af.get("years") or []) for af in affils}
         balseiro_years = sorted(by_inst.get(f"https://openalex.org/{BALSEIRO_OA_ID}", []))

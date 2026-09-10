@@ -21,6 +21,16 @@ USER_AGENT = "BalseiroAlumniMap/1.0 (personal research project; contact fraanco.
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": USER_AGENT})
 
+
+class RateLimitExceeded(RuntimeError):
+    """A hard quota was hit (e.g. OpenAlex's daily budget). Stop, resume later."""
+
+    def __init__(self, service: str, retry_after: int | None = None):
+        self.service = service
+        self.retry_after = retry_after
+        super().__init__(f"{service} rate limit / quota exceeded"
+                         + (f"; retry after ~{retry_after}s" if retry_after else ""))
+
 # Instituto Balseiro identifiers across sources.
 WIKIDATA_QID = "Q3151718"
 BALSEIRO_NAME_PATTERNS = [
@@ -67,13 +77,21 @@ def cached_get(url, *, params=None, headers=None, cache_key=None,
         hdrs.setdefault("Accept", "application/json")
     for attempt in range(4):
         try:
-            resp = SESSION.get(url, params=params, headers=hdrs, timeout=60)
-            if resp.status_code == 429 or resp.status_code >= 500:
+            resp = SESSION.get(url, params=params, headers=hdrs, timeout=30)
+            if resp.status_code == 429:
+                retry_after = int(resp.headers.get("retry-after", 0) or 0)
+                # a long retry-after or a "budget" body = hard quota, not a
+                # transient burst -> bail out so the caller can resume later.
+                if retry_after > 120 or "budget" in resp.text[:400].lower():
+                    raise RateLimitExceeded(throttle_key, retry_after or None)
+                time.sleep(min(2 ** attempt * 2, 20))
+                continue
+            if resp.status_code >= 500:
                 time.sleep(2 ** attempt * 2)
                 continue
             resp.raise_for_status()
             break
-        except requests.RequestException as exc:
+        except requests.RequestException:
             if attempt == 3:
                 raise
             time.sleep(2 ** attempt * 2)
@@ -181,13 +199,45 @@ def _clean_unicode(text: str) -> str:
     return unicodedata.normalize("NFKC", text)
 
 
-def name_key(name: str) -> str:
+_NAME_STOP = {"de", "del", "la", "el", "van", "von", "da", "do", "dos", "der", "den"}
+
+
+def _name_parts(name: str) -> list[str]:
     n = strip_accents(_clean_unicode(name)).lower()
     n = re.sub(r"[^a-z\s-]", " ", n)
-    parts = [p for p in re.split(r"[\s-]+", n)
-             if p and p not in {"de", "del", "la", "el", "van", "von", "da", "do"}]
-    parts.sort()
-    return " ".join(parts)
+    return [p for p in re.split(r"[\s-]+", n) if p and p not in _NAME_STOP]
+
+
+def name_key(name: str) -> str:
+    return " ".join(sorted(_name_parts(name)))
+
+
+def initial_key(name: str) -> str:
+    """A looser key that unifies "A. Baruj" / "Alberto G. Baruj" / "Baruj, Alberto".
+
+    = the surname (last token, or the part before a comma) + the sorted initials
+    of the given names. Ambiguous by design (Spanish double surnames, common
+    surnames) so callers MUST guard against collisions.
+    """
+    raw = strip_accents(_clean_unicode(name)).lower().strip()
+    if "," in raw:
+        surname_src, given_src = raw.split(",", 1)
+    else:
+        toks = [t for t in re.split(r"[^a-z]+", raw) if t and t not in _NAME_STOP]
+        if not toks:
+            return ""
+        surname_src, given_src = toks[-1], " ".join(toks[:-1])
+    surname = "".join(re.findall(r"[a-z]+", surname_src))
+    initials = sorted(t[0] for t in re.split(r"[^a-z]+", given_src) if t)
+    if not surname:
+        return ""
+    return surname + "|" + "".join(initials)
+
+
+def is_initials_form(name: str) -> bool:
+    parts = _name_parts(name)
+    long = [p for p in parts if len(p) > 1]
+    return len(parts) >= 2 and len(long) <= 1
 
 
 def clean_name(name: str) -> str:

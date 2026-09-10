@@ -23,7 +23,8 @@ import hashlib
 import json
 import re
 
-from common import (DATA, SITE_DATA, ROOT, geocode_many, name_key, strip_accents)
+from common import (DATA, SITE_DATA, ROOT, geocode_many, name_key, strip_accents,
+                    initial_key, is_initials_form)
 import collect_openalex
 
 RAW_FILES = {
@@ -166,7 +167,15 @@ def _merge_wikidata(idx, by_orcid, by_name):
 
 
 def _merge_orcid(idx, by_orcid, by_name):
-    for p in json.loads(RAW_FILES["orcid"].read_text(encoding="utf-8")):
+    records = json.loads(RAW_FILES["orcid"].read_text(encoding="utf-8"))
+    thesis_orcid = DATA / "raw" / "thesis_orcid.json"
+    if thesis_orcid.exists():
+        records += json.loads(thesis_orcid.read_text(encoding="utf-8"))
+    seen_oid = set()
+    for p in records:
+        if p["orcid"] in seen_oid:
+            continue
+        seen_oid.add(p["orcid"])
         nk = name_key(p["name"])
         key = by_orcid.get(p["orcid"]) or by_name.get(nk) or ("orcid", p["orcid"])
         rec = idx.setdefault(key, _blank_person())
@@ -249,9 +258,15 @@ def _merge_csv(idx, by_name, path, source_tag, kept_only=False):
 
 
 def _load_openalex():
-    if not RAW_FILES["openalex"].exists():
-        return []
-    return json.loads(RAW_FILES["openalex"].read_text(encoding="utf-8"))
+    out = []
+    for f in (RAW_FILES["openalex"], DATA / "raw" / "thesis_reconciled.json"):
+        if f.exists():
+            out += json.loads(f.read_text(encoding="utf-8"))
+    # de-dupe by OpenAlex id, preferring the richer Balseiro-pool record
+    by_id = {}
+    for a in out:
+        by_id.setdefault(a["openalex_id"], a)
+    return list(by_id.values())
 
 
 def _oa_location(inst):
@@ -266,16 +281,37 @@ def _oa_location(inst):
             "country": COUNTRY_BY_CODE.get(cc), "country_code": cc or None}
 
 
+def _build_ikey_index(idx):
+    """initial_key -> idx key, or None where two different people collide."""
+    by_ikey = {}
+    for key, rec in idx.items():
+        ik = initial_key(rec["name"] or "")
+        if not ik or ik.endswith("|"):
+            continue
+        by_ikey[ik] = key if ik not in by_ikey else (
+            by_ikey[ik] if by_ikey[ik] == key else None)
+    return by_ikey
+
+
 def _enrich_openalex(idx, by_orcid, by_name, blocked):
     """Attach OpenAlex stats to people we already have, and add the
     high-confidence ORCID-less authors straight to the map."""
     authors = _load_openalex()
-    added = enriched = 0
+    by_ikey = _build_ikey_index(idx)
+    added = enriched = via_initials = 0
     for a in authors:
         nk = name_key(a["name"])
         if nk in blocked:
             continue
         key = (by_orcid.get(a["orcid"]) if a.get("orcid") else None) or by_name.get(nk)
+
+        # "A. Baruj" (OpenAlex) vs "Alberto Baruj" (thesis roster): match on the
+        # looser initials key, but only when it points to exactly one person.
+        if key is None and is_initials_form(a["name"]):
+            ik_key = by_ikey.get(initial_key(a["name"]))
+            if ik_key is not None:
+                key = ik_key
+                via_initials += 1
 
         if key is None:
             if (a.get("review_score") or 0) < OA_AUTO_KEEP:
@@ -305,7 +341,8 @@ def _enrich_openalex(idx, by_orcid, by_name, blocked):
         if not rec["grad_year"] and a.get("balseiro_years"):
             rec["grad_year"] = min(a["balseiro_years"])
         enriched += 1
-    print(f"OpenAlex merge: enriched {enriched} people, "
+    print(f"OpenAlex merge: enriched {enriched} people "
+          f"({via_initials} matched to a roster name by initials), "
           f"added {added} new (score >= {OA_AUTO_KEEP})")
 
 

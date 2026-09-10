@@ -29,6 +29,7 @@ def main() -> None:
 
     t0 = time.time()
     import collect_ricabib
+    import reconcile_theses
     sources = [
         # OpenAlex first: it feeds extra ORCID iDs into the ORCID verifier.
         ("OpenAlex", collect_openalex.collect),
@@ -37,6 +38,8 @@ def main() -> None:
         ("Wikipedia", collect_wikipedia.collect),
         # thesis roster via NUCLEA (public) with a RICABIB fallback
         ("Theses (RICABIB/NUCLEA)", collect_ricabib.collect),
+        # match thesis authors to OpenAlex works -> current institution + ORCID
+        ("Thesis reconciliation", reconcile_theses.reconcile),
     ]
 
     for name, fn in sources:

@@ -22,6 +22,7 @@ scraped and is deliberately not used):
 | [Wikidata](https://www.wikidata.org) | `educated at` / `employer` / `affiliation` = Instituto Balseiro; employers (often with coordinates), fields, photos, Wikipedia links | confirmed |
 | [ORCID](https://orcid.org) | Anyone with Instituto Balseiro in their **education** history — grad year, degree, current employer + city/country, keywords. Candidate iDs come from ORCID's own search **and** from OpenAlex. | confirmed |
 | [OpenAlex](https://openalex.org) | ~2,900 authors who ever published with a Balseiro affiliation. ORCID ones are verified above; high-scoring ORCID-less ones are added directly; the rest go to a review queue. Also adds publication counts, h-index and research concepts to everyone. | inferred (unless verified) |
+| Thesis reconciliation (`reconcile_theses.py`) | For thesis-roster people with no location: an ORCID name search (kept only when Balseiro is in the record), then a match of the exact thesis title to its OpenAlex `dissertation` work → that author's current institution. | confirmed |
 | Wikipedia | Curated *Alumnado / Profesores del Instituto Balseiro* categories — bios and portraits | confirmed |
 | IB thesis repository (RICABIB, harvested via the public [NUCLEA](https://nuclea.cnea.gob.ar) mirror) | Author + year + title of ~1,000 IB theses — the authoritative roster. No employer, so many are confirmed-but-unmapped. | confirmed |
 | `data/manual_alumni.csv` | Anyone **you** add by hand | confirmed |
@@ -58,6 +59,11 @@ python3 scripts/run_all.py --fresh
 The thesis roster is harvested from **NUCLEA** (`nuclea.cnea.gob.ar`, public) by
 default; if you're on the CNEA network and want the primary RICABIB source,
 `python3 scripts/collect_ricabib.py --source ricabib`.
+
+**OpenAlex now meters its free API at ~$0.10/day (~100 requests).** The main
+collector is well under that, but `reconcile_theses.py`'s OpenAlex pass processes
+only ~40 thesis authors per run — just re-run `run_all.py` over a few days and it
+resumes from the on-disk cache. The ORCID pass has no such limit.
 
 ### `data/manual_alumni.csv` — only `name` is required
 

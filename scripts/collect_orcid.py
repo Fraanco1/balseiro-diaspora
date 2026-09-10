@@ -20,7 +20,9 @@ from common import BALSEIRO_NAME_PATTERNS, RAW, cached_get, strip_accents
 SEARCH_TERMS = [
     'affiliation-org-name:"Instituto Balseiro"',
     'affiliation-org-name:"Balseiro Institute"',
-    'affiliation-org-name:"Instituto Balseiro"',
+    'affiliation-org-name:"Centro Atómico Bariloche"',
+    'affiliation-org-name:"Centro Atomico Bariloche"',
+    'affiliation-org-name:"Bariloche Atomic Centre"',
 ]
 PUB = "https://pub.orcid.org/v3.0"
 
@@ -96,6 +98,71 @@ def _iter_affils(activities, section):
             yield _affil(s)
 
 
+def fetch_record(oid: str):
+    return cached_get(f"{PUB}/{oid}/record", throttle_key="orcid",
+                      min_interval=0.34, ttl_days=45,
+                      cache_key=f"orcid-record::{oid}")
+
+
+def parse_record(oid: str, rec: dict, *, require_balseiro: bool = True):
+    """Turn an ORCID record into our person dict.
+
+    require_balseiro=True (the collector): keep only if Balseiro is in the
+    education/qualification history. False (the thesis reconciler): parse
+    anyone, and report via 'balseiro_edu' whether it was found.
+    """
+    person = rec.get("person") or {}
+    nm = person.get("name") or {}
+    if (nm.get("visibility") == "limited") or not nm:
+        return None
+    given = ((nm.get("given-names") or {}) or {}).get("value") or ""
+    family = ((nm.get("family-name") or {}) or {}).get("value") or ""
+    credit = ((nm.get("credit-name") or {}) or {}).get("value") or ""
+    name = credit or f"{given} {family}".strip()
+    if not name:
+        return None
+
+    activities = rec.get("activities-summary") or {}
+    educations = list(_iter_affils(activities, "educations"))
+    qualifications = list(_iter_affils(activities, "qualifications"))
+    employments = list(_iter_affils(activities, "employments"))
+
+    balseiro_edu = [e for e in educations + qualifications if _matches_balseiro(e["org"])]
+    if require_balseiro and not balseiro_edu:
+        return None
+
+    grad_year = max((e["end_year"] for e in balseiro_edu if e["end_year"]), default=None)
+    degrees = sorted({e["role"] for e in balseiro_edu if e["role"]})
+
+    non_balseiro_emp = [e for e in employments if not _matches_balseiro(e["org"])]
+    ongoing = [e for e in non_balseiro_emp if e["ongoing"]]
+    if ongoing:
+        current = max(ongoing, key=lambda e: e["start_year"] or 0)
+    elif non_balseiro_emp:
+        current = max(non_balseiro_emp, key=lambda e: (e["end_year"] or 0, e["start_year"] or 0))
+    else:
+        current = None
+
+    keywords = [k.get("content", "").strip()
+                for k in ((person.get("keywords") or {}).get("keyword") or [])]
+    keywords = [k for w in keywords for k in (w.split(",") if "," in w else [w])]
+    keywords = sorted({k.strip() for k in keywords if k.strip()})
+    urls = [u.get("url", {}).get("value")
+            for u in ((person.get("researcher-urls") or {}).get("researcher-url") or [])]
+
+    return {
+        "source": "orcid", "id": oid, "orcid": oid, "name": name,
+        "given": given, "family": family,
+        "grad_year": grad_year, "degrees": degrees, "keywords": keywords,
+        "urls": [u for u in urls if u],
+        "biography": ((person.get("biography") or {}) or {}).get("content"),
+        "current_employer": current, "all_employers": non_balseiro_emp,
+        "all_education": [e["org"] for e in educations + qualifications if e["org"]],
+        "balseiro_edu": bool(balseiro_edu),
+        "balseiro_affiliate": any(_matches_balseiro(e["org"]) for e in employments),
+    }
+
+
 def collect() -> list[dict]:
     ids = _find_ids()
     people: list[dict] = []
@@ -104,69 +171,22 @@ def collect() -> list[dict]:
         if i % 50 == 0:
             print(f"  ORCID records {i}/{len(ids)}")
         try:
-            rec = cached_get(f"{PUB}/{oid}/record", throttle_key="orcid",
-                             min_interval=0.34, ttl_days=45,
-                             cache_key=f"orcid-record::{oid}")
+            rec = fetch_record(oid)
         except Exception as exc:  # noqa: BLE001
             print(f"  ! {oid}: {exc}")
             continue
 
-        person = rec.get("person") or {}
-        nm = person.get("name") or {}
-        if (nm.get("visibility") == "limited") or not nm:
+        parsed = parse_record(oid, rec, require_balseiro=False)
+        if parsed is None:
             continue
-        given = ((nm.get("given-names") or {}) or {}).get("value") or ""
-        family = ((nm.get("family-name") or {}) or {}).get("value") or ""
-        credit = ((nm.get("credit-name") or {}) or {}).get("value") or ""
-        name = credit or f"{given} {family}".strip()
-        if not name:
-            continue
-
-        activities = rec.get("activities-summary") or {}
-        educations = list(_iter_affils(activities, "educations"))
-        qualifications = list(_iter_affils(activities, "qualifications"))
-        employments = list(_iter_affils(activities, "employments"))
-
-        balseiro_edu = [e for e in educations + qualifications if _matches_balseiro(e["org"])]
-        if not balseiro_edu:
-            # only shows up as employer/other affiliation -> not an alumnus
-            if any(_matches_balseiro(e["org"]) for e in employments):
+        if not parsed["balseiro_edu"]:
+            if parsed["balseiro_affiliate"]:
                 affiliate_only += 1
             continue
 
-        grad_year = max((e["end_year"] for e in balseiro_edu if e["end_year"]), default=None)
-        degrees = sorted({e["role"] for e in balseiro_edu if e["role"]})
-
-        # current employer = ongoing with latest start, else most recent by end year
-        non_balseiro_emp = [e for e in employments if not _matches_balseiro(e["org"])]
-        current = None
-        ongoing = [e for e in non_balseiro_emp if e["ongoing"]]
-        if ongoing:
-            current = max(ongoing, key=lambda e: e["start_year"] or 0)
-        elif non_balseiro_emp:
-            current = max(non_balseiro_emp, key=lambda e: (e["end_year"] or 0, e["start_year"] or 0))
-
-        keywords = [k.get("content", "").strip()
-                    for k in ((person.get("keywords") or {}).get("keyword") or [])]
-        keywords = [k for w in keywords for k in (w.split(",") if "," in w else [w])]
-        keywords = sorted({k.strip() for k in keywords if k.strip()})
-
-        urls = [u.get("url", {}).get("value")
-                for u in ((person.get("researcher-urls") or {}).get("researcher-url") or [])]
-
-        people.append({
-            "source": "orcid",
-            "id": oid,
-            "orcid": oid,
-            "name": name,
-            "grad_year": grad_year,
-            "degrees": degrees,
-            "keywords": keywords,
-            "urls": [u for u in urls if u],
-            "biography": ((person.get("biography") or {}) or {}).get("content"),
-            "current_employer": current,
-            "all_employers": non_balseiro_emp,
-        })
+        for k in ("given", "family", "balseiro_edu", "balseiro_affiliate", "all_education"):
+            parsed.pop(k, None)
+        people.append(parsed)
         kept += 1
 
     out = sorted(people, key=lambda p: p["name"].lower())
