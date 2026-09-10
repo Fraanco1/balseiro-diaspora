@@ -2,15 +2,18 @@
 
 Steps
 -----
-1. Load the raw per-source files (Wikidata, ORCID, Wikipedia) + the optional
-   hand-maintained data/manual_alumni.csv.
+1. Load the raw per-source files (Wikidata, ORCID, Wikipedia, OpenAlex, and
+   the optional RICABIB thesis harvest) + hand-editable CSVs
+   (data/manual_alumni.csv, data/review_candidates.csv) and data/blocklist.txt.
 2. Merge records that refer to the same person (by ORCID iD, then by a
    normalised name key).
-3. Resolve each person's *current* location (institution -> lat/lon) using
-   coordinates already in Wikidata, otherwise geocoding "<org>, <city>,
+3. OpenAlex: enrich matched people with publication stats / research concepts,
+   add high-confidence ORCID-less authors, and (re)write the review queue.
+4. Resolve each person's *current* location (institution -> lat/lon) from
+   coordinates already in Wikidata / OpenAlex, else geocoding "<org>, <city>,
    <country>" via Nominatim (cached in data/geocode_cache.json).
-4. Classify discipline + employment sector from keywords.
-5. Write site/data/alumni.json (list + meta) — the only file the site loads.
+5. Classify research field + employer sector; tag confidence.
+6. Write site/data/alumni.json (list + meta) — the only file the site loads.
 """
 from __future__ import annotations
 
@@ -21,13 +24,22 @@ import json
 import re
 
 from common import (DATA, SITE_DATA, ROOT, geocode_many, name_key, strip_accents)
+import collect_openalex
 
 RAW_FILES = {
     "wikidata": DATA / "raw" / "wikidata_alumni.json",
     "orcid": DATA / "raw" / "orcid_alumni.json",
     "wikipedia": DATA / "raw" / "wikipedia_alumni.json",
+    "openalex": DATA / "raw" / "openalex_authors.json",
+    "ricabib": DATA / "raw" / "ricabib_theses.json",
 }
 MANUAL_CSV = DATA / "manual_alumni.csv"
+REVIEW_CSV = DATA / "review_candidates.csv"
+BLOCKLIST = DATA / "blocklist.txt"
+
+# OpenAlex review_score thresholds (see collect_openalex._score):
+OA_AUTO_KEEP = 5.5      # >= this: added straight to the map, tagged 'openalex'
+OA_REVIEW_MIN = 3.5     # [MIN, AUTO_KEEP): written to review_candidates.csv
 
 COUNTRY_BY_CODE = {
     "AR": "Argentina", "US": "United States", "BR": "Brazil", "DE": "Germany",
@@ -56,7 +68,7 @@ DISCIPLINE_RULES = [
     ("Electronics, control & telecom", r"electronic|telecommunicat|signal processing|antenna|microwave|fpga|embedded system|control system|instrumentation|circuit"),
     ("Mathematics & statistics", r"mathematic|statistic|probability|topolog|geometry|number theory|differential equation|dynamical system"),
     ("Complex systems & statistical physics", r"complex system|statistical (physic|mechanic)|network scien|econophys|nonlinear dynam|agent[- ]based|sociophys"),
-    ("Economics, finance & policy", r"economic|finance|financial|quantitative analyst|science polic|management|consult"),
+    ("Economics, finance & policy", r"econophysic|quantitative finance|financial market|quantitative analyst|science polic|actuaria"),
 ]
 
 # Coarse fallback when nothing specific matches, based on the Balseiro degree.
@@ -83,6 +95,16 @@ DEGREE_PROGRAM_RULES = [
     ("Telecommunications engineering", r"telecom"),
 ]
 
+# Level of study at Balseiro. Checked in order; a person can match several
+# (e.g. did the Licenciatura *and* the Doctorado there).
+DEGREE_LEVEL_RULES = [
+    ("Doctorate (PhD)", r"\bph\.?\s?d|\bdoctor|\bdr\.?\b|doctorad|doctoral"),
+    ("Master's", r"\bmaster|mag[ií]ster|maestr[ií]a|\bm\.?\s?sc|\bmsc\b|magister"),
+    ("Specialization / diploma", r"especialist|especializaci[oó]n|\bspecialist|diploma de espec|carrera de especial"),
+    ("Engineering degree", r"\bengineer\b|ingenier[oí]|engineering degree|proyecto integrador|nuclear engineer|mechanical engineer"),
+    ("Physics degree (Licenciatura)", r"licenciad|licenciatura|bachelor|grado en f[ií]s|physics degree|licentiate"),
+]
+
 
 def _classify(text: str, rules, default=None):
     t = strip_accents(text or "").lower()
@@ -90,6 +112,11 @@ def _classify(text: str, rules, default=None):
         if re.search(pattern, t):
             return label
     return default
+
+
+def _classify_all(text: str, rules) -> list[str]:
+    t = strip_accents(text or "").lower()
+    return [label for label, pattern in rules if re.search(pattern, t)]
 
 
 # --------------------------------------------------------------------------- #
@@ -104,7 +131,10 @@ def _blank_person():
         "employer_name": None, "employer_city": None, "employer_country": None,
         "employer_country_code": None, "lat": None, "lon": None,
         "role": None, "sources": set(), "urls": set(),
-        "_wd_employers": [], "_orcid_current": None,
+        "works_count": None, "h_index": None, "concepts": set(),
+        "thesis_title": None, "thesis_year": None,
+        "wikidata_alumnus": None,   # None unknown / True P69 / False staff-only
+        "_wd_employers": [], "_orcid_current": None, "_openalex": None,
     }
 
 
@@ -124,7 +154,12 @@ def _merge_wikidata(idx, by_orcid, by_name):
         rec["death_year"] = rec["death_year"] or p.get("death_year")
         rec["occupations"].update(p.get("occupations") or [])
         rec["fields"].update(p.get("fields") or [])
+        rec["degrees"].update(p.get("degrees") or [])
         rec["_wd_employers"] = p.get("employers") or []
+        if p.get("is_alumnus"):
+            rec["wikidata_alumnus"] = True
+        elif rec["wikidata_alumnus"] is None:
+            rec["wikidata_alumnus"] = False
         if p.get("orcid"):
             by_orcid[p["orcid"]] = key
         by_name.setdefault(name_key(p["name"]), key)
@@ -169,32 +204,36 @@ def _merge_wikipedia(idx, by_orcid, by_name):
         by_name.setdefault(nk, key)
 
 
-def _merge_manual(idx, by_name):
-    if not MANUAL_CSV.exists():
+def _merge_csv(idx, by_name, path, source_tag, kept_only=False):
+    """Merge a hand-editable CSV of people (manual_alumni.csv or the kept rows
+    of review_candidates.csv). Only `name` is required."""
+    if not path.exists():
         return 0
     n = 0
-    with MANUAL_CSV.open(encoding="utf-8") as fh:
+    with path.open(encoding="utf-8") as fh:
         for row in csv.DictReader(fh):
-            # csv.DictReader yields None for short rows and missing trailing
-            # columns, so normalise every value to a stripped string first.
             row = {k: (v or "").strip() for k, v in row.items() if k}
             if not row.get("name") or row["name"].lstrip().startswith("#"):
+                continue
+            if kept_only and row.get("keep", "").lower() not in ("y", "yes", "1", "x", "true"):
                 continue
             nk = name_key(row["name"])
             key = by_name.get(nk) or ("name", nk)
             rec = idx.setdefault(key, _blank_person())
             rec["name"] = rec["name"] or row["name"]
-            rec["sources"].add("manual")
+            rec["sources"].add(source_tag)
             for field in ("grad_year", "role", "degree_program", "description"):
                 if row.get(field):
                     rec[field] = row[field]
             if row.get("field"):
                 rec["fields"].add(row["field"])
-            for u in re.split(r"[;\s]+", row.get("links", "")):
+            if row.get("concepts"):
+                rec["concepts"].update(c.strip() for c in row["concepts"].split(";") if c.strip())
+            for u in re.split(r"[;\s]+", row.get("links", "") + " " + row.get("openalex_url", "")):
                 if u:
                     rec["urls"].add(u)
-            if row.get("employer"):
-                rec["employer_name"] = row["employer"]
+            if row.get("employer") or row.get("current_institution"):
+                rec["employer_name"] = row.get("employer") or row.get("current_institution")
             if row.get("city"):
                 rec["employer_city"] = row["city"]
             if row.get("country"):
@@ -204,8 +243,160 @@ def _merge_manual(idx, by_name):
                     rec["lat"], rec["lon"] = float(row["lat"]), float(row["lon"])
             except ValueError:
                 pass
+            by_name.setdefault(nk, key)
             n += 1
     return n
+
+
+def _load_openalex():
+    if not RAW_FILES["openalex"].exists():
+        return []
+    return json.loads(RAW_FILES["openalex"].read_text(encoding="utf-8"))
+
+
+def _oa_location(inst):
+    """(lat, lon, city, country, country_code) for an OpenAlex institution dict."""
+    if not inst:
+        return None
+    geo = collect_openalex.institution_geo(inst.get("openalex_id"))
+    if geo:
+        return geo
+    cc = (inst.get("country_code") or "").upper()
+    return {"lat": None, "lon": None, "city": None,
+            "country": COUNTRY_BY_CODE.get(cc), "country_code": cc or None}
+
+
+def _enrich_openalex(idx, by_orcid, by_name, blocked):
+    """Attach OpenAlex stats to people we already have, and add the
+    high-confidence ORCID-less authors straight to the map."""
+    authors = _load_openalex()
+    added = enriched = 0
+    for a in authors:
+        nk = name_key(a["name"])
+        if nk in blocked:
+            continue
+        key = (by_orcid.get(a["orcid"]) if a.get("orcid") else None) or by_name.get(nk)
+
+        if key is None:
+            if (a.get("review_score") or 0) < OA_AUTO_KEEP:
+                continue  # handled by the review queue instead
+            key = ("oa", a["openalex_id"])
+            idx[key] = _blank_person()
+            idx[key]["name"] = a["name"]
+            idx[key]["sources"].add("openalex")
+            by_name.setdefault(nk, key)
+            loc = _oa_location(a.get("current_institution"))
+            if loc:
+                ci = a["current_institution"]
+                idx[key]["employer_name"] = ci.get("name")
+                idx[key]["lat"], idx[key]["lon"] = loc["lat"], loc["lon"]
+                idx[key]["employer_city"] = loc.get("city")
+                idx[key]["employer_country"] = loc.get("country")
+                idx[key]["employer_country_code"] = loc.get("country_code")
+            added += 1
+
+        rec = idx[key]
+        rec["_openalex"] = a
+        rec["works_count"] = a.get("works_count") or rec["works_count"]
+        rec["h_index"] = a.get("h_index") or rec["h_index"]
+        rec["concepts"].update(a.get("concepts") or [])
+        if a.get("orcid") and not rec["orcid"]:
+            rec["orcid"] = a["orcid"]
+        if not rec["grad_year"] and a.get("balseiro_years"):
+            rec["grad_year"] = min(a["balseiro_years"])
+        enriched += 1
+    print(f"OpenAlex merge: enriched {enriched} people, "
+          f"added {added} new (score >= {OA_AUTO_KEEP})")
+
+
+def _write_review_queue(idx, by_orcid, by_name, blocked):
+    """Regenerate review_candidates.csv for the mid-confidence ORCID-less
+    OpenAlex authors, preserving any `keep` marks already set."""
+    prior = {}
+    if REVIEW_CSV.exists():
+        with REVIEW_CSV.open(encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                if row.get("openalex_id"):
+                    prior[row["openalex_id"]] = row.get("keep", "")
+
+    rows = []
+    for a in _load_openalex():
+        s = a.get("review_score") or 0
+        if not (OA_REVIEW_MIN <= s < OA_AUTO_KEEP):
+            continue
+        nk = name_key(a["name"])
+        if nk in blocked:
+            continue
+        if (a.get("orcid") and a["orcid"] in by_orcid) or nk in by_name:
+            continue  # already in the dataset from another source
+        ci = a.get("current_institution") or {}
+        rows.append({
+            "keep": prior.get(a["openalex_id"], ""),
+            "name": a["name"],
+            "score": s,
+            "grad_year": min(a["balseiro_years"]) if a.get("balseiro_years") else "",
+            "current_institution": ci.get("name") or "",
+            "country": COUNTRY_BY_CODE.get((ci.get("country_code") or "").upper(),
+                                           ci.get("country_code") or ""),
+            "city": "", "employer": "", "lat": "", "lon": "",
+            "degree_program": "", "field": "",
+            "concepts": "; ".join(a.get("concepts") or []),
+            "works": a.get("works_count") or "",
+            "openalex_url": f"https://openalex.org/{a['openalex_id']}",
+            "openalex_id": a["openalex_id"],
+        })
+    rows.sort(key=lambda r: -r["score"])
+
+    cols = ["keep", "name", "score", "grad_year", "current_institution", "country",
+            "city", "employer", "lat", "lon", "degree_program", "field",
+            "concepts", "works", "openalex_url", "openalex_id"]
+    with REVIEW_CSV.open("w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=cols)
+        w.writeheader()
+        w.writerow({"keep": "# set keep=y to add a row to the map; "
+                            "fill city/country or lat,lon if the institution is wrong or missing",
+                    "name": "", "score": ""})
+        w.writerows(rows)
+    kept = sum(1 for r in rows if r["keep"].lower() in ("y", "yes", "1", "x", "true"))
+    print(f"review queue: {len(rows)} candidates in {REVIEW_CSV.name} "
+          f"({kept} marked keep)")
+
+
+def _merge_ricabib(idx, by_name):
+    """Optional: IB thesis repository (author + year + title) — authoritative
+    alumni names. Run scripts/collect_ricabib.py from Argentina to populate it."""
+    if not RAW_FILES["ricabib"].exists():
+        return 0
+    n = 0
+    for t in json.loads(RAW_FILES["ricabib"].read_text(encoding="utf-8")):
+        if not t.get("author"):
+            continue
+        nk = name_key(t["author"])
+        key = by_name.get(nk) or ("name", nk)
+        rec = idx.setdefault(key, _blank_person())
+        rec["name"] = rec["name"] or t["author"]
+        rec["sources"].add("ricabib")
+        rec["wikidata_alumnus"] = rec["wikidata_alumnus"] or None
+        rec["thesis_title"] = rec["thesis_title"] or t.get("title")
+        rec["thesis_year"] = rec["thesis_year"] or t.get("year")
+        if not rec["grad_year"] and t.get("year"):
+            rec["grad_year"] = t["year"]
+        if t.get("degree_program") and not rec["degree_program"]:
+            rec["degree_program"] = t["degree_program"]
+        by_name.setdefault(nk, key)
+        n += 1
+    return n
+
+
+def _load_blocklist():
+    if not BLOCKLIST.exists():
+        return set()
+    out = set()
+    for line in BLOCKLIST.read_text(encoding="utf-8").splitlines():
+        line = line.split("#", 1)[0].strip()
+        if line:
+            out.add(name_key(line))
+    return out
 
 
 # --------------------------------------------------------------------------- #
@@ -288,6 +479,27 @@ def _resolve_location(rec):
         )
         return
 
+    # 5. OpenAlex current institution — try its own coordinates first, then geocode
+    oa = rec.get("_openalex") or {}
+    ci = oa.get("current_institution") or {}
+    if ci.get("name"):
+        cc = (ci.get("country_code") or "").upper()
+        country = COUNTRY_BY_CODE.get(cc, cc or None)
+        rec["employer_name"] = rec["employer_name"] or ci["name"]
+        rec["employer_country"] = rec["employer_country"] or country
+        geo = collect_openalex.institution_geo(ci.get("openalex_id"))
+        if geo:
+            rec["lat"], rec["lon"] = geo["lat"], geo["lon"]
+            rec["employer_city"] = rec["employer_city"] or geo.get("city")
+            rec["employer_country"] = geo.get("country") or rec["employer_country"]
+            rec["employer_country_code"] = geo.get("country_code")
+            return
+        rec["_geo_chain"] = _chain(
+            ", ".join(b for b in [ci["name"], country] if b),
+            ci["name"], country,
+        )
+        return
+
 
 def _nice_role(rec):
     occ = sorted(rec["occupations"])  # sorted -> deterministic across builds
@@ -304,12 +516,29 @@ def build():
     by_orcid: dict = {}
     by_name: dict = {}
 
+    blocked = _load_blocklist()
+
     _merge_wikidata(idx, by_orcid, by_name)
     _merge_orcid(idx, by_orcid, by_name)
     _merge_wikipedia(idx, by_orcid, by_name)
-    n_manual = _merge_manual(idx, by_name)
+    n_ricabib = _merge_ricabib(idx, by_name)
+    n_manual = _merge_csv(idx, by_name, MANUAL_CSV, "manual")
+
+    # OpenAlex: enrich existing people + add high-confidence ORCID-less authors,
+    # then (re)write the review queue and fold back any rows already marked keep.
+    _enrich_openalex(idx, by_orcid, by_name, blocked)
+    _write_review_queue(idx, by_orcid, by_name, blocked)
+    n_review = _merge_csv(idx, by_name, REVIEW_CSV, "reviewed", kept_only=True)
+
+    # honour the blocklist (name keys to always drop)
+    if blocked:
+        before = len(idx)
+        for k in [k for k, v in idx.items() if name_key(v["name"] or "") in blocked]:
+            del idx[k]
+        print(f"blocklist: removed {before - len(idx)}")
+
     print(f"merged: {len(idx)} distinct people "
-          f"(wikidata+orcid+wikipedia+{n_manual} manual rows)")
+          f"(+{n_ricabib} ricabib, +{n_manual} manual, +{n_review} reviewed)")
 
     # ---- resolve locations (batch-geocode, first hit in each chain wins) -- #
     for rec in idx.values():
@@ -347,21 +576,26 @@ def build():
     # ---- finalise records --------------------------------------------------#
     out = []
     for rec in idx.values():
-        program = rec["degree_program"] or _classify(
-            " ".join(rec["degrees"]) + " " + (rec["description"] or ""), DEGREE_PROGRAM_RULES)
+        degree_blob = " ".join(rec["degrees"]) + " " + (rec["description"] or "") \
+            + " " + (rec["thesis_title"] or "")
+        program = rec["degree_program"] or _classify(degree_blob, DEGREE_PROGRAM_RULES)
+        levels = _classify_all(degree_blob, DEGREE_LEVEL_RULES)
 
-        # Classify the *research field* from research signals first; only fall
-        # back to a coarse bucket from the Balseiro degree if nothing matched.
-        research_blob = " ".join([
+        # Classify the research field, most trustworthy signal first:
+        # human-written text -> degree -> (filtered) OpenAlex concepts ->
+        # employer name -> coarse bucket from the Balseiro degree.
+        human_blob = " ".join([
             " ".join(rec["fields"]), " ".join(rec["keywords"]),
             " ".join(rec["occupations"]), rec["description"] or "",
-            rec["biography"] or "", rec["employer_name"] or "",
+            rec["biography"] or "", rec["thesis_title"] or "",
         ])
-        discipline = _classify(research_blob, DISCIPLINE_RULES, default=None)
-        if not discipline:
-            discipline = _classify(" ".join(rec["degrees"]), DISCIPLINE_RULES, default=None)
-        if not discipline:
-            discipline = PROGRAM_TO_DISCIPLINE.get(program, "Not specified")
+        discipline = (
+            _classify(human_blob, DISCIPLINE_RULES, default=None)
+            or _classify(" ".join(rec["degrees"]), DISCIPLINE_RULES, default=None)
+            or _classify(" ".join(sorted(rec["concepts"])), DISCIPLINE_RULES, default=None)
+            or _classify(rec["employer_name"] or "", DISCIPLINE_RULES, default=None)
+            or PROGRAM_TO_DISCIPLINE.get(program, "Not specified")
+        )
 
         sector = _classify(rec["employer_name"] or "", SECTOR_RULES, default=None)
 
@@ -389,12 +623,21 @@ def build():
             "discipline": discipline,
             "sector": sector,
             "program": program,
+            "levels": levels or None,
             "grad_year": gy,
             "grad_decade": (gy // 10 * 10) if gy else None,
             "birth_year": rec["birth_year"],
             "deceased": bool(rec["death_year"]),
             "keywords": sorted(rec["keywords"])[:12] or None,
             "fields": sorted(rec["fields"]) or None,
+            "concepts": sorted(rec["concepts"])[:6] or None,
+            "works_count": rec["works_count"],
+            "h_index": rec["h_index"],
+            "thesis": ({"title": rec["thesis_title"], "year": rec["thesis_year"]}
+                       if rec["thesis_title"] else None),
+            "confidence": ("confirmed" if rec["wikidata_alumnus"]
+                           or {"orcid", "wikipedia", "manual", "ricabib", "reviewed"} & rec["sources"]
+                           else "inferred"),
             "orcid": rec["orcid"],
             "scholar_id": rec["scholar_id"],
             "wikipedia": rec["wikipedia"],
@@ -416,15 +659,19 @@ def build():
             "total": len(out),
             "located": len(located),
             "countries": len(countries),
+            "confirmed": sum(1 for p in out if p["confidence"] == "confirmed"),
             "sources": {
                 s: sum(1 for p in out if s in p["sources"])
-                for s in ("wikidata", "orcid", "wikipedia", "manual")
+                for s in ("wikidata", "orcid", "openalex", "reviewed",
+                          "wikipedia", "ricabib", "manual")
             },
             "disclaimer": (
                 "Compiled automatically from public data (Wikidata, ORCID, "
-                "Wikipedia). Coverage is partial and skewed toward people with "
-                "an academic/research web presence. Locations are the current or "
-                "most recent employer on record and may be out of date."
+                "OpenAlex, Wikipedia). Coverage is partial and skewed toward "
+                "people with an academic/research web presence. 'Inferred' "
+                "entries come from OpenAlex affiliation data and are less "
+                "certain. Locations are the current or most recent employer on "
+                "record and may be out of date."
             ),
         },
         "alumni": out,

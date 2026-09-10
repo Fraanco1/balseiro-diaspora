@@ -4146,5 +4146,33 @@
   "display_name": "University of Maryland Baltimore County, 1000, Hilltop Circle, Baltimore, Baltimore County, Maryland, 21250, United States",
   "country": "United States",
   "country_code": "US"
+ },
+ "Universidad de Navarra, Pamplona, Spain": {
+  "lat": 42.801154,
+  "lon": -1.6585695,
+  "display_name": "Universidad de Navarra, Avenida Aróstegui, Etxabakoitz, Pamplona / Iruña, Iruñerria, Navarra, Navarra / Nafarroa, 31009, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Universidad de Navarra, Spain": {
+  "lat": 42.801154,
+  "lon": -1.6585695,
+  "display_name": "Universidad de Navarra, San Juan Bosco kalea, Iturrama, Pamplona / Iruña, Iruñerria, Navarra, Navarra / Nafarroa, 31007, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Pamplona, Navarra, Spain": {
+  "lat": 42.815686,
+  "lon": -1.6522353,
+  "display_name": "Pamplona / Iruña, Iruñerria, Navarra, Navarra / Nafarroa, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Pamplona, Spain": {
+  "lat": 42.815686,
+  "lon": -1.6522353,
+  "display_name": "Pamplona / Iruña, Iruñerria, Navarra, Navarra / Nafarroa, España",
+  "country": "España",
+  "country_code": "ES"
  }
 }

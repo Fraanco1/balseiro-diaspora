@@ -15,9 +15,15 @@ from common import RAW, cached_get
 
 CATEGORIES = [
     ("es", "Alumnado del Instituto Balseiro"),
+    ("es", "Profesores del Instituto Balseiro"),
     ("en", "Balseiro Institute alumni"),
     ("en", "Instituto Balseiro alumni"),
+    ("en", "Balseiro Institute faculty"),
+    ("pt", "Alunos do Instituto Balseiro"),
+    ("fr", "Étudiant de l'Institut Balseiro"),
+    ("it", "Studenti dell'Istituto Balseiro"),
     ("de", "Absolvent des Instituto Balseiro"),
+    ("ca", "Alumnes de l'Institut Balseiro"),
 ]
 
 

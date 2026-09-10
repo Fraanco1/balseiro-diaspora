@@ -49,7 +49,19 @@ def _find_ids() -> set[str]:
             if len(hits) < page or start + page >= min(int(data.get("num-found", 0)), 1000):
                 break
             start += page
-    print(f"ORCID: {len(ids)} candidate iDs from search")
+    n_search = len(ids)
+
+    # Widen the candidate pool with ORCID iDs that OpenAlex associates with a
+    # Balseiro affiliation. Every id still has to pass the education check below.
+    oa_ids = RAW / "openalex_orcid_ids.json"
+    if oa_ids.exists():
+        extra = set(json.loads(oa_ids.read_text(encoding="utf-8")))
+        ids |= extra
+        print(f"ORCID: {n_search} iDs from ORCID search + "
+              f"{len(ids) - n_search} more from OpenAlex = {len(ids)} to verify")
+    else:
+        print(f"ORCID: {n_search} candidate iDs from search "
+              f"(run collect_openalex first to widen this)")
     return ids
 
 

@@ -7,7 +7,13 @@ const SCHOLAR_BASE = 'https://scholar.google.com/citations?user=';
 
 let ALUMNI = [];
 let META = {};
-let map, cluster, zoomControlAdded = false;
+let map, cluster;
+
+const LEVEL_SHORT = {
+  'Doctorate (PhD)': 'PhD', "Master's": 'MSc',
+  'Specialization / diploma': 'Spec.', 'Engineering degree': 'Eng.',
+  'Physics degree (Licenciatura)': 'Lic.',
+};
 
 const state = {
   q: '',
@@ -18,13 +24,21 @@ const state = {
   sort: { key: 'name', dir: 1 },
 };
 
+const SOURCE_LABELS = {
+  wikidata: 'Wikidata', orcid: 'ORCID', openalex: 'OpenAlex (inferred)',
+  reviewed: 'OpenAlex (reviewed)', wikipedia: 'Wikipedia', ricabib: 'IB thesis repo',
+  manual: 'Added by hand',
+};
+
 const FACETS = [
   { key: 'discipline', label: 'Research field',      values: p => p.discipline ? [p.discipline] : [], open: true },
   { key: 'sector',     label: 'Type of employer',    values: p => p.sector ? [p.sector] : [],         open: true },
   { key: 'country',    label: 'Country (now)',       values: p => p.country ? [p.country] : [],       open: true },
-  { key: 'program',    label: 'Degree at Balseiro',  values: p => p.program ? [p.program] : [],       open: false },
+  { key: 'levels',     label: 'Degree at Balseiro',  values: p => p.levels || [],                     open: true },
+  { key: 'program',    label: 'Degree subject',      values: p => p.program ? [p.program] : [],       open: false },
   { key: 'grad_decade',label: 'Graduation decade',   values: p => p.grad_decade ? [p.grad_decade + 's'] : [], open: false },
-  { key: 'sources',    label: 'Data source',         values: p => p.sources || [],                    open: false },
+  { key: 'confidence', label: 'Confidence',          values: p => p.confidence ? [p.confidence] : [], open: false },
+  { key: 'sources',    label: 'Data source',         values: p => (p.sources || []).map(s => SOURCE_LABELS[s] || s), open: false },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -101,15 +115,29 @@ function initMap() {
   map.addControl(new ZoomBtn());
 }
 
+const IB_LATLON = [-41.1335, -71.4281];
+let originLine = null;
+
 function markerFor(p) {
   const abroad = p.country && p.country !== 'Argentina';
+  const inferred = p.confidence === 'inferred';
   const m = L.circleMarker([p.lat, p.lon], {
-    radius: 6, weight: 1.5,
+    radius: inferred ? 5 : 6,
+    weight: 1.5,
     color: abroad ? '#c98432' : '#3f6fae',
     fillColor: abroad ? '#e0a458' : '#6c9bd1',
-    fillOpacity: 0.85,
+    fillOpacity: inferred ? 0.25 : 0.85,
   });
   m.bindPopup(popupHtml(p), { minWidth: 250 });
+  m.on('popupopen', () => {
+    if (originLine) map.removeLayer(originLine);
+    originLine = L.polyline([IB_LATLON, [p.lat, p.lon]], {
+      color: '#d64545', weight: 1.5, opacity: 0.6, dashArray: '4 4',
+    }).addTo(map);
+  });
+  m.on('popupclose', () => {
+    if (originLine) { map.removeLayer(originLine); originLine = null; }
+  });
   return m;
 }
 
@@ -128,8 +156,21 @@ function popupHtml(p) {
 
   const chips = [];
   if (p.discipline && p.discipline !== 'Not specified') chips.push(`<span class="chip">${esc(p.discipline)}</span>`);
+  (p.levels || []).forEach(l => chips.push(`<span class="chip lvl">${esc(l)}${p.grad_year ? ` ’${String(p.grad_year).slice(2)}` : ''}</span>`));
+  if (!p.levels && p.grad_year) chips.push(`<span class="chip muted">IB ${esc(p.grad_year)}</span>`);
   if (p.sector) chips.push(`<span class="chip muted">${esc(p.sector)}</span>`);
-  if (p.grad_year) chips.push(`<span class="chip muted">IB ${esc(p.grad_year)}</span>`);
+  if (p.concepts) p.concepts.slice(0, 3).forEach(c => chips.push(`<span class="chip muted">${esc(c)}</span>`));
+
+  const metrics = [];
+  if (p.works_count) metrics.push(`${p.works_count} papers`);
+  if (p.h_index) metrics.push(`h-index ${p.h_index}`);
+
+  const thesisLine = p.thesis
+    ? `<div class="pp-line pp-thesis">IB thesis${p.thesis.year ? ` (${esc(p.thesis.year)})` : ''}: “${esc(p.thesis.title)}”</div>`
+    : '';
+  const inferredNote = p.confidence === 'inferred'
+    ? `<div class="pp-line pp-inferred">Inferred from OpenAlex affiliation data — not independently confirmed.</div>`
+    : '';
 
   const photo = p.image
     ? `<img class="pp-photo" src="${esc(p.image)}" alt="" loading="lazy"
@@ -145,8 +186,11 @@ function popupHtml(p) {
     </div>
     <div class="pp-line"><b>${esc(p.employer || 'Unknown employer')}</b><br>
       ${esc([p.city, p.country].filter(Boolean).join(', '))}</div>
+    ${metrics.length ? `<div class="pp-line pp-metrics">${esc(metrics.join(' · '))}</div>` : ''}
+    ${thesisLine}
     ${chips.length ? `<div class="pp-chips">${chips.join('')}</div>` : ''}
     ${links.length ? `<div class="pp-links">${links.join('')}</div>` : ''}
+    ${inferredNote}
   </div>`;
 }
 
@@ -157,7 +201,9 @@ function matches(p, ignoreKey) {
   if (state.q) {
     const hay = [
       p.name, p.employer, p.role, p.description, p.discipline, p.city, p.country,
-      (p.keywords || []).join(' '), (p.fields || []).join(' '), (p.aka || []).join(' '),
+      (p.keywords || []).join(' '), (p.fields || []).join(' '),
+      (p.concepts || []).join(' '), (p.aka || []).join(' '),
+      p.thesis && p.thesis.title,
     ].join(' ').toLowerCase();
     if (!hay.includes(state.q)) return false;
   }
@@ -191,13 +237,16 @@ function buildHeadline() {
 
 function buildAbout() {
   const s = META.sources || {};
+  const srcLine = Object.entries(SOURCE_LABELS)
+    .filter(([k]) => s[k]).map(([k, l]) => `${l} ${s[k]}`).join(' · ');
   document.getElementById('about-panel').innerHTML = `
     <h3>About this atlas</h3>
     <p>${esc(META.disclaimer || '')}</p>
     <ul>
-      <li>Sources: Wikidata ${s.wikidata || 0} · ORCID ${s.orcid || 0} · Wikipedia ${s.wikipedia || 0} · hand-added ${s.manual || 0}</li>
+      <li><b>${META.confirmed || 0}</b> of ${META.total} entries are confirmed alumni (Wikidata/ORCID/Wikipedia/thesis/manual); the rest are inferred from OpenAlex.</li>
+      <li>Sources: ${esc(srcLine)}</li>
       <li>Generated ${esc((META.generated || '').replace('T', ' ').replace('+00:00', ' UTC'))}</li>
-      <li>Add people yourself in <code>data/manual_alumni.csv</code>, then re-run <code>python3 scripts/run_all.py</code>.</li>
+      <li>Add people in <code>data/manual_alumni.csv</code>, vet inferred ones in <code>data/review_candidates.csv</code>, remove wrong ones in <code>data/blocklist.txt</code>, then re-run <code>python3 scripts/run_all.py</code>.</li>
     </ul>`;
 }
 
@@ -455,6 +504,7 @@ const COLS = [
   { key: 'employer', label: 'Employer' },
   { key: 'country', label: 'Location' },
   { key: 'discipline', label: 'Field' },
+  { key: 'levels', label: 'Degree' },
   { key: 'grad_year', label: 'IB' },
 ];
 
@@ -462,6 +512,8 @@ function renderList() {
   const rows = filtered(null).slice().sort((a, b) => {
     const { key, dir } = state.sort;
     let x = a[key], y = b[key];
+    if (Array.isArray(x)) x = x.join(', ');
+    if (Array.isArray(y)) y = y.join(', ');
     if (x == null) return 1;
     if (y == null) return -1;
     if (typeof x === 'string') return x.localeCompare(y) * dir;
@@ -478,6 +530,7 @@ function renderList() {
       <td>${esc(p.employer || '—')}</td>
       <td class="${tag}">${esc(loc)}</td>
       <td class="subtle">${esc(p.discipline === 'Not specified' ? '—' : p.discipline || '—')}</td>
+      <td class="subtle">${p.levels ? esc(p.levels.map(l => LEVEL_SHORT[l] || l).join(', ')) : '—'}</td>
       <td class="subtle">${p.grad_year || '—'}</td>
     </tr>`;
   }).join('');

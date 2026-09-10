@@ -53,9 +53,14 @@ a { color: var(--accent); }
 }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand .mark {
-  font-size: 26px; color: var(--accent); line-height: 1;
-  transform: translateY(-1px);
+  width: 34px; height: 34px; object-fit: contain; flex-shrink: 0;
 }
+@media (prefers-color-scheme: dark) {
+  /* the logo art is a fixed teal; lift it slightly so it reads on dark */
+  .brand .mark { filter: brightness(1.35) saturate(0.9); }
+}
+:root[data-theme="dark"] .brand .mark { filter: brightness(1.35) saturate(0.9); }
+:root[data-theme="light"] .brand .mark { filter: none; }
 #topbar h1 { font-size: 17px; margin: 0; letter-spacing: .2px; }
 .tagline { margin: 2px 0 0; color: var(--text-dim); font-size: 12.5px; max-width: 46ch; }
 
@@ -157,6 +162,7 @@ a { color: var(--accent); }
 .legend .dot.ar { background: #6c9bd1; }
 .legend .dot.abroad { background: #e0a458; }
 .legend .dot.home { background: #d64545; }
+.legend .dot.faint { background: transparent; border: 1.5px solid #b0863f; }
 
 .unmapped-note {
   position: absolute; left: 10px; bottom: 10px; z-index: 500;
@@ -178,12 +184,16 @@ a { color: var(--accent); }
 .pp-role { color: var(--text-dim); font-size: 12px; }
 .pp-line { margin-top: 7px; }
 .pp-line b { font-weight: 600; }
+.pp-metrics { color: var(--text-dim); font-size: 11.5px; }
+.pp-thesis { font-size: 11.5px; font-style: italic; color: var(--text-dim); }
+.pp-inferred { font-size: 10.5px; color: var(--abroad); border-top: 1px dashed var(--border); padding-top: 6px; }
 .pp-chips { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
 .chip {
   font-size: 10.5px; padding: 2px 7px; border-radius: 999px;
   background: var(--accent-soft); color: var(--accent-strong); white-space: nowrap;
 }
 .chip.muted { background: var(--surface-2); color: var(--text-dim); }
+.chip.lvl { background: transparent; border: 1px solid var(--accent); color: var(--accent-strong); }
 .pp-links { margin-top: 9px; display: flex; flex-wrap: wrap; gap: 8px; }
 .pp-links a { font-size: 12px; text-decoration: none; }
 .pp-links a:hover { text-decoration: underline; }

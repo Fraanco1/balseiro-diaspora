@@ -13,6 +13,7 @@ import sys
 import time
 
 from common import RAW, DATA
+import collect_openalex
 import collect_wikidata
 import collect_orcid
 import collect_wikipedia
@@ -27,11 +28,18 @@ def main() -> None:
         (DATA / "geocode_cache.json").unlink(missing_ok=True)
 
     t0 = time.time()
-    for name, fn in [
+    sources = [
+        # OpenAlex first: it feeds extra ORCID iDs into the ORCID verifier.
+        ("OpenAlex", collect_openalex.collect),
         ("Wikidata", collect_wikidata.collect),
         ("ORCID", collect_orcid.collect),
         ("Wikipedia", collect_wikipedia.collect),
-    ]:
+    ]
+    if "--ricabib" in sys.argv:  # only reachable from Argentina; opt in
+        import collect_ricabib
+        sources.append(("RICABIB", collect_ricabib.collect))
+
+    for name, fn in sources:
         print(f"\n=== {name} ===")
         try:
             fn()

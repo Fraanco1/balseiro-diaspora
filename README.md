@@ -5,54 +5,60 @@ live and work — built to help with a job / PhD / master's search: see which
 institutions and companies hire Balseiro people, in which countries and fields,
 and find names to reach out to.
 
-![overview](docs/screenshot.png)
-
 ## How it works
 
 ```
 scripts/collect_*.py  ─┐
-                       ├─►  scripts/build_dataset.py  ─►  site/data/alumni.json  ─►  site/index.html
-data/manual_alumni.csv ┘
+data/manual_alumni.csv ├─►  scripts/build_dataset.py  ─►  site/data/alumni.json  ─►  site/index.html
+data/review_candidates.csv ┘        ▲
+                          data/blocklist.txt
 ```
 
 Alumni are gathered from **public, structured sources** (LinkedIn cannot be
 scraped and is deliberately not used):
 
-| Source | Contributes |
-|--------|-------------|
-| [Wikidata](https://www.wikidata.org) | People with `educated at = Instituto Balseiro`, their employers (often with coordinates), fields, photos, Wikipedia links |
-| [ORCID](https://orcid.org) | Researchers who list Instituto Balseiro in their **education** history — graduation year, degree, current employer + city/country, keywords |
-| Wikipedia | The curated *Alumnado del Instituto Balseiro* category — short bios and portraits |
-| `data/manual_alumni.csv` | Anyone **you** add by hand |
+| Source | Contributes | Confidence |
+|--------|-------------|------------|
+| [Wikidata](https://www.wikidata.org) | `educated at` / `employer` / `affiliation` = Instituto Balseiro; employers (often with coordinates), fields, photos, Wikipedia links | confirmed |
+| [ORCID](https://orcid.org) | Anyone with Instituto Balseiro in their **education** history — grad year, degree, current employer + city/country, keywords. Candidate iDs come from ORCID's own search **and** from OpenAlex. | confirmed |
+| [OpenAlex](https://openalex.org) | ~2,900 authors who ever published with a Balseiro affiliation. ORCID ones are verified above; high-scoring ORCID-less ones are added directly; the rest go to a review queue. Also adds publication counts, h-index and research concepts to everyone. | inferred (unless verified) |
+| Wikipedia | Curated *Alumnado / Profesores del Instituto Balseiro* categories — bios and portraits | confirmed |
+| RICABIB thesis repo (opt-in, run from Argentina) | Author + year + title of every IB thesis — the authoritative roster | confirmed |
+| `data/manual_alumni.csv` | Anyone **you** add by hand | confirmed |
 
 `build_dataset.py` merges duplicates (by ORCID iD, then by normalised name),
-geocodes each employer via [Nominatim](https://nominatim.org) (cached), classifies
-research field and employer type, and writes a single `site/data/alumni.json`.
+resolves each person's location from Wikidata/OpenAlex coordinates or
+[Nominatim](https://nominatim.org) geocoding (cached), classifies research field
+and employer sector, tags `confidence`, and writes a single `site/data/alumni.json`.
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt        # just `requests`
-python3 scripts/run_all.py             # first run ≈ 5–10 min (geocoding at 1 req/s)
-```
-
-Then serve the site (needs a local server — `fetch()` won't work from `file://`):
-
-```bash
-cd site && python3 -m http.server 8000
-# open http://localhost:8000
+python3 scripts/run_all.py             # first run ≈ 15–20 min (ORCID verification + geocoding)
+python3 serve.py                       # -> http://localhost:8000  (fetch() needs http, not file://)
 ```
 
 Re-running is fast because API responses and geocoding live in `data/`
-(`data/raw/`, `data/geocode_cache.json`). Use `--fresh` to ignore the caches:
+(`data/raw/`, `data/geocode_cache.json`). Use `--fresh` to ignore the caches;
+add `--ricabib` to also harvest the thesis repository (only works from Argentina):
 
 ```bash
 python3 scripts/run_all.py --fresh
+python3 scripts/run_all.py --ricabib
 ```
 
-## Adding people yourself
+## Growing the database
 
-Edit `data/manual_alumni.csv` — only `name` is required:
+| Want more… | Do this |
+|---|---|
+| **people, automatically** | Already maxed on Wikidata/ORCID/OpenAlex. Re-run `run_all.py` periodically to pick up newly-published profiles. |
+| **inferred people confirmed** | Edit `data/review_candidates.csv` (below). |
+| **people you know personally** | Edit `data/manual_alumni.csv` (below) — highest precision. Browsing LinkedIn's "Instituto Balseiro" alumni page while logged in and copying names in is fine; automated scraping is not. |
+| **the authoritative graduate roster** | `python3 scripts/collect_ricabib.py` from an Argentine connection (see its header — you may need to adjust `BASE`). |
+| **fewer false positives** | Add names to `data/blocklist.txt`. |
+
+### `data/manual_alumni.csv` — only `name` is required
 
 ```csv
 name,grad_year,degree_program,field,role,employer,city,country,lat,lon,links,notes
@@ -60,8 +66,15 @@ María Pérez,2018,Physics,Quantum optics,PhD student,ETH Zürich,Zürich,Switze
 ```
 
 Leave `lat`/`lon` blank and the builder geocodes `employer, city, country`.
-If a name matches someone already pulled from Wikidata/ORCID, your fields are
+If a name matches someone already pulled from another source, your fields are
 merged in rather than duplicated. Then re-run `python3 scripts/run_all.py`.
+
+### `data/review_candidates.csv` — vetting the inferred entries
+
+Every run regenerates this file with mid-confidence people OpenAlex thinks
+studied at Balseiro but that couldn't be auto-verified. For anyone real, set
+`keep` to `y` (and fill `city`/`country` or `lat`,`lon` if the listed
+institution looks wrong). Your `keep` marks are preserved across future runs.
 
 ## The website
 

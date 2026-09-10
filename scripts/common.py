@@ -168,10 +168,24 @@ def strip_accents(text: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c))
 
 
+_MOJIBAKE = {"ı": "i", "İ": "i", "ﬁ": "fi", "ﬂ": "fl"}
+
+
+def _clean_unicode(text: str) -> str:
+    text = unicodedata.normalize("NFKC", text or "")
+    for bad, good in _MOJIBAKE.items():
+        text = text.replace(bad, good)
+    # OpenAlex sometimes stores "Garci ́a" (letter, space, combining accent);
+    # pull the mark back onto its letter before we normalise.
+    text = re.sub(r"\s+([̀-ͯ])", r"\1", text)
+    return unicodedata.normalize("NFKC", text)
+
+
 def name_key(name: str) -> str:
-    n = strip_accents(name or "").lower()
+    n = strip_accents(_clean_unicode(name)).lower()
     n = re.sub(r"[^a-z\s-]", " ", n)
-    parts = [p for p in re.split(r"[\s-]+", n) if p and p not in {"de", "del", "la", "el", "van", "von"}]
+    parts = [p for p in re.split(r"[\s-]+", n)
+             if p and p not in {"de", "del", "la", "el", "van", "von", "da", "do"}]
     parts.sort()
     return " ".join(parts)
 
