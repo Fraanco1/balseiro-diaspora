@@ -5,3 +5,4 @@
 #
 # Example:
 # John Smith
+Riccardo C. Trinchero   # INFN Turin electronics researcher; not the IB physicist Roberto Trinchero (added to manual_alumni.csv)

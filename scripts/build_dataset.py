@@ -40,6 +40,7 @@ RAW_FILES = {
 # Lens applicants specific enough that a new inventor is likely an alumnus:
 LENS_DISCOVERY_APPLICANTS = ("INVAP", "Instituto Balseiro", "Centro Atómico Bariloche")
 MANUAL_CSV = DATA / "manual_alumni.csv"
+FOUND_CSV = DATA / "found_alumni.csv"   # auto-researched locations for previously-unmatched graduates
 REVIEW_CSV = DATA / "review_candidates.csv"
 BLOCKLIST = DATA / "blocklist.txt"
 
@@ -820,6 +821,7 @@ def build():
     n_ads = _merge_ads(idx, by_orcid, by_name)
     n_lens = _merge_lens(idx, by_orcid, by_name, blocked)
     n_manual = _merge_csv(idx, by_name, MANUAL_CSV, "manual")
+    n_manual += _merge_csv(idx, by_name, FOUND_CSV, "manual")
 
     # OpenAlex: enrich existing people + add high-confidence ORCID-less authors,
     # then (re)write the review queue and fold back any rows already marked keep.

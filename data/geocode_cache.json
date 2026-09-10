@@ -5376,5 +5376,42 @@
   "display_name": "Saarbrücken, Regionalverband Saarbrücken, Saarland, Deutschland",
   "country": "Deutschland",
   "country_code": "DE"
+ },
+ "Studsvik Scandpower, Idaho Falls, United States": {},
+ "Studsvik Scandpower, United States": {},
+ "Idaho Falls, United States": {
+  "lat": 43.4887907,
+  "lon": -112.03628,
+  "display_name": "Idaho Falls, Bonneville County, Idaho, United States",
+  "country": "United States",
+  "country_code": "US"
+ },
+ "Mercado Libre, Buenos Aires, Argentina": {
+  "lat": -34.5474439,
+  "lon": -58.4890518,
+  "display_name": "Mercado Libre, 4755, Posta, Saavedra, Buenos Aires, Comuna 12, Ciudad Autónoma de Buenos Aires, C1430DAK, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Mercado Libre, Argentina": {
+  "lat": -34.5474439,
+  "lon": -58.4890518,
+  "display_name": "Mercado Libre, 4755, Posta, Saavedra, Buenos Aires, Comuna 12, Ciudad Autónoma de Buenos Aires, C1430DAK, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Universitat Politecnica de Catalunya, Barcelona, Spain": {
+  "lat": 41.2214475,
+  "lon": 1.7301449,
+  "display_name": "Escola Politècnica Superior d''Enginyeria de Vilanova i la Geltrú (EPSEVG), 1, Avinguda de Víctor Balaguer, Barri de Mar, Vilanova i la Geltrú, Garraf, Barcelona, Catalunya, 08800, España",
+  "country": "España",
+  "country_code": "ES"
+ },
+ "Universitat Politecnica de Catalunya, Spain": {
+  "lat": 41.2214475,
+  "lon": 1.7301449,
+  "display_name": "Escola Politècnica Superior d''Enginyeria de Vilanova i la Geltrú (EPSEVG), 1, Avinguda de Víctor Balaguer, Barri de Mar, Vilanova i la Geltrú, Garraf, Barcelona, Catalunya, 08800, España",
+  "country": "España",
+  "country_code": "ES"
  }
 }

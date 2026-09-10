@@ -1,0 +1,6 @@
+name,grad_year,degree_program,field,role,employer,city,country,lat,lon,links,notes
+# Auto-researched locations for IB graduates who had NO record in the atlas
+# (the "unmatched graduates" enrichment pass — see scripts/enrich_unmatched.md).
+# Same schema as manual_alumni.csv; merged by build_dataset.py the same way.
+# Only CONFIRMED finds (an IB-linked source + a dated current/last-known location) land here.
+# 'notes' always carries: evidence + year, and confidence.
