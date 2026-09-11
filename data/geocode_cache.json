@@ -5618,5 +5618,64 @@
   "display_name": "Pan American Energy, 1180, Avenida Leandro N. Alem, Catalinas Norte, Retiro, Buenos Aires, Comuna 1, Ciudad Autónoma de Buenos Aires, C1004AAW, Argentina",
   "country": "Argentina",
   "country_code": "AR"
- }
+ },
+ "Cartagena Politecnica U.": {},
+ "Pierre Auger Observ.": {},
+ "Balseiro Inst., San Carlos de Bariloche, Argentina": {},
+ "Cuyo U., Argentina": {
+  "lat": -34.6580875,
+  "lon": -58.4803816,
+  "display_name": "Cuyo, Mataderos, Buenos Aires, Comuna 9, Ciudad Autónoma de Buenos Aires, C1439BSN, Argentina",
+  "country": "Argentina",
+  "country_code": "AR"
+ },
+ "Cartagena Politecnica U., Spain": {},
+ "Pierre Auger Observ., Argentina": {},
+ "Fundacao U., Rio Grande, Brazil": {
+  "lat": -30.077732,
+  "lon": -51.2453919,
+  "display_name": "Fundação Iberê Camargo, 2000, Avenida Padre Cacique, Cristal, Porto Alegre, Rio Grande do Sul, Região Sul, 90810-240, Brasil",
+  "country": "Brasil",
+  "country_code": "BR"
+ },
+ "Valparaiso U., Chile": {
+  "lat": -27.1484932,
+  "lon": -109.4301678,
+  "display_name": "Banco Estado, Tu'u Maheke, Vai Hiri Hoŋo, Mataveri, Hanga Roa, Isla de Pascua, Provincia de Isla de Pascua, Región de Valparaíso, 2770000, Chile",
+  "country": "Chile",
+  "country_code": "CL"
+ },
+ "IJCLab, Orsay, France": {
+  "lat": 48.6983272,
+  "lon": 2.1768071,
+  "display_name": "Laboratoire de Physique des 2 infinis Irène Joliot-Curie – IJCLab, Avenue Irène et Frédéric Joliot-Curie, Orsay Gare, La Boissière, Orsay, Palaiseau, Essonne, Île-de-France, France métropolitaine, 91400, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "CEA Paris-Saclay, Gif-sur-Yvette, France": {},
+ "CEA Paris-Saclay, France": {
+  "lat": 48.7245606,
+  "lon": 2.1480654,
+  "display_name": "CEA Paris-Saclay, Chemin de Palaiseau, Saclay, Palaiseau, Essonne, Île-de-France, France métropolitaine, 91190, France",
+  "country": "France",
+  "country_code": "FR"
+ },
+ "Edmond and Lily Safra Center for Brain Sciences (Hebrew University of Jerusalem), Jerusalem, Israel": {},
+ "Edmond and Lily Safra Center for Brain Sciences (Hebrew University of Jerusalem), Israel": {},
+ "Jerusalem, Israel": {
+  "lat": 31.7788472,
+  "lon": 35.2257856,
+  "display_name": "ירושלים | القدس, נפת ירושלים, מחוז ירושלים, ישראל",
+  "country": "ישראל",
+  "country_code": "IL"
+ },
+ "Israel": {
+  "lat": 30.8124247,
+  "lon": 34.8594762,
+  "display_name": "ישראל",
+  "country": "ישראל",
+  "country_code": "IL"
+ },
+ "Universidad Nacional de Cordoba / CONICET (IFEG) / CNEA, Cordoba, Argentina": {},
+ "Universidad Nacional de Cordoba / CONICET (IFEG) / CNEA, Argentina": {}
 }

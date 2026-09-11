@@ -701,15 +701,27 @@ def _resolve_location(rec):
         )
         return
 
-    # 1c. INSPIRE current institution -> it already carries coordinates
+    # 1c. INSPIRE current institution (an explicit "current": true career
+    # entry) is the freshest "where are they now" signal we have -- it wins
+    # even when INSPIRE's own institution record lacks coordinates. Falling
+    # through to step 5/6 in that case used to let a stale ORCID/OpenAlex
+    # employer win instead (e.g. someone who just moved but hasn't updated
+    # their ORCID profile yet) -- geocode by name/city/country instead.
     ii = rec.get("_inspire_inst")
-    if ii and ii.get("lat") is not None and not (oc and oc.get("ongoing")):
+    if ii and ii.get("name") and not (oc and oc.get("ongoing")):
         rec["employer_name"] = rec["employer_name"] or ii.get("name")
         rec["employer_city"] = rec["employer_city"] or ii.get("city")
         rec["employer_country"] = rec["employer_country"] or ii.get("country")
         rec["employer_country_code"] = rec["employer_country_code"] or ii.get("country_code")
-        rec["lat"], rec["lon"] = ii["lat"], ii["lon"]
         rec["loc_asof"] = _asof(ii.get("year"))
+        if ii.get("lat") is not None:
+            rec["lat"], rec["lon"] = ii["lat"], ii["lon"]
+        else:
+            rec["_geo_chain"] = _chain(
+                ", ".join(b for b in [ii.get("name"), ii.get("city"), ii.get("country")] if b),
+                ", ".join(b for b in [ii.get("name"), ii.get("country")] if b),
+                ", ".join(b for b in [ii.get("city"), ii.get("country")] if b),
+                ii.get("country"))
         return
 
     # 2. Wikidata employer that carries coordinates (no date available)
@@ -772,14 +784,18 @@ def _resolve_location(rec):
         )
         return
 
-    # 6. last resort — INSPIRE ICN (no coords) or a messy ADS affiliation string
+    # 6. last resort — INSPIRE ICN (no coords, and step 1c's ORCID-ongoing
+    # exception applied) or a messy ADS affiliation string
     ii = rec.get("_inspire_inst")
     if ii and ii.get("name"):
         rec["employer_name"] = rec["employer_name"] or ii.get("name")
+        rec["employer_city"] = rec["employer_city"] or ii.get("city")
         rec["employer_country"] = rec["employer_country"] or ii.get("country")
         rec["_geo_chain"] = _chain(
             ", ".join(b for b in [ii.get("name"), ii.get("city"), ii.get("country")] if b),
-            ii.get("name"), ii.get("country"))
+            ", ".join(b for b in [ii.get("name"), ii.get("country")] if b),
+            ", ".join(b for b in [ii.get("city"), ii.get("country")] if b),
+            ii.get("country"))
         return
     ai = rec.get("_ads_inst")
     if ai and ai.get("name"):
