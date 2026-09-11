@@ -23,8 +23,9 @@ import hashlib
 import json
 import re
 
-from common import (DATA, SITE_DATA, ROOT, geocode_many, name_key, strip_accents,
+from common import (DATA, SITE_DATA, ROOT, geocode, geocode_many, name_key, strip_accents,
                     initial_key, is_initials_form)
+import common
 import collect_openalex
 
 RAW_FILES = {
@@ -153,7 +154,7 @@ def _blank_person():
         "role": None, "sources": set(), "urls": set(),
         "works_count": None, "h_index": None, "concepts": set(),
         "thesis_title": None, "thesis_year": None,
-        "career": [], "advisors": set(), "arxiv_categories": set(),
+        "career": [], "_orcid_career": [], "advisors": set(), "arxiv_categories": set(),
         "loc_asof": None,          # year the displayed location is from, or "manual"
         "_hand_location": False,   # a CSV row supplied an explicit location
         "wikidata_alumnus": None,   # None unknown / True P69 / False staff-only
@@ -190,6 +191,74 @@ def _merge_wikidata(idx, by_orcid, by_name):
         by_name.setdefault(name_key(p["name"]), key)
 
 
+def _orcid_career_entry(e):
+    """Turn one ORCID employment-affiliation dict into a career-stop entry
+    shaped like INSPIRE's (institution/city/country/start/end/current)."""
+    cc = (e.get("country_code") or "").upper()
+    return {
+        "institution": e.get("org"),
+        "city": e.get("city"),
+        "country": COUNTRY_BY_CODE.get(cc, cc or None),
+        "country_code": cc or None,
+        "start": str(e["start_year"]) if e.get("start_year") else None,
+        "end": None if e.get("ongoing") else (str(e["end_year"]) if e.get("end_year") else None),
+        "current": bool(e.get("ongoing")),
+    }
+
+
+def _norm_inst(name):
+    """Normalise an institution name for dedupe matching across sources."""
+    s = strip_accents((name or "").lower())
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+def _merge_career(rec):
+    """Combine INSPIRE's career history (rec['career']) with ORCID's
+    employment history (rec['_orcid_career']) into one deduped,
+    chronologically-sorted list of career stops. Coordinates are filled in
+    later by a batched geocode pass; this only merges/sorts/dedupes."""
+    stops, seen = [], {}
+    for entry in (rec.get("career") or []) + (rec.get("_orcid_career") or []):
+        inst = entry.get("institution")
+        if not inst:
+            continue
+        nk = _norm_inst(inst)
+        if nk in seen:
+            existing = seen[nk]
+            for f in ("city", "country", "country_code", "lat", "lon"):
+                if not existing.get(f) and entry.get(f):
+                    existing[f] = entry[f]
+            existing["current"] = existing.get("current") or entry.get("current")
+            if entry.get("start") and (not existing.get("start") or entry["start"] < existing["start"]):
+                existing["start"] = entry["start"]
+            if entry.get("end") and (not existing.get("end") or entry["end"] > existing["end"]):
+                existing["end"] = entry["end"]
+            continue
+        seen[nk] = dict(entry)
+        stops.append(seen[nk])
+
+    # Second pass: INSPIRE and ORCID often name the same job differently
+    # ("Witwatersrand U." vs "University of the Witwatersrand"), so a plain
+    # name match above misses it. Two stops with the same start+end year are
+    # almost certainly the same position -- fold them together, keeping the
+    # fuller name and whichever fields either source supplied.
+    merged = []
+    for entry in stops:
+        dup = next((m for m in merged if entry.get("start")
+                    and entry["start"] == m.get("start") and entry.get("end") == m.get("end")), None)
+        if dup:
+            for f in ("city", "country", "country_code", "lat", "lon"):
+                if not dup.get(f) and entry.get(f):
+                    dup[f] = entry[f]
+            if len(entry.get("institution") or "") > len(dup.get("institution") or ""):
+                dup["institution"] = entry["institution"]
+            dup["current"] = dup.get("current") or entry.get("current")
+            continue
+        merged.append(entry)
+    merged.sort(key=lambda c: c.get("start") or "0")
+    return merged
+
+
 def _merge_orcid(idx, by_orcid, by_name):
     records = json.loads(RAW_FILES["orcid"].read_text(encoding="utf-8"))
     thesis_orcid = DATA / "raw" / "thesis_orcid.json"
@@ -214,6 +283,9 @@ def _merge_orcid(idx, by_orcid, by_name):
         rec["biography"] = rec["biography"] or p.get("biography")
         rec["urls"].update(p.get("urls") or [])
         rec["_orcid_current"] = p.get("current_employer")
+        if p.get("all_employers") and not rec["_orcid_career"]:
+            rec["_orcid_career"] = [_orcid_career_entry(e) for e in p["all_employers"]
+                                     if e.get("org")]
         by_orcid.setdefault(p["orcid"], key)
         by_name.setdefault(nk, key)
 
@@ -890,6 +962,59 @@ def build():
                 located_by_chain += 1
                 break
     print(f"  located {located_by_chain} more via geocoding")
+
+    # ---- career-history stops: merge INSPIRE + ORCID employment records,
+    # dedupe, and geocode any stop still missing coordinates, so the site can
+    # draw a person's full trajectory (not just their current location).
+    # Resolved sequentially (institution+city+country, else institution+
+    # country) with an early exit per stop -- unlike the person-level chain
+    # above, a career waypoint that only resolves to a bare country centroid
+    # isn't useful on a trajectory line, so we don't fall back that far.
+    #
+    # There are hundreds of institutions here nobody has ever looked up
+    # before, so (like the OpenAlex enrichment pass) this is spread over
+    # several pipeline runs instead of done in one long burst against a free
+    # shared geocoder: each run only makes CAREER_GEOCODE_BUDGET *new*
+    # requests and leaves the rest for next time (already-cached stops are
+    # always resolved, budget or not). Re-run build_dataset.py on subsequent
+    # days to keep backfilling until "0 new lookups" is printed. --------- #
+    CAREER_GEOCODE_BUDGET = 150
+    for rec in idx.values():
+        rec["career"] = _merge_career(rec)
+    geo_cache = common._load_geocache()
+    # INSPIRE-only stops carry no city/country (only its *current* institution
+    # gets that, resolved separately above) -- geocoding an abbreviated,
+    # context-free name like "Cuyo U." on its own is a coin flip (Nominatim
+    # matched it to the Cuyo Islands, Philippines, not Univ. Nacional de
+    # Cuyo). Require at least a city or country already known (from ORCID's
+    # structured address, or a fuller INSPIRE institution record) before
+    # attempting a lookup; otherwise leave the stop undotted rather than risk
+    # a wrong-country match on the trajectory line.
+    all_stops = [(rec, stop) for rec in idx.values() for stop in rec["career"]
+                 if stop.get("lat") is None and (stop.get("city") or stop.get("country"))]
+    print(f"geocoding up to {len(all_stops)} career-history stops "
+          f"(cached lookups are instant; capped at {CAREER_GEOCODE_BUDGET} new ones this run)...")
+    n_stop_geo = new_lookups = done = 0
+    for rec, stop in all_stops:
+        for q in _chain(
+                ", ".join(b for b in [stop.get("institution"), stop.get("city"), stop.get("country")] if b),
+                ", ".join(b for b in [stop.get("institution"), stop.get("country")] if b) if stop.get("country") else ""):
+            is_new = q not in geo_cache
+            if is_new and new_lookups >= CAREER_GEOCODE_BUDGET:
+                continue  # leave it for the next run; nothing wasted
+            hit = geocode(q, cache=geo_cache)
+            new_lookups += is_new
+            if hit and hit.get("lat") is not None:
+                stop["lat"], stop["lon"] = round(hit["lat"], 5), round(hit["lon"], 5)
+                stop["country"] = stop.get("country") or hit.get("country")
+                n_stop_geo += 1
+                break
+        done += 1
+        if done % 25 == 0:
+            common._save_geocache(geo_cache)
+    common._save_geocache(geo_cache)
+    print(f"  located {n_stop_geo} career-history stops ({new_lookups} new lookups this run"
+          + (", budget reached -- rerun to continue)" if new_lookups >= CAREER_GEOCODE_BUDGET else ")"))
 
     # ---- finalise records --------------------------------------------------#
     out = []

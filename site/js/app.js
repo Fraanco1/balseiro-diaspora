@@ -125,7 +125,21 @@ function initMap() {
 }
 
 const IB_LATLON = [-41.1335, -71.4281];
-let originLine = null;
+let pathLayer = null;
+
+// Career stops with known coordinates, oldest first (IB itself is added as
+// the implicit starting point everywhere, so callers never need to include it).
+function trajectoryStops(p) {
+  return (p.career || [])
+    .filter(c => c.lat != null && c.lon != null)
+    .slice()
+    .sort((a, b) => (a.start || '') > (b.start || '') ? 1 : -1);
+}
+
+function stopLabel(c) {
+  const yr = c.start ? ` (${c.start}${c.current ? '–now' : c.end ? '–' + c.end : ''})` : '';
+  return esc(c.institution) + esc(yr);
+}
 
 function markerFor(p) {
   const abroad = p.country && p.country !== 'Argentina';
@@ -139,13 +153,23 @@ function markerFor(p) {
   });
   m.bindPopup(popupHtml(p), { minWidth: 250 });
   m.on('popupopen', () => {
-    if (originLine) map.removeLayer(originLine);
-    originLine = L.polyline([IB_LATLON, [p.lat, p.lon]], {
+    if (pathLayer) map.removeLayer(pathLayer);
+    const stops = trajectoryStops(p);
+    const points = [IB_LATLON, ...stops.map(s => [s.lat, s.lon])];
+    const last = points[points.length - 1];
+    if (last[0] !== p.lat || last[1] !== p.lon) points.push([p.lat, p.lon]);
+    const layers = [L.polyline(points, {
       color: '#d64545', weight: 1.5, opacity: 0.6, dashArray: '4 4',
-    }).addTo(map);
+    })];
+    stops.forEach(s => layers.push(
+      L.circleMarker([s.lat, s.lon], {
+        radius: 4, weight: 1, color: '#d64545', fillColor: '#f2a6a6', fillOpacity: 0.9,
+      }).bindTooltip(stopLabel(s), { direction: 'top', sticky: true })
+    ));
+    pathLayer = L.layerGroup(layers).addTo(map);
   });
   m.on('popupclose', () => {
-    if (originLine) { map.removeLayer(originLine); originLine = null; }
+    if (pathLayer) { map.removeLayer(pathLayer); pathLayer = null; }
   });
   return m;
 }
